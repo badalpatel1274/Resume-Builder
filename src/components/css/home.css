@@ -1,0 +1,182 @@
+/* 🔹 Background & Global Styles */
+body {
+    background: linear-gradient(to right, #0D0D0D, #121212);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* 🔹 Hero Section (Desktop Adjusted, Mobile & Tablet Same) */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #0D0D0D, #121212);
+    padding-top: 0px; /* 👈 50px upar shift */
+  }
+  
+  /* 🔹 Hero Content */
+  .hero-content {
+    max-width: 800px;
+    padding: 20px;
+    margin-top: -50px; /* 👈 Hero content ko aur upar shift kiya */
+  }
+  
+  /* 🔹 Hero Heading & Text */
+  .hero h1 {
+    font-size: 45px;
+    font-weight: bold;
+    text-shadow: 0px 0px 12px #D3A4FF;
+    color: #D3A4FF;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 10px auto;
+    color: #ddd;
+  }
+  
+  /* 🔹 Buttons */
+  .hero-buttons {
+    margin-top: 15px;
+  }
+  
+  .btn {
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* 🔹 Primary Button (Neon Pink) */
+  .btn-primary {
+    background: #FF6FFF;
+    color: #fff;
+    box-shadow: 0px 0px 12px #FF6FFF;
+  }
+  
+  .btn-primary:hover {
+    background: #FF3EB5;
+    box-shadow: 0px 0px 20px #FF6FFF;
+  }
+  
+  /* 🔹 Secondary Button */
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid #FF6FFF;
+    color: #FF6FFF;
+  }
+  
+  .btn-secondary:hover {
+    background: #FF6FFF;
+    color: #fff;
+  }
+  
+  /* 🔹 Features Section */
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    background: #121212;
+  }
+  
+  .feature-box {
+    background: #1B1B1B;
+    padding: 35px;
+    width: 340px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 18px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 22px #FF6FFF;
+  }
+  
+  .feature-img {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 8px;
+  }
+  
+  .feature-box h3 {
+    font-size: 20px;
+    color: #D3A4FF;
+  }
+  
+  .feature-box p {
+    font-size: 15px;
+    color: #ddd;
+  }
+  
+  /* 🔹 Responsive Fixes - Mobile & Tablet Same, Desktop Hero Adjusted */
+  @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+      padding: 40px 0;
+      align-items: flex-start;
+    }
+  
+    .hero-content {
+      width: 90%;
+      margin-top: 0; /* 👈 Mobile & Tablet untouched */
+    }
+  
+    .hero h1 {
+      font-size: 38px;
+    }
+  
+    .hero p {
+      font-size: 16px;
+    }
+  
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .feature-box {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .hero {
+      min-height: auto;
+      padding: 30px 0;
+      align-items: flex-start;
+    }
+  
+    .hero h1 {
+      font-size: 32px;
+    }
+  
+    .hero p {
+      font-size: 14px;
+    }
+  
+    .btn {
+      padding: 8px 18px;
+      font-size: 13px;
+    }
+  }
+  

@@ -1,0 +1,184 @@
+/* General Styles */
+body {
+    background-color: #0d0d0d;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Admin Login Container */
+  .admin-login-container {
+    width: 90%;
+    max-width: 450px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    background: #121212;
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Animated Title */
+  .admin-login-title {
+    color: #d3a4ff;
+    text-shadow: 0 0 12px #d3a4ff;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  /* Glowing Effect */
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #d3a4ff, 0 0 20px #d3a4ff;
+    }
+    to {
+      text-shadow: 0 0 15px #ff6fff, 0 0 30px #ff6fff;
+    }
+  }
+  
+  /* Subtext */
+  .admin-login-text {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 1.5s ease-out forwards;
+  }
+  
+  /* Fade-In Effect */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Form */
+  .admin-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Form Group */
+  .admin-login-form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+  }
+  
+  /* Input Fields */
+  input {
+    width: 100%;
+    padding: 14px;
+    background: #1f1f1f;
+    border: 2px solid #666;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  input:focus {
+    border-color: #d3a4ff;
+    box-shadow: 0 0 10px #d3a4ff;
+    outline: none;
+  }
+  
+  /* Remember Me & Forgot Password */
+  .admin-login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .admin-login-remember {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .admin-login-forgot {
+    color: #d3a4ff;
+    text-decoration: none;
+  }
+  
+  .admin-login-forgot:hover {
+    text-decoration: underline;
+  }
+  
+  /* Login Button */
+  .admin-login-btn {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #d3a4ff;
+    color: #000;
+  }
+  
+  .admin-login-btn:hover {
+    background: #b57edc;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-login-container {
+      width: 95%;
+      padding: 30px;
+    }
+  
+    .admin-login-title {
+      font-size: 24px;
+    }
+  
+    .admin-login-text {
+      font-size: 14px;
+    }
+  
+    input {
+      font-size: 14px;
+      padding: 12px;
+    }
+  
+    .admin-login-btn {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-login-container {
+      width: 98%;
+      padding: 20px;
+    }
+  
+    .admin-login-title {
+      font-size: 22px;
+    }
+  
+    .admin-login-text {
+      font-size: 13px;
+    }
+  
+    input {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .admin-login-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
