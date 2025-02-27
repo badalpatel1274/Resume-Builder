@@ -42,7 +42,15 @@ const HomePage = () => {
                         <p>Build a high-quality resume quickly and easily.</p>
                     </div>
                 </section>
+
+
+                <div className="home-cta">
+  <h2 className="home-cta-heading">Start Building Your Resume Now! 🚀</h2>
+  <button className="home-cta-btn">Create My Resume for Free</button>
+</div>
+
             </div>
+            
 
 
 

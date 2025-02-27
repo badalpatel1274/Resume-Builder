@@ -6,6 +6,7 @@ import Signup from './components/common/Signup'
 import Admin from './components/common/Admin'
 import UserForm from './components/layout/UserForm'
 import HomePage from './components/common/HomePage'
+import Footer from './components/common/Footer'
 // import './App.css'
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
 
 
     </Routes>
+
+    <Footer/>
     </>
   
   )

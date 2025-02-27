@@ -123,6 +123,41 @@ body {
     font-size: 15px;
     color: #ddd;
   }
+
+
+  /* CTA Section */
+.home-cta {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #121212, #1b1b1b);
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+.home-cta-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #D3A4FF; /* Soft Purple */
+  margin-bottom: 20px;
+}
+
+.home-cta-btn {
+  background: #FF44CC; /* Pink Theme */
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.home-cta-btn:hover {
+  background: #E833B5; /* Darker Pink */
+  transform: scale(1.05);
+}
+
   
   /* 🔹 Responsive Fixes - Mobile & Tablet Same, Desktop Hero Adjusted */
   @media (max-width: 900px) {
