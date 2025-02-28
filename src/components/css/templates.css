@@ -1,0 +1,113 @@
+/* Templates Page */
+.templates-page {
+    text-align: center;
+    padding: 50px;
+    background: #0D0D0D;
+    color: white;
+  }
+  
+  /* Templates List */
+  .templates-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  
+  /* Individual Template Card */
+  .template-card {
+    background: linear-gradient(135deg, #1B1B1B, #252525);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 260px;
+    border: 2px solid transparent;
+  }
+  
+  .template-card img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .template-card h3 {
+    color: #D3A4FF;
+    margin-top: 15px;
+    font-size: 20px;
+  }
+  
+  /* Hover Effect */
+  .template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px #D3A4FF;
+    border-color: #D3A4FF;
+  }
+  
+  .template-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Select Button */
+  .template-card button {
+    background: #FF44CC;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .template-card button:hover {
+    background: #E833B5;
+    transform: scale(1.05);
+  }
+  
+  /* Selected Template View */
+  .selected-template {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .selected-template h2 {
+    font-size: 26px;
+    color: #D3A4FF;
+    margin-bottom: 20px;
+  }
+  
+  /* Back Button */
+  .back-btn {
+    background: #444;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .back-btn:hover {
+    background: #666;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .templates-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .template-card {
+      width: 90%;
+      max-width: 300px;
+    }
+  }
+  

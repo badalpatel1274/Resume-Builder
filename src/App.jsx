@@ -7,10 +7,12 @@ import Admin from './components/common/Admin'
 import UserForm from './components/layout/UserForm'
 import HomePage from './components/common/HomePage'
 import Footer from './components/common/Footer'
+import axios from 'axios'
+import Templates from './components/templates/Templates'
 // import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    axios.defaults.baseURL = "http://localhost:5000"
 
   return (
     <>
@@ -23,7 +25,7 @@ function App() {
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
       <Route path='/new' element={<UserForm/>}></Route>
-
+      <Route path="/templates" element={<Templates />} />
 
     </Routes>
 

@@ -1,76 +1,103 @@
-import React from 'react'
-import '../css/common.css'
-import { Link } from 'react-router-dom'
-import { useForm, useFormState } from 'react-hook-form'
+import React from 'react';
+import '../css/common.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { Slide, toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // ✅ Ensure this import is present
 
 const Login = () => {
-  const {register , handleSubmit , formState:{errors}}=useForm()
-  const submitHandler = (data)=>{
-        console.log(data);
-        
-  }
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const submitHandler = async (data) => {
+    try {
+      const res = await axios.post("/login", data);
+      console.log("Success:", res.data);
+      if (res.status === 200) {
+        toast.success('Login Successfully', {
+          position: "top-center",
+          autoClose: 2000, 
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          theme: "light",
+          transition: Slide,
+        });
+        setTimeout(() => navigate("/new"), 2000); 
+      } else {
+        toast.error('Invalid credentials', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          theme: "light",
+          transition: Slide,
+        });
+      }
+    } catch (error) {
+      toast.error('Something went wrong!', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        theme: "light",
+        transition: Slide,
+      });
+      console.error("Axios error:", error);
+    }
+  };
 
   const validationSchema = {
-    emailValidator :{
-        required:{
-            value:true,
-            message:"*Email Field is required"
-        },
-        pattern:{
-            value:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-            message:"Invalid Email Address"
-        }
+    emailValidator: {
+      required: { value: true, message: "*Email Field is required" },
+      pattern: {
+        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        message: "Invalid Email Address"
+      }
     },
-    passwordValidator : {
-        required:{
-            value:true,
-            message:"*password is required"
-        },
-
+    passwordValidator: {
+      required: { value: true, message: "*Password is required" }
     }
-}
+  };
 
   return (
     <>
-    
-    <div className="login-container">
-      <h2 className="login-title">Login</h2>
-      <p className="login-text">Welcome back! Please enter your credentials to log in.</p>
+      <ToastContainer />
 
-      <form className="login-form"  onSubmit={handleSubmit(submitHandler)}>
-        <div className="login-form-group">
-          <label>Email</label>
-          <input type="email" placeholder="Enter your email"  {...register("email",validationSchema.emailValidator)} />
-          <span style={{color:'red'}}>
-            {
-              errors.email?.message
-            }
-          </span>
-        </div>
+      <div className="login-container">
+        <h2 className="login-title">Login</h2>
+        <p className="login-text">Welcome back! Please enter your credentials to log in.</p>
 
-        <div className="login-form-group">
-          <label>Password</label>
-          <input type="password" placeholder="Enter your password" {...register("password",validationSchema.passwordValidator)} />
-          <span style={{color:'red'}}>
-            {
-              errors.password?.message
-            }
-          </span>
-        </div>
+        <form className="login-form" onSubmit={handleSubmit(submitHandler)}>
+          <div className="login-form-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" {...register("email", validationSchema.emailValidator)} />
+            <span style={{ color: 'red' }}>{errors.email?.message}</span>
+          </div>
 
-        <a href="#" className="login-forgot-password">Forgot Password?</a>
+          <div className="login-form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" {...register("password", validationSchema.passwordValidator)} />
+            <span style={{ color: 'red' }}>{errors.password?.message}</span>
+          </div>
 
-        <button type="submit" className="login-btn">Login</button>
+          <a href="#" className="login-forgot-password">Forgot Password?</a>
 
-        <p className="login-switch-text">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-        </p>
-      </form>
-    </div>
+          <button type="submit" className="login-btn">Login</button>
 
+          <p className="login-switch-text">
+            Don't have an account? <Link to="/signup">Sign Up</Link>
+          </p>
+        </form>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

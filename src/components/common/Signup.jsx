@@ -1,14 +1,28 @@
 import React from 'react'
 import '../css/common.css'
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const Signup = () => {
+  const navigate = useNavigate()
 
   const {register,handleSubmit,watch,formState: { errors }} = useForm();
 
-  const submitHandler = (data) => {
-    console.log(data);
-  };
+  const submitHandler = async(data) => {
+    // console.log(data);
+    try {
+      const res = await axios.post("/signup", data);
+      console.log("Success:", res.data);
+      if(res.status===201){
+        alert("signup Sucess")
+        navigate("/login")
+    }else{
+alert("invalid....")
+    }
+    } catch (error) {
+      console.error("Axios error:", error);
+    }
+  }
 
 
   const validationSchema={
@@ -60,7 +74,7 @@ const Signup = () => {
       <h2 className="signup-title">Sign Up</h2>
       <p className="signup-text">Create an account to get started.</p>
 
-      <form className="signup-form" onClick={handleSubmit(submitHandler)}>
+      <form className="signup-form" onSubmit={handleSubmit(submitHandler)}>
         <div className="signup-form-group">
           <label>Full Name</label>
           <input type="text" placeholder="Enter your full name"  {...register("username",validationSchema.userNameValidator)} />

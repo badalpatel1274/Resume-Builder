@@ -37,7 +37,7 @@ const Admin = () => {
       <h2 className="admin-login-title">Admin Login</h2>
       <p className="admin-login-text">Enter your credentials to access the dashboard.</p>
 
-      <form className="admin-login-form"  onClick={handleSubmit(submitHandler)}>
+      <form className="admin-login-form"  onSubmit={handleSubmit(submitHandler)}>
         <div className="admin-login-form-group">
           <label>Email</label>
           <input type="email" placeholder="Enter your email"  {...register("email",validationSchema.emailValidator)}/>

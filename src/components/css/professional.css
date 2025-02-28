@@ -1,0 +1,121 @@
+.resume-container {
+    display: flex;
+    width: 800px;
+    background: #fff;
+    color: #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Left Side (Profile & Skills) */
+  .resume-left {
+    width: 35%;
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profile-pic img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .resume-left h2 {
+    font-size: 22px;
+    color: #000;
+  }
+  
+  .job-title {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  
+  .resume-left h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+  }
+  
+  .resume-left ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .resume-left li {
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  
+  /* Right Side (Experience & Education) */
+  .resume-right {
+    width: 65%;
+    padding: 20px;
+  }
+  
+  .resume-right h2 {
+    font-size: 22px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .resume-right p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .job {
+    margin-top: 15px;
+  }
+  
+  .job h3 {
+    font-size: 18px;
+    color: #000;
+  }
+  
+  .job p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .job ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .job li {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .resume-container {
+      flex-direction: column;
+      width: 90%;
+    }
+  
+    .resume-left, .resume-right {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .resume-left .contact-info {
+      text-align: center;
+    }
+  }
+  
