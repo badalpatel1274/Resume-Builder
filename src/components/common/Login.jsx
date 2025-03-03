@@ -3,8 +3,7 @@ import '../css/common.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { Slide, toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // ✅ Ensure this import is present
+import { Bounce, Slide, toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,50 +13,54 @@ const Login = () => {
     try {
       const res = await axios.post("/login", data);
       console.log("Success:", res.data);
+      // console.log(res.data)
       if (res.status === 200) {
-        toast.success('Login Successfully', {
-          position: "top-center",
-          autoClose: 2000, 
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "light",
-          transition: Slide,
-        });
-        // setTimeout(() => navigate("/new"), 2000); 
-
-
-        console.log(res.data)
-        localStorage.setItem("id" , res.data.data._id)
-        localStorage.setItem("role", res.data.data.roleId.roleName)
-
-        if(res.data.data.roleId.roleName === "User"){
-          navigate("/")
-        }
-
-      } else {
-        toast.error('Invalid credentials', {
+        toast.success('Login Sucessfully', {
           position: "top-center",
           autoClose: 3000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: false,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
           draggable: true,
-          theme: "light",
-          transition: Slide,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
+
+
+        localStorage.setItem("id", res.data.data._id)
+        localStorage.setItem("role", res.data.data.roleId.roleName)
+
+        setTimeout(() => {
+          if (res.data.data.roleId.roleName === "User") {
+            navigate("/");
+          }
+        }, 4000);
+
+      } else {
+        toast.success('Something Error', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
         });
       }
     } catch (error) {
-      toast.error('Something went wrong!', {
+      toast.error('Something Wrong', {
         position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
         draggable: true,
-        theme: "light",
-        transition: Slide,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
       });
       console.error("Axios error:", error);
     }
@@ -78,8 +81,19 @@ const Login = () => {
 
   return (
     <>
-      <ToastContainer />
-
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      />
       <div className="login-container">
         <h2 className="login-title">Login</h2>
         <p className="login-text">Welcome back! Please enter your credentials to log in.</p>
