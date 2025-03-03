@@ -1,4 +1,4 @@
-/* Templates Page */
+/* 
 .templates-page {
     text-align: center;
     padding: 50px;
@@ -6,7 +6,6 @@
     color: white;
   }
   
-  /* Templates List */
   .templates-list {
     display: flex;
     justify-content: center;
@@ -15,7 +14,6 @@
     margin-top: 30px;
   }
   
-  /* Individual Template Card */
   .template-card {
     background: linear-gradient(135deg, #1B1B1B, #252525);
     padding: 20px;
@@ -39,7 +37,6 @@
     font-size: 20px;
   }
   
-  /* Hover Effect */
   .template-card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 0px 20px #D3A4FF;
@@ -50,7 +47,6 @@
     transform: scale(1.05);
   }
   
-  /* Select Button */
   .template-card button {
     background: #FF44CC;
     color: white;
@@ -68,7 +64,6 @@
     transform: scale(1.05);
   }
   
-  /* Selected Template View */
   .selected-template {
     text-align: center;
     margin-top: 40px;
@@ -80,7 +75,6 @@
     margin-bottom: 20px;
   }
   
-  /* Back Button */
   .back-btn {
     background: #444;
     color: white;
@@ -98,7 +92,6 @@
     transform: scale(1.05);
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .templates-list {
       flex-direction: column;
@@ -110,4 +103,4 @@
       max-width: 300px;
     }
   }
-  
+   */

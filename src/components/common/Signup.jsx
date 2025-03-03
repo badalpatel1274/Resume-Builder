@@ -9,6 +9,8 @@ const Signup = () => {
   const {register,handleSubmit,watch,formState: { errors }} = useForm();
 
   const submitHandler = async(data) => {
+    
+    data.roleId = "67c530d222967324b17fce52"
     // console.log(data);
     try {
       const res = await axios.post("/signup", data);

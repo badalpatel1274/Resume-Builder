@@ -25,7 +25,17 @@ const Login = () => {
           theme: "light",
           transition: Slide,
         });
-        setTimeout(() => navigate("/new"), 2000); 
+        // setTimeout(() => navigate("/new"), 2000); 
+
+
+        console.log(res.data)
+        localStorage.setItem("id" , res.data.data._id)
+        localStorage.setItem("role", res.data.data.roleId.roleName)
+
+        if(res.data.data.roleId.roleName === "User"){
+          navigate("/")
+        }
+
       } else {
         toast.error('Invalid credentials', {
           position: "top-center",
