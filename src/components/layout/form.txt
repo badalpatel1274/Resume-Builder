@@ -1,0 +1,340 @@
+import React, { useState } from "react";
+import "../css/useForm.css";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+
+const UserForm = () => {
+
+//------------------------first--------------------------------------------
+
+  const { register, handleSubmit, formState: { errors } } = useForm()
+
+  const submithandler = async (data) => {
+    console.log("Before Formatting:", data);
+
+
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const userId = userData.data;
+
+    if (!userData) {
+      toast.error("User ID not found. Please log in again.");
+      return;
+    }
+
+    const formattedData = {
+      ...data,
+      userId: userId,
+    };
+
+    console.log(formattedData)
+
+    try {
+      const res = await axios.post("/form/addinfo", formattedData)
+      console.log("sucess:", res.data)
+
+      if (res.status === 200) {
+        toast.success('Details added Sucessfully', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
+
+      } else {
+        toast.success('Something Error', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
+      }
+
+    } catch (error) {
+      toast.success('Something Error', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+      });
+      console.error("erroe:", error)
+    }
+  }
+
+
+
+  const [activeTab, setActiveTab] = useState("Personal");
+
+  const nextStep = () => {
+    setTimeout(() => {
+      if (activeTab === "Personal") {
+        setActiveTab("Education");
+      } else if (activeTab === "Education") {
+        setActiveTab("Experience");
+      } else if (activeTab === "Experience") {
+        setActiveTab("Skills");
+      }
+    }, 50);
+  };
+
+  const prevStep = () => {
+    setTimeout(() => {
+      if (activeTab === "Skills") {
+        setActiveTab("Experience");
+      } else if (activeTab === "Experience") {
+        setActiveTab("Education");
+      } else if (activeTab === "Education") {
+        setActiveTab("Personal");
+      }
+    }, 50);
+  };
+
+
+  //validarionSchmea
+
+  const validationSchema = {
+    fullNameValidation:{
+        required:{
+          value: true,
+          message: "*Full Name is required"
+        }
+    },
+
+    emailValidator: {
+        required:{
+            value: true,
+            message:"*Email is required"
+        },
+        pattern:{
+            value:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            message:"Invalid Email Address"
+        }
+    },
+
+    phoneValidator: {
+        required:{
+            value: true,
+            message:"*Phone Number is required"
+        },
+        pattern:{
+            value:/^\+?\d{1,3}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{4}$/,
+            message:"Invalid Phone Number"
+        }
+    },
+
+    birthDateValidator:{
+      required:{
+        value: true,
+        message: "*Birth Date is required"
+      }
+    },
+
+    language:{
+      required:{
+        value: true,
+        message: "*Language is required"
+      }
+    }
+
+    
+
+
+  }//end of validationSchema
+
+  
+
+  return (
+    <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      />
+      <div className="resume-container">
+        <h2>Create Your Resume</h2>
+        <p>Fill in your details to generate your professional resume</p>
+
+        {/* Tabs Section */}
+        <div className="tabs">
+          {["Personal", "Education", "Experience", "Skills"].map((tab) => (
+            <button
+              key={tab}
+              className={activeTab === tab ? "tab active" : "tab"}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Form Section - Dynamic Based on Tab */}
+        <form className="resume-form" onSubmit={handleSubmit(submithandler)} >
+          {activeTab === "Personal" && (
+            <>
+              <div className="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Badal Patel" {...register("personal_info.fullName",validationSchema.fullNameValidation)} />
+                <span style={{color:'red'}}>
+                  {
+                   errors.personal_info?.fullName?.message
+                  }
+                </span>
+              </div>
+
+              <div className="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="badal@example.com"  {...register("personal_info.email",validationSchema.emailValidator)} />
+                <span style={{color:'red'}}>
+                  {
+                   errors.personal_info?.phone?.message
+                  }
+                </span>
+              </div>
+
+              <div className="form-group">
+                <label>Phone</label>
+                <input type="tel" placeholder="+1 234 567 890"  {...register("personal_info.phone",validationSchema.phoneValidator)} />
+                <span style={{color:'red'}}>
+                  {
+                    errors.personal_info?.phone && errors.personal_info.phone
+                  }
+                </span>
+              </div>
+
+              <div className="form-group">
+                <label>Date of Birth</label>
+                <input type="string" placeholder="01 Jan 2000"  {...register("personal_info.birthDate",validationSchema.birthDateValidator)} />
+                <span style={{color:'red'}}>
+                  {
+                    errors.personal_info?.birthDate && errors.personal_info.birthDate.message
+                  }
+                </span>
+              </div>
+
+              <div className="form-group full-width">
+                <label>Address</label>
+                <textarea placeholder="Your address"   {...register("personal_info.address")}></textarea>
+              </div>
+            </>
+          )}
+
+          {activeTab === "Education" && (
+            <>
+              <div className="form-group">
+                <label>Degree</label>
+                <input type="text" placeholder="B.E in Computer Engineering"  {...register("education.degree")} />
+              </div>
+
+              <div className="form-group">
+                <label>University</label>
+                <input type="text" placeholder="GTU" {...register("education.university")} />
+              </div>
+
+              <div className="form-group">
+                <label>Year of Graduation</label>
+                <input type="number" placeholder="2025" {...register("education.year_of_passing")} />
+              </div>
+            </>
+          )}
+
+          {activeTab === "Experience" && (
+            <>
+              <div className="form-group">
+                <label>Job Title</label>
+                <input type="text" placeholder="Software Engineer / Intern" {...register("experience.job_title")} />
+              </div>
+
+              <div className="form-group">
+                <label>Company</label>
+                <input type="text" placeholder="Google" {...register("experience.company_name")} />
+              </div>
+
+              <div className="form-group">
+                <label>Years of Experience</label>
+                <input type="number" placeholder="3" {...register("experience.duration")} />
+              </div>
+
+              <div className="form-group">
+                <label>Project Title</label>
+                <input type="string" placeholder="Resume Builder" {...register("projects.title")} />
+              </div>
+
+              <div className="form-group full-width">
+                <label>Project Summary</label>
+                <textarea placeholder="Describe your project..."></textarea>
+              </div>
+            </>
+          )}
+
+          {activeTab === "Skills" && (
+            <>
+              <div className="form-group">
+                <label>Technical Skills</label>
+                <input type="text" placeholder="React, Node.js, Python" {...register("skills.technical_skills")} />
+              </div>
+
+              <div className="form-group">
+                <label>Soft Skills</label>
+                <input type="text" placeholder="Communication, Teamwork" {...register("skills.soft_skills")} />
+              </div>
+
+              <div className="form-group">
+                <label>Languages</label>
+                <input type="text" placeholder="English, Hindi, Gujarati" {...register("language")} />
+              </div>
+
+              <div className="form-group">
+                <label>Interests</label>
+                <input type="text" placeholder="Reading, Traveling, Singing"{...register("interests")} />
+              </div>
+            </>
+          )}
+
+          {/* Navigation Buttons */}
+          <div className="form-buttons">
+            {activeTab !== "Personal" && (
+              <button type="button" className="prev-btn" onClick={prevStep}>
+                Previous
+              </button>
+            )}
+            {activeTab === "Skills" ? (
+              <button type="submit" className="next-btn">
+                Submit
+              </button>
+            ) : (
+              <button type="button" className="next-btn" onClick={nextStep}>
+                Next
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
+    </>
+
+  );
+};
+
+export default UserForm;

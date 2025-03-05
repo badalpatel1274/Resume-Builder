@@ -1,270 +1,286 @@
 /* General Styles */
 body {
-    background-color: #0d0d0d;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Main Resume Box */
+.resume-container {
+  width: 90%;
+  max-width: 1250px;
+  margin: auto;
+  text-align: center;
+  padding: 40px;
+  border-radius: 18px;
+  background: #121212;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Animated Heading */
+h2 {
+  color: #d3a4ff;
+  text-shadow: 0 0 12px #d3a4ff;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #d3a4ff, 0 0 20px #d3a4ff;
   }
-  
-  /* Main Resume Box */
+  to {
+    text-shadow: 0 0 15px #ff6fff, 0 0 30px #ff6fff;
+  }
+}
+
+/* Subtext (Animated Fade-In) */
+p {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Fade-In Effect */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  border: none;
+  color: #d3a4ff;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  color: #ff6fff;
+}
+
+.tab.active {
+  border-bottom: 3px solid #d3a4ff;
+  font-weight: bold;
+  text-shadow: 0 0 10px #d3a4ff;
+}
+
+/* Form */
+.resume-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px;
+  width: 85%;
+  margin: auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(26, 26, 26, 0.95);
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 5px;
+}
+
+/* Input & Textarea */
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  background: #1f1f1f;
+  border: 2px solid #666;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #d3a4ff;
+  box-shadow: 0 0 8px #d3a4ff;
+  outline: none;
+}
+
+/* Experience Buttons */
+.experience-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.exp-btn {
+  flex: 1;
+  padding: 12px;
+  background: #1a1a1a;
+  border: 2px solid #666;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.exp-btn.active {
+  background: #d3a4ff;
+  color: #000;
+  border-color: #d3a4ff;
+  box-shadow: 0 0 10px #d3a4ff;
+}
+
+.exp-btn:hover {
+  background: #b57edc;
+  border-color: #b57edc;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.prev-btn,
+.next-btn {
+  padding: 16px 35px;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.prev-btn {
+  background: #888;
+  color: #fff;
+}
+
+.next-btn {
+  background: #d3a4ff;
+  color: #000;
+}
+
+.next-btn:hover {
+  background: #b57edc;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .resume-container {
-    width: 90%;
-    max-width: 1250px;
-    margin: auto;
-    text-align: center;
-    padding: 40px;
-    border-radius: 18px;
-    background: #121212;
-    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Animated Heading */
-  h2 {
-    color: #d3a4ff;
-    text-shadow: 0 0 12px #d3a4ff;
-    font-size: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    animation: glow 1.5s infinite alternate;
-  }
-  
-  /* Glowing Effect */
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #d3a4ff, 0 0 20px #d3a4ff;
-    }
-    to {
-      text-shadow: 0 0 15px #ff6fff, 0 0 30px #ff6fff;
-    }
-  }
-  
-  /* Subtext (Animated Fade-In) */
-  p {
-    font-size: 18px;
-    color: #aaa;
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeIn 1.5s ease-out forwards;
-  }
-  
-  /* Fade-In Effect */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Tabs */
-  .tabs {
-    display: flex;
-    justify-content: space-between;
-    background: #1a1a1a;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 30px;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-  }
-  
-  .tab {
-    flex: 1;
-    padding: 14px;
-    background: none;
-    border: none;
-    color: #d3a4ff;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
-    transition: 0.3s;
-    border-bottom: 3px solid transparent;
-  }
-  
-  .tab.active {
-    border-bottom: 3px solid #d3a4ff;
-    font-weight: bold;
-    text-shadow: 0 0 10px #d3a4ff;
-  }
-  
-  /* Form */
-  .resume-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    width: 95%;
     padding: 30px;
-    width: 85%;
-    margin: auto;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    background: rgba(26, 26, 26, 0.95);
   }
-  
-  /* Form Group */
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 5px; /* Added 5px gap between label & input */
+
+  .resume-form {
+    width: 90%;
   }
-  
-  /* Input & Textarea */
-  input, textarea {
-    width: 100%;
-    padding: 14px;
-    background: #1f1f1f;
-    border: 2px solid #666;
-    color: #fff;
-    border-radius: 10px;
-    font-size: 18px;
+
+  .tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
   }
-  
-  /* Experience Buttons */
-  .experience-buttons {
-    display: flex;
-    gap: 15px;
+
+  .tab {
+    min-width: 120px;
+    flex: none;
   }
-  
-  .exp-btn {
-    flex: 1;
-    padding: 12px;
-    background: #1a1a1a;
-    border: 2px solid #666;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 8px;
-    transition: 0.3s;
-  }
-  
-  .exp-btn.active {
-    background: #d3a4ff;
-    color: #000;
-    border-color: #d3a4ff;
-    box-shadow: 0 0 10px #d3a4ff;
-  }
-  
-  .exp-btn:hover {
-    background: #b57edc;
-    border-color: #b57edc;
-  }
-  
-  /* Buttons */
+
   .form-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .prev-btn, .next-btn {
-    padding: 16px 35px;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .prev-btn {
-    background: #888;
-    color: #fff;
-  }
-  
+
+  .prev-btn,
   .next-btn {
-    background: #d3a4ff;
-    color: #000;
+    width: 100%;
   }
-  
-  .next-btn:hover {
-    background: #b57edc;
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    width: 98%;
+    padding: 25px;
   }
-  
-  /* Best Responsive Design */
-  @media (max-width: 1024px) {
-    .resume-container {
-      width: 95%;
-      padding: 30px;
-    }
-  
-    .resume-form {
-      width: 90%;
-    }
-  
-    .tabs {
-      overflow-x: auto;
-      justify-content: flex-start;
-    }
-  
-    .tab {
-      min-width: 120px;
-      flex: none;
-    }
-  
-    .form-buttons {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    .prev-btn, .next-btn {
-      width: 100%;
-    }
+
+  .resume-form {
+    width: 100%;
+    padding: 20px;
   }
-  
-  @media (max-width: 768px) {
-    .resume-container {
-      width: 98%;
-      padding: 25px;
-    }
-  
-    .resume-form {
-      width: 100%;
-      padding: 20px;
-    }
-  
-    .experience-buttons {
-      flex-direction: column; /* Buttons stack vertically */
-    }
-  
-    .exp-btn {
-      width: 100%;
-    }
-  
-    input, textarea {
-      font-size: 16px;
-      padding: 12px;
-    }
+
+  .experience-buttons {
+    flex-direction: column;
   }
-  
-  @media (max-width: 480px) {
-    .resume-container {
-      padding: 20px;
-    }
-  
-    .resume-form {
-      padding: 15px;
-    }
-  
-    .form-buttons {
-      flex-direction: column;
-      gap: 8px;
-    }
-  
-    .prev-btn, .next-btn {
-      width: 100%;
-    }
-  
-    .tab {
-      font-size: 16px;
-      padding: 10px;
-    }
-  
-    .exp-btn {
-      font-size: 16px;
-      padding: 10px;
-    }
+
+  .exp-btn {
+    width: 100%;
   }
-  
+
+  input,
+  textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-container {
+    padding: 20px;
+  }
+
+  .resume-form {
+    padding: 15px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prev-btn,
+  .next-btn {
+    width: 100%;
+  }
+
+  .tab {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .exp-btn {
+    font-size: 16px;
+    padding: 10px;
+  }
+}

@@ -12,6 +12,7 @@ const Login = () => {
   const submitHandler = async (data) => {
     try {
       const res = await axios.post("/login", data);
+      const user = res.data
       console.log("Success:", res.data);
       // console.log(res.data)
       if (res.status === 200) {
@@ -27,8 +28,9 @@ const Login = () => {
           transition: Bounce,
         });
 
+        localStorage.setItem("user",JSON.stringify(user) )
 
-        localStorage.setItem("id", res.data.data._id)
+        // localStorage.setItem("id", res.data.data._id)
         localStorage.setItem("role", res.data.data.roleId.roleName)
 
         setTimeout(() => {
@@ -81,6 +83,7 @@ const Login = () => {
 
   return (
     <>
+    
       <ToastContainer
         position="top-center"
         autoClose={5000}

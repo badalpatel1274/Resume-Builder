@@ -8,7 +8,6 @@ import UserForm from './components/layout/UserForm'
 import HomePage from './components/common/HomePage'
 import Footer from './components/common/Footer'
 import axios from 'axios'
-import Templates from './components/templates/Templates'
 // import './App.css'
 
 function App() {
@@ -29,7 +28,7 @@ function App() {
 
     </Routes>
 
-    <Footer/>
+    {/* <Footer/> */}
     </>
   
   )
