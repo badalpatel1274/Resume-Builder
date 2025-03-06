@@ -28,9 +28,9 @@ const Login = () => {
           transition: Bounce,
         });
 
-        localStorage.setItem("user",JSON.stringify(user) )
+        // localStorage.setItem("user",JSON.stringify(user) )
 
-        // localStorage.setItem("id", res.data.data._id)
+        localStorage.setItem("id", res.data.data._id)
         localStorage.setItem("role", res.data.data.roleId.roleName)
 
         setTimeout(() => {

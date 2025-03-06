@@ -8,29 +8,29 @@ import UserForm from './components/layout/UserForm'
 import HomePage from './components/common/HomePage'
 import Footer from './components/common/Footer'
 import axios from 'axios'
+import PrivateRoutes from './components/PrivateRoute'
 // import './App.css'
 
 function App() {
-    axios.defaults.baseURL = "http://localhost:5000"
+  axios.defaults.baseURL = "http://localhost:5000"
 
   return (
     <>
-    <UserNavbar/>
+      <UserNavbar />
 
-    <Routes>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='' element={<PrivateRoutes />}>
+          <Route path='/new' element={<UserForm />} />
+        </Route>
+      </Routes >
 
-      <Route path='/' element={<HomePage/>}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/signup' element={<Signup/>}></Route>
-      <Route path='/admin' element={<Admin/>}></Route>
-      <Route path='/new' element={<UserForm/>}></Route>
-      {/* <Route path="/templates" element={<Templates />} /> */}
-
-    </Routes>
-
-    {/* <Footer/> */}
+      {/* <Footer/> */}
     </>
-  
+
   )
 }
 

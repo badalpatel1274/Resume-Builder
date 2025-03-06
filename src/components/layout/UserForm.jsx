@@ -12,13 +12,15 @@ const UserForm = () => {
     console.log("Before Formatting:", data);
 
 
-    const userData = JSON.parse(localStorage.getItem("user"));
-    const userId = userData.data;
+    // const userData = JSON.parse(localStorage.getItem("id"));
+    // const userId = userData.data;
 
-    if (!userData) {
-      toast.error("User ID not found. Please log in again.");
-      return;
-    }
+    // if (!userData) {
+    //   toast.error("User ID not found. Please log in again.");
+    //   return;
+    // }
+    const userId = localStorage.getItem("id")
+    data.userId = userId
 
     const formattedData = {
       ...data,
