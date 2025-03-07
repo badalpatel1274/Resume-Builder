@@ -15,7 +15,7 @@ const Signup = () => {
     // console.log(data);
     try {
       const res = await axios.post("/signup", data);
-      console.log("Success:", res.data);
+      console.log("Signup Success:", res.data);
       if (res.status === 201) {
        toast.success('Signup Sucessfully', {
                 position: "top-center",
@@ -55,7 +55,7 @@ const Signup = () => {
         theme: "light",
         transition: Slide,
       });
-      console.error("Axios error:", error);
+      console.error(" signup Axios error:", error);
     }
   }
 

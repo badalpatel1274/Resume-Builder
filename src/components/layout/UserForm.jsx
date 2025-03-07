@@ -3,13 +3,14 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import '../css/useForm.css';
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const UserForm = () => {
   const { register, handleSubmit, formState: { errors }, trigger } = useForm({ mode: "onTouched" });
   const [activeTab, setActiveTab] = useState("Personal");
-
+const navigate = useNavigate()
   const submithandler = async (data) => {
-    console.log("Before Formatting:", data);
+    // console.log(" User Before Formatting:", data);
 
 
     // const userData = JSON.parse(localStorage.getItem("id"));
@@ -19,21 +20,23 @@ const UserForm = () => {
     //   toast.error("User ID not found. Please log in again.");
     //   return;
     // }
+    const templateId = localStorage.getItem("selectedTemplateId")
     const userId = localStorage.getItem("id")
     data.userId = userId
 
     const formattedData = {
       ...data,
       userId: userId,
+      templateId : templateId
     };
 
-    console.log(formattedData)
+    // console.log("After Forms Formatted Data:",formattedData)
 
     try {
       const res = await axios.post("/form/addinfo", formattedData)
-      console.log("sucess:", res.data)
+      console.log("Forms Details Data Sucessfully:", res.data)
 
-      if (res.status === 200) {
+      if (res.data.data.resumeId) {
         toast.success('Details added Sucessfully', {
           position: "top-center",
           autoClose: 3000,
@@ -45,13 +48,18 @@ const UserForm = () => {
           theme: "colored",
           transition: Bounce,
         });
+       
+        const resumeId = res.data.data.resumeId; 
+        navigate(`/resume/${resumeId}`); // ✅ Redirect to Resume Page
+      
+
 
       } else {
         toast.success('Something Error', {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
-          closeOnClick: false,
+          closeOnClick: false,  
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
@@ -72,7 +80,7 @@ const UserForm = () => {
         theme: "colored",
         transition: Bounce,
       });
-      console.error("erroe:", error)
+      console.error("Forms Eroor:", error)
     }
   }
 

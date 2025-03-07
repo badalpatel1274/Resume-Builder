@@ -6,9 +6,10 @@ import Signup from './components/common/Signup'
 import Admin from './components/common/Admin'
 import UserForm from './components/layout/UserForm'
 import HomePage from './components/common/HomePage'
-import Footer from './components/common/Footer'
 import axios from 'axios'
 import PrivateRoutes from './components/PrivateRoute'
+import ResumePages from './components/pages/ResumePages'
+import OriginalResume from './components/pages/OriginalResume'
 // import './App.css'
 
 function App() {
@@ -24,11 +25,15 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='' element={<PrivateRoutes />}>
-          <Route path='/new' element={<UserForm />} />
+          {/* <Route path='/new' element={<UserForm />} /> */}
         </Route>
+        <Route path="/resume" element={<ResumePages/>} />
+        <Route path="/resume/form/:templateId" element={<UserForm/>} />
+        <Route path="/resume/:resumeId" element={<OriginalResume/>} />
+
+
       </Routes >
 
-      {/* <Footer/> */}
     </>
 
   )

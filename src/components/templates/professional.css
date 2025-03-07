@@ -1,0 +1,103 @@
+/* Professional Resume Container */
+.professional-container {
+  width: 100% !important;
+  padding: 40px !important;
+  background: #fff !important;  /* White Background */
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1) !important;
+  font-family: "Arial", sans-serif !important;
+  color: #000 !important;  /* Black Text */
+  border: 2px solid #000 !important;  /* Black Border */
+}
+
+/* Header Section */
+.professional-header {
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 2px solid #000 !important;
+  padding-bottom: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Profile Image Placeholder */
+.professional-image {
+  width: 120px !important;
+  height: 120px !important;
+  background: #ddd !important; /* Placeholder */
+  border-radius: 50% !important;
+  border: 2px solid #000 !important;
+  margin-right: 20px !important;
+}
+
+/* Name & Title */
+.professional-name {
+  font-size: 28px !important;
+  font-weight: bold !important;
+  color: #000 !important;
+}
+
+.professional-title {
+  font-size: 20px !important;
+  color: #333 !important;
+}
+
+/* Contact Information */
+.professional-contact {
+  font-size: 14px !important;
+  color: #000 !important;
+  margin-top: 10px !important;
+}
+
+/* Sections */
+.professional-section {
+  margin-top: 20px !important;
+}
+
+.professional-section h2 {
+  font-size: 22px !important;
+  color: #000 !important;
+  border-bottom: 2px solid #000 !important;
+  padding-bottom: 5px !important;
+  margin-bottom: 10px !important;
+  font-weight: bold !important;
+}
+
+/* Skills Section */
+.professional-skills ul {
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.professional-skills ul li {
+  font-size: 16px !important;
+  color: #000 !important;
+  padding: 5px 0 !important;
+}
+
+/* Experience Section */
+.professional-experience-item {
+  margin-top: 15px !important;
+}
+
+.professional-experience-item h3 {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #000 !important;
+}
+
+.professional-experience-item p {
+  font-size: 14px !important;
+  color: #333 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .professional-header {
+      flex-direction: column !important;
+      text-align: center !important;
+  }
+  
+  .professional-image {
+      margin: 0 auto 10px auto !important;
+  }
+}

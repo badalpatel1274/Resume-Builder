@@ -13,7 +13,7 @@ const Login = () => {
     try {
       const res = await axios.post("/login", data);
       const user = res.data
-      console.log("Success:", res.data);
+      console.log(" Login Success:", res.data);
       // console.log(res.data)
       if (res.status === 200) {
         toast.success('Login Sucessfully', {
@@ -35,7 +35,7 @@ const Login = () => {
 
         setTimeout(() => {
           if (res.data.data.roleId.roleName === "User") {
-            navigate("/");
+            navigate("/resume");
           }
         }, 4000);
 
@@ -64,7 +64,7 @@ const Login = () => {
         theme: "colored",
         transition: Bounce,
       });
-      console.error("Axios error:", error);
+      console.error(" Login Axios error:", error);
     }
   };
 
