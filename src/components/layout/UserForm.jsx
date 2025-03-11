@@ -10,30 +10,64 @@ const UserForm = () => {
   const [activeTab, setActiveTab] = useState("Personal");
 const navigate = useNavigate()
   const submithandler = async (data) => {
-    // console.log(" User Before Formatting:", data);
-
-
+    
+    
     // const userData = JSON.parse(localStorage.getItem("id"));
     // const userId = userData.data;
-
+    
     // if (!userData) {
-    //   toast.error("User ID not found. Please log in again.");
-    //   return;
-    // }
+      //   toast.error("User ID not found. Please log in again.");
+      //   return;
+      // }
+      
+      console.log(" User Data", data);
     const templateId = localStorage.getItem("selectedTemplateId")
     const userId = localStorage.getItem("id")
     data.userId = userId
+    data.templateId = templateId
 
-    const formattedData = {
-      ...data,
-      userId: userId,
-      templateId : templateId
-    };
+    // const formattedData = {
+    //   ...data,
+    //   userId: userId,
+    //   templateId : templateId
+    // };
+   
+   
+// console.log(data.personal.profilePic[0].name)
+  //  console.log(data.image[0])
 
-    // console.log("After Forms Formatted Data:",formattedData)
+    const formdata = new FormData();
+    formdata.append("image",data.image[0])
+    formdata.append("userId",data.userId)
+    formdata.append("templateId",data.templateId)
+    // formdata.append("personal.fullName",data.personal.fullName)
+    // formdata.append("personal.email",data.personal.email)
+    // formdata.append("personal.birthDate",data.personal.birthDate)
+    // formdata.append("personal.phone",data.personal.phone)
+    // formdata.append("personal.address",data.personal.address)
+    // formdata.append("education.degree",data.education.degree)
+    // formdata.append("education.university",data.education.university)
+    // formdata.append("education.year",data.education.year)
+    // formdata.append("education.cgpa",data.education.cgpa)
+    // formdata.append("experience.jobTitle",data.experience.jobTitle)
+    // formdata.append("experience.companyName",data.experience.companyName)
+    // formdata.append("experience.year",data.experience.year)
+    // formdata.append("experience.projectTitle",data.experience.projectTitle)
+    // formdata.append("experience.projectDescription",data.experience.projectDescription)
+    // formdata.append("skills.technical",data.skills.technical)
+    // formdata.append("skills.soft",data.skills.soft)
+    // formdata.append("skills.language",data.skills.language)
+    // formdata.append("skills.interests",data.skills.interests)
+
+    
+// ✅ Convert Nested Objects to JSON Strings
+formdata.append("personal", JSON.stringify(data.personal));
+formdata.append("education", JSON.stringify(data.education));
+formdata.append("experience", JSON.stringify(data.experience));
+formdata.append("skills", JSON.stringify(data.skills));
 
     try {
-      const res = await axios.post("/form/addinfo", formattedData)
+      const res = await axios.post("/form/addinfo",formdata)
       console.log("Forms Details Data Sucessfully:", res.data)
 
       if (res.data.data.resumeId) {
@@ -50,14 +84,13 @@ const navigate = useNavigate()
         });
        
         const resumeId = res.data.data.resumeId; 
-        navigate(`/resume/${resumeId}`); // ✅ Redirect to Resume Page
-      
+        navigate(`/resume/${resumeId}`); 
 
 
       } else {
         toast.success('Something Error', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: false,  
           pauseOnHover: true,
@@ -69,9 +102,9 @@ const navigate = useNavigate()
       }
 
     } catch (error) {
-      toast.success('Something Error', {
+      toast.error('Something Error', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: true,
@@ -186,6 +219,10 @@ const validationSchema = {
 
       {/* Form Section */}
       <form className="resume-form" onSubmit={handleSubmit(submithandler)}>
+      <div className="form-group">
+              <label>Profile Img</label>
+              <input type="file" {...register("image")} />
+            </div>
         {/* Personal Info */}
         {activeTab === "Personal" && (
           <>
@@ -194,6 +231,8 @@ const validationSchema = {
               <input type="text" {...register("personal.fullName",validationSchema.personal.fullName)} />
               <span style={{color:'red'}}>{errors.personal?.fullName?.message}</span>
             </div>
+
+           
 
             <div className="form-group">
               <label>Email</label>
