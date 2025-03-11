@@ -1,0 +1,148 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 500px; 
+}
+
+/* Resume Container */
+.professional-resume {
+    display: flex;
+    width: 794px;
+    height: 1123px; /* A4 proportion */
+    background: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+/* Left Section */
+.professional-left-section {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    width: 35%;
+    text-align: center;
+}
+
+/* Profile Image */
+.professional-profile-pic {
+    display: flex;
+    justify-content: center;
+}
+
+.professional-profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 10px;
+}
+
+/* Personal Info */
+.professional-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.professional-job-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.professional-contact-info {
+    margin-top: 10px;
+}
+
+.professional-email,
+.professional-phone,
+.professional-address {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Right Section */
+.professional-right-section {
+    padding: 20px;
+    width: 65%;
+}
+
+/* Section Titles */
+.professional-section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+/* Lists */
+.professional-list {
+    list-style: none;
+    padding: 0;
+    color: #0a0606;
+}
+
+.professional-list-item {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Experience */
+.professional-job-title {
+    font-weight: bold;
+    color: #ec4d4d;
+}
+
+.professional-company {
+    color: #0f0808;
+}
+
+.professional-year {
+    color: #0a0606;
+}
+
+/* Skills */
+.professional-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.professional-skill {
+    background: #2c3e50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* ✅ Responsive Scaling for Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .professional-resume {
+        transform: scale(0.8);
+    }
+}
+
+/* ✅ Print Styles (For PDF Export) */
+@media print {
+    body {
+        background: none;
+        display: block;
+    }
+
+    .professional-resume {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
