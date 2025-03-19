@@ -1,0 +1,111 @@
+/* A4 Size Container */
+.combined-container {
+    display: flex !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: auto !important;
+    font-family: 'Poppins', sans-serif !important;
+    background: #fff !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid #ccc !important;
+  }
+  
+  /* Left Sidebar */
+  .combined-sidebar {
+    width: 35% !important;
+    background: #eeeeee !important;
+    padding: 25px !important;
+    text-align: center !important;
+    position: relative !important;
+  }
+  
+  /* Profile Section */
+  .combined-profile-section {
+    text-align: center !important;
+    padding-bottom: 20px !important;
+  }
+  
+  .combined-profile-img {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+    border: 5px solid #6a0dad !important;
+  }
+  
+  .combined-name {
+    font-size: 28px !important;
+    font-weight: bold !important;
+    color: #6a0dad !important;
+    margin-top: 10px !important;
+    text-transform: uppercase !important;
+  }
+  
+  .combined-title {
+    font-size: 16px !important;
+    color: #333 !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* Contact, References, Skills, Hobbies */
+  .combined-section-title {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+    color: #6a0dad !important;
+    border-bottom: 2px solid #6a0dad !important;
+    padding-bottom: 5px !important;
+    text-transform: uppercase !important;
+  }
+  
+  .combined-contact-text,
+  .combined-reference-text,
+  .combined-skill-text,
+  .combined-hobby-text {
+    font-size: 14px !important;
+    color: #555 !important;
+    margin-bottom: 5px !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Main Content */
+  .combined-main-content {
+    width: 65% !important;
+    padding: 40px !important;
+    background: #fff !important;
+  }
+  
+  /* Section Headers */
+  .combined-header-title {
+    font-size: 22px !important;
+    font-weight: bold !important;
+    color: #6a0dad !important;
+    border-bottom: 3px solid #6a0dad !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+  }
+  
+  /* Job Experience & Education */
+  .combined-job-title,
+  .combined-edu-title {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+  }
+  
+  .combined-years {
+    font-size: 14px !important;
+    color: #6a0dad !important;
+    font-weight: bold !important;
+  }
+  
+  .combined-job-description,
+  .combined-edu-description {
+    font-size: 14px !important;
+    color: #555 !important;
+    margin-top: 5px !important;
+    line-height: 1.5 !important;
+  }
+  

@@ -2,12 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Professional from "../templates/Professional";
 import Minimal from "../templates/Minimal";
+import Combined from "../templates/Combined";
 import axios from "axios";
 
 const ViewMyResume = () => {
-  const { resumeId } = useParams(); // URL से resumeId लेना
+  const { resumeId } = useParams(); 
   const [resumeData, setResumeData] = useState(null);
   const [templateType, setTemplateType] = useState("");
+
+  const templateComponents = {
+    "Professional": Professional,
+    "Minimal":Minimal,
+    "Combined":Combined
+  }
 
   useEffect(() => {
     const fetchResume = async () => {
@@ -33,6 +40,8 @@ const ViewMyResume = () => {
 
   if (!resumeData) return <p>Loading Resume...</p>;
 
+  const SelectedTemplate = templateComponents[templateType]
+
   return (
     <div className="resume-view-container">
       {/* Update Button */}
@@ -40,14 +49,18 @@ const ViewMyResume = () => {
         <button className="btn btn-dark">Update Information</button>
       </Link>
 
-      {/* Resume Preview */}
-      <div className="resume-preview">
+        {/* ✅ Resume Preview */}
+        <div className="resume-preview">
+        <SelectedTemplate data={resumeData} />  {/* ✅ Render Selected Template */}
+      </div>
+
+      {/* <div className="resume-preview">
         {templateType === "Professional" ? (
           <Professional data={resumeData} />
         ) : (
           <Minimal data={resumeData} />
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
