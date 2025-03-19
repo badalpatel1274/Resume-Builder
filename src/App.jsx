@@ -9,7 +9,9 @@ import HomePage from './components/common/HomePage'
 import axios from 'axios'
 import PrivateRoutes from './components/PrivateRoute'
 import ResumePages from './components/pages/ResumePages'
-import OriginalResume from './components/pages/OriginalResume'
+// import OriginalResume from './components/pages/OriginalResume'
+import UpdateResume from './components/pages/UpdateResume'
+import ViewMyResume from './components/pages/ViewMyResume'
 // import './App.css'
 
 function App() {
@@ -29,7 +31,10 @@ function App() {
         </Route>
         <Route path="/resume" element={<ResumePages/>} />
         <Route path="/resume/form/:templateId" element={<UserForm/>} />
-        <Route path="/resume/:resumeId" element={<OriginalResume/>} />
+        <Route path="/resume/:resumeId" element={<ViewMyResume/>} />
+
+        {/* <Route path="/resume/:resumeId" element={<OriginalResume/>} /> */}
+        <Route path="/updateresume/:id" element={<UpdateResume/>} />
 
 
       </Routes >
