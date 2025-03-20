@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateResume = () => {
@@ -8,7 +8,7 @@ const UpdateResume = () => {
   console.log("resumeId:", resumeId);
   
   const [formdata, setFormdata] = useState(null)
-  const { register, handleSubmit, formState: { errors }, trigger,reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, trigger,reset} = useForm();
   const [activeTab, setActiveTab] = useState("Personal");
   const [userFormId, setUserFormId] = useState(null);
   
@@ -38,6 +38,8 @@ const UpdateResume = () => {
       console.log("Fetching form data for userFormId:", userFormId);
       const response = await axios.get(`form/getbyidform/${userFormId}`);
       console.log("Fetched Data:", response.data);
+      setFormdata(response.data)
+     
     } catch (error) {
       console.error("Error fetching form data:", error.response?.data || error.message);
     }
@@ -55,6 +57,13 @@ const UpdateResume = () => {
       fetchFormData(userFormId);
     }
   }, [userFormId]);
+
+  useEffect(() => {
+    if (formdata) {
+      console.log("Setting Form Data in Form:", formdata.data);
+      reset(formdata.data); 
+    }
+  }, [formdata, reset]);
 
 const navigate  = useNavigate()
 const submithandler =async (data)=>{
