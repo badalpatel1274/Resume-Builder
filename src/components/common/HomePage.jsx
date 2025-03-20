@@ -3,6 +3,7 @@ import '../css/home.css'
 import { Link } from 'react-router-dom'
 import flash from '../image/flash.png'
 import template from '../image/template.png'
+import HomeWork from './HomeWork'
 
 const HomePage = () => {
     return (
@@ -43,14 +44,10 @@ const HomePage = () => {
                     </div>
                 </section>
 
-
-                <div className="home-cta">
-  <h2 className="home-cta-heading">Start Building Your Resume Now! 🚀</h2>
-  <button className="home-cta-btn">Create My Resume for Free</button>
-</div>
-
             </div>
+<HomeWork/>
             
+
 
 
 

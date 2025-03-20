@@ -125,39 +125,99 @@ body {
   }
 
 
-  /* CTA Section */
-.home-cta {
-  text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(135deg, #121212, #1b1b1b);
-  border-radius: 10px;
-  margin: 50px auto;
-  max-width: 900px;
-}
+  /* -----------------------------------------------works section start-------------------------- */
 
-.home-cta-heading {
-  font-size: 28px;
-  font-weight: bold;
-  color: #D3A4FF; /* Soft Purple */
-  margin-bottom: 20px;
-}
 
-.home-cta-btn {
-  background: #FF44CC; /* Pink Theme */
-  color: #fff;
-  font-size: 18px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
+  .works-section {
+    text-align: center;
+    background: linear-gradient(to bottom, #0D0D0D, #121212);
+    color: white;
+    padding: 60px 20px;
+  }
+  
+  .works-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 12px #D3A4FF;
+    color: #D3A4FF;
+    margin-bottom: 20px;
+  }
+  
+  .works-steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .works-step {
+    flex: 1;
+    max-width: 300px;
+    background: transparent; /* 🔹 No border, transparent bg like the image */
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .works-step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF6FFF;
+    background: rgba(255, 255, 255, 0.15);
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  .works-step-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #D3A4FF;
+    margin-bottom: 10px;
+  }
+  
+  .works-step-description {
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  /* 🔹 Arrows Between Steps */
+  .works-arrow {
+    font-size: 2.5rem;
+    color: #FF6FFF;
+    animation: arrowBlink 1.5s infinite;
+  }
+  
+  /* 🔹 Arrow Animation */
+  @keyframes arrowBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .works-button {
+    background: #FF6FFF;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0px 0px 12px #FF6FFF;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .works-button:hover {
+    background: #FF3EB5;
+    box-shadow: 0px 0px 20px #FF6FFF;
+  }
 
-.home-cta-btn:hover {
-  background: #E833B5; /* Darker Pink */
-  transform: scale(1.05);
-}
-
+/* ----------------work section end------------------ */
   
   /* 🔹 Responsive Fixes - Mobile & Tablet Same, Desktop Hero Adjusted */
   @media (max-width: 900px) {
@@ -193,6 +253,16 @@ body {
     .feature-box {
       width: 80%;
     }
+
+    .works-steps-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .works-arrow {
+      transform: rotate(90deg);
+    }
+  
   }
   
   @media (max-width: 600px) {
