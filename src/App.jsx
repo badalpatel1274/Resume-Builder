@@ -12,6 +12,7 @@ import ResumePages from './components/pages/ResumePages'
 // import OriginalResume from './components/pages/OriginalResume'
 import UpdateResume from './components/pages/UpdateResume'
 import ViewMyResume from './components/pages/ViewMyResume'
+import AdminDashBoard from './components/admin/AdminDashBoard'
 // import './App.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/admindashboard' element={<AdminDashBoard/>}/>
         <Route path='' element={<PrivateRoutes />}>
         <Route path="/resume/form/:templateId" element={<UserForm/>} />
         </Route>

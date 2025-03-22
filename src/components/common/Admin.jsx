@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/admin.css'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 const Admin = () => {
 
   const {register,handleSubmit,formState:{errors}} =useForm()
-
+const [loginerror, setloginerror] = useState("")
+const navigate = useNavigate()
   const submitHandler = (data)=>{
     console.log(data);
+    const adminEmail = "badalsobhashana@gmail.com"
+    const adminPass = "badal1234"
+    
+    if(data.email !== adminEmail || data.password !== adminPass){
+      setloginerror("Invalid email or password")
+      alert("Invalid Error")
+      return
+    }
+    console.log("admin logged in ",data)
+    setloginerror("")
+    navigate("/admindashboard")
   }
 
   const validationSchema = {

@@ -4,6 +4,7 @@ import Professional from "../templates/Professional";
 import Minimal from "../templates/Minimal";
 import Combined from "../templates/Combined";
 import Modern from "../templates/Modern";
+import Noel from "../templates/Noel";
 import axios from "axios";
 
 const ViewMyResume = () => {
@@ -15,7 +16,8 @@ const ViewMyResume = () => {
     "Professional": Professional,
     "Minimal":Minimal,
     "Combined":Combined,
-    "Modern": Modern
+    "Modern": Modern,
+    "Noel":Noel
   }
 
   useEffect(() => {

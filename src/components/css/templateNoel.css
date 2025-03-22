@@ -1,0 +1,171 @@
+.noel-container {
+  display: flex;
+  max-width: 8.27in; /* A4 width */
+  height: 11.69in; /* A4 height */
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.noel-sidebar {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.noel-header {
+  margin-bottom: 20px;
+}
+
+.noel-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.noel-name {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.noel-title {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.noel-contact, .noel-education, .noel-skills {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.noel-contact h3, .noel-education h3, .noel-skills h3 {
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.noel-contact p, .noel-education-item p, .noel-skills ul {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.noel-skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.noel-skills-category {
+  width: 48%; /* Split into two columns */
+}
+.noel-skills-category ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Skills neeche neeche aayegi */
+  gap: 5px; /* Skills ke beech gap */
+}
+.noel-skills-category ul li {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: fit-content;
+  display: block; /* Har skill neeche dikhayenge */
+  white-space: nowrap; /* Skill ek hi line me rahegi */
+}
+
+.noel-skills-category h4 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.noel-skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+.noel-skills li {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.noel-main {
+  background-color: #ecf0f1;
+  padding: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.noel-about, .noel-experience, .noel-projects {
+  margin-bottom: 20px;
+}
+
+.noel-about h3, .noel-experience h3, .noel-projects h3 {
+  color: #2c3e50;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.noel-about p, .noel-experience-item p, .noel-project-item p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.noel-experience-company, .noel-project-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.noel-project-link a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.noel-project-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Mobile View: Adjust display but keep A4 for download */
+@media (max-width: 768px) {
+  .noel-container {
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 480px) {
+  .noel-container {
+    transform: scale(0.5);
+    transform-origin: top left;
+  }
+}
+
+/* PRINT STYLE: A4 EXACT SIZE FOR DOWNLOAD */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .noel-container {
+    width: 8.27in;
+    height: 11.69in;
+    transform: scale(1); /* Ensure original size in print */
+  }
+}
