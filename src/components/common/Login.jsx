@@ -42,7 +42,7 @@ const Login = () => {
       } else {
         toast.success('Something Error', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,
@@ -55,7 +55,7 @@ const Login = () => {
     } catch (error) {
       toast.error('Something Wrong', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: true,
@@ -86,7 +86,7 @@ const Login = () => {
     
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}

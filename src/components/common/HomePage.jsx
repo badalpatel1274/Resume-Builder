@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import flash from '../image/flash.png'
 import template from '../image/template.png'
 import HomeWork from './HomeWork'
+import HomeFaq from './HomeFaq'
+import HomeDream from './HomeDream'
+import Footer from './Footer'
 
 const HomePage = () => {
     return (
@@ -19,33 +22,48 @@ const HomePage = () => {
                             land your dream job.
                         </p>
                         <div className="hero-buttons">
-                            <a href="/signup" className="btn btn-primary">Get Started Free →</a>
-                            <a href="#" className="btn btn-secondary">View Templates</a>
+                            <Link to="/signup" className="btn btn-primary">Get Started Free →</Link>
+                            <Link to="/resume" className="btn btn-secondary">View Templates</Link>
                         </div>
                     </div>
                 </header>
 
                 {/* Feature Section - Comes in the second slide */}
-                <section className="features">
-                    <div className="feature-box">
-                        <img src={flash} alt="AI Feature" className="feature-img" />
-                        <h3>Easy with AI</h3>
-                        <p>Let AI help you craft the perfect resume effortlessly.</p>
-                    </div>
-                    <div className="feature-box">
-                        <img src={template} alt="Templates" className="feature-img" />
-                        <h3>Professional Templates</h3>
-                        <p>Choose from stunning, ready-made templates designed for success.</p>
-                    </div>
-                    <div className="feature-box">
-                        <img src={flash} alt="Fast Resume" className="feature-img" />
-                        <h3>A Better Resume in Minutes</h3>
-                        <p>Build a high-quality resume quickly and easily.</p>
-                    </div>
-                </section>
+                <section className="features-container">
+      <h2 className="features-title">Why Choose Our Resume Builder</h2>
+      <p className="features-subtitle">
+        Our platform offers everything you need to create a professional resume that stands out
+      </p>
+      <div className="features-grid">
+        <div className="features-card">
+          <div className="features-icon">📄</div>
+          <h3 className="features-card-title">Professional Templates</h3>
+          <p className="features-card-text">
+            Choose from a variety of professionally designed templates that stand out.
+          </p>
+        </div>
+        <div className="features-card">
+          <div className="features-icon">⚡</div>
+          <h3 className="features-card-title">Easy to Use</h3>
+          <p className="features-card-text">
+            Our intuitive builder makes creating your resume simple and fast.
+          </p>
+        </div>
+        <div className="features-card">
+          <div className="features-icon">👥</div>
+          <h3 className="features-card-title">ATS-Friendly</h3>
+          <p className="features-card-text">
+            Ensure your resume gets past applicant tracking systems.
+          </p>
+        </div>
+      </div>
+    </section>
 
             </div>
 <HomeWork/>
+<HomeFaq/>
+<HomeDream/>
+<Footer/>
             
 
 

@@ -27,13 +27,11 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='' element={<PrivateRoutes />}>
-          {/* <Route path='/new' element={<UserForm />} /> */}
+        <Route path="/resume/form/:templateId" element={<UserForm/>} />
         </Route>
         <Route path="/resume" element={<ResumePages/>} />
-        <Route path="/resume/form/:templateId" element={<UserForm/>} />
         <Route path="/resume/:resumeId" element={<ViewMyResume/>} />
 
-        {/* <Route path="/resume/:resumeId" element={<OriginalResume/>} /> */}
         <Route path="/updateresume/:id" element={<UpdateResume/>} />
 
 

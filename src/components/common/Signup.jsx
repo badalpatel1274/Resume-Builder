@@ -35,7 +35,7 @@ const Signup = () => {
       else {
         toast.error('Already Signup', {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 2000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: false,
@@ -47,7 +47,7 @@ const Signup = () => {
     } catch (error) {
       toast.error('Already Signup', {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: false,
@@ -107,7 +107,7 @@ const Signup = () => {
     <>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}

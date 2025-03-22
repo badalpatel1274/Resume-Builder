@@ -1,52 +1,93 @@
-import React from 'react'
-import '../css/footer.css'
-import { Link } from 'react-router-dom'
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import React from "react";
+import "../css/footer.css";
+import logo from '../image/logox.png'
 
 const Footer = () => {
   return (
-   <>
-   
-   <footer className="footer-container">
-      <div className="footer-content">
-        {/* Left Section - Brand Name & About */}
-        <div className="footer-brand">
-          <h2 className="footer-logo">ResumeBuilder</h2>
-          <p className="footer-text">
-            Create professional resumes effortlessly with AI-powered templates.
-            Stand out and land your dream job.
+    <footer className="footer-container">
+    {/* 🔹 Top Section */}
+    <div className="footer-top">
+      <div className="footer-column footer-brand">
+        <img src={logo} alt="Logo" className="footer-logo" />
+        <p className="footer-description">
+          Professional resume builder helping job seekers create standout
+          resumes that get noticed by employers and pass ATS systems.
+        </p>
+        <div className="footer-icons">
+          <a href="#" className="footer-icon-link">🌐</a>
+          <a href="#" className="footer-icon-link">🐦</a>
+          <a href="#" className="footer-icon-link">📷</a>
+          <a href="#" className="footer-icon-link">🎥</a>
+        </div>
+      </div>
+
+      <div className="footer-column footer-links">
+        <h3 className="footer-heading">Quick Links</h3>
+        <ul className="footer-list">
+          <li className="footer-item"><a href="#" className="footer-link">Resume Templates</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Pricing</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Career Blog</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Resume Examples</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">FAQ</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div className="footer-column footer-resources">
+        <h3 className="footer-heading">Resources</h3>
+        <ul className="footer-list">
+          <li className="footer-item"><a href="#" className="footer-link">Resume Writing Guide</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Cover Letter Tips</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Interview Preparation</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Job Search Strategies</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">Career Development</a></li>
+          <li className="footer-item"><a href="#" className="footer-link">ATS Optimization</a></li>
+        </ul>
+      </div>
+
+      <div className="footer-column footer-contact">
+        <h3 className="footer-heading">Contact Us</h3>
+        <p className="footer-text">📍 Bopal, Ahmedabad</p>
+        <p className="footer-text">📞 +91 9510240294</p>
+        <p className="footer-text">✉️ resume.x12@gmail.com</p>
+        
+      </div>
+    </div>
+
+    {/* 🔹 Separator Line */}
+    <div className="footer-separator"></div>
+
+    {/* 🔹 Middle Section */}
+    <div className="footer-middle">
+      <div className="footer-newsletter-content">
+        <div className="footer-newsletter-text-wrapper">
+          <p className="footer-newsletter-text">Subscribe to Our Newsletter</p>
+          <p className="footer-newsletter-subtext">
+            Get weekly career tips, job search strategies, and resume trends
           </p>
         </div>
-
-        {/* Center Section - Quick Link  s */}
-        <div className="footer-Link  s">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><Link  to="/">Home</Link></li>
-            <li><Link  to="/template">Templates</Link></li>
-          </ul>
-        </div>
-
-        {/* Right Section - Social MediLink  */}
-        <div className="footer-social">
-          <h3>Follow Us</h3>
-          <div className="footer-icons">
-            <Link  to="#"><FaFacebook /></Link>
-            <Link  to="#"><FaTwitter /></Link>
-            <Link  to="#"><FaLinkedin /></Link>
-            <Link  to="#"><FaInstagram /></Link>
-          </div>
+        <div className="footer-newsletter">
+          <input type="email" placeholder="Your email address" className="footer-input" />
+          <button className="footer-button">Subscribe</button>
         </div>
       </div>
+    </div>
 
-      {/* Bottom Section - Copyright */}
-      <div className="footer-bottom">
-        <p>© 2025 ResumeBuilder. All Rights Reserved.</p>
+    {/* 🔹 Separator Line */}
+    <div className="footer-separator"></div>
+
+    {/* 🔹 Bottom Section */}
+    <div className="footer-bottom">
+      <p className="footer-copyright">© 2025 ResumeBuilder. All rights reserved.</p>
+      <div className="footer-policy-links">
+        <a href="#" className="footer-policy-link">Terms of Service</a>
+        <a href="#" className="footer-policy-link">Privacy Policy</a>
+        <a href="#" className="footer-policy-link">Cookie Policy</a>
+        <a href="#" className="footer-policy-link">Accessibility</a>
       </div>
-    </footer>
-   
-   </>
-  )
-}
+    </div>
+  </footer>
+  );
+};
 
-export default Footer
+export default Footer;
