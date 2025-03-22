@@ -162,7 +162,6 @@ const validationSchema = {
       {/* <p>Fill in your details to generate your professional resume</p> */}
 
 
-      {/* Tabs (Disabled Click) */}
       <div className="tabs">
         {["Personal", "Education", "Experience", "Skills"].map((tab) => (
           <button key={tab} className={activeTab === tab ? "tab active" : "tab"} disabled>
@@ -186,7 +185,17 @@ const validationSchema = {
               <span style={{color:'red'}}>{errors.personal?.fullName?.message}</span>
             </div>
 
+            <div className="form-group">
+              <label>About Me</label>
+              <input type="textarea" {...register("personal.aboutMe",validationSchema.personal.aboutMe)} />
+              <span style={{color:'red'}}>{errors.personal?.aboutMe?.message}</span>
+            </div>
            
+            <div className="form-group">
+              <label>Job Title</label>
+              <input type="text" {...register("personal.jobTitle",validationSchema.personal.jobTitle)} />
+              <span  style={{color:'red'}}>{errors.personal?.jobTitle?.message}</span>
+            </div>
 
             <div className="form-group">
               <label>Email</label>
@@ -246,34 +255,33 @@ const validationSchema = {
         {/* Experience */}
         {activeTab === "Experience" && (
           <>
-            <div className="form-group">
-              <label>Job Title</label>
-              <input type="text" {...register("experience.jobTitle",validationSchema.experience.jobTitle)} />
-              <span style={{color:'red'}}>{errors.experience?.jobTitle?.message}</span>
-            </div>
+           
 
             <div className="form-group">
-              <label>Company Name</label>
+              <label>Company Name (Optional)</label>
               <input type="text" {...register("experience.companyName")} />
               {/* <span style={{color:'red'}}>{errors.experience?.companyName?.message}</span> */}
             </div>
 
             <div className="form-group">
-              <label>Year</label>
-              <input type="text" {...register("experience.year")} />
+              <label>Company Experience (Optional)</label>
+              <input type="text" {...register("experience.companyExp")} />
               {/* <span>{errors.experience?.year?.message}</span> */}
             </div>
 
             <div className="form-group">
-              <label>Project Title</label>
-              <input type="text" {...register("experience.projectTitle",validationSchema.experience.projectTitle)} />
-              <span>{errors.experience?.projectTitle?.message}</span>
+              <label>Job Description (Optional)</label>
+              <input type="text" {...register("experience.jobDescription")} />
             </div>
 
             <div className="form-group">
-              <label>Project Description</label>
+              <label>Project Title (Optional)</label>
+              <input type="text" {...register("experience.projectTitle")} />
+            </div>
+
+            <div className="form-group">
+              <label>Project Description (Optional)</label>
               <input type="text" {...register("experience.projectDescription")} />
-              {/* <span>{errors.experience?.projectDescription?.message}</span> */}
             </div>
           </>
         )}
@@ -310,7 +318,7 @@ const validationSchema = {
         {/* Navigation Buttons */}
         <div className="form-buttons">
           {activeTab !== "Personal" && <button className="prev-btn" type="button" onClick={prevStep}>Previous</button>}
-          {activeTab === "Skills" ? <button className="next-btn" type="submit">Update</button> : <button className="next-btn" type="button" onClick={nextStep}>Next</button>}
+          {activeTab === "Skills" ? <button className="next-btn" type="submit">Submit</button> : <button className="next-btn" type="button" onClick={nextStep}>Next</button>}
         </div>
       </form>
     </div>  

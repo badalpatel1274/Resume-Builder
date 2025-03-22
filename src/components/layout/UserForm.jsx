@@ -137,6 +137,9 @@ formdata.append("skills", JSON.stringify(data.skills));
 const validationSchema = {
   personal: {
     fullName: { required: "*Full Name is required" },
+    aboutMe:{ required: "*About Me is required"},
+    jobTitle:{ required: "*Job Title is required"},
+
     email: {
       required: "*Email is required",
       pattern: {
@@ -167,7 +170,6 @@ const validationSchema = {
   },
 
   experience: {
-    jobTitle: { required: "*Job Title is required" },
     companyName: { required: "*Company Name is required" },
     projectTitle: { required: "*Project Title is required" },
     projectDescription: { required: "*Project Description is required" },
@@ -193,7 +195,7 @@ const validationSchema = {
     <div className="resume-container">
        <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
@@ -232,7 +234,17 @@ const validationSchema = {
               <span style={{color:'red'}}>{errors.personal?.fullName?.message}</span>
             </div>
 
+            <div className="form-group">
+              <label>About Me</label>
+              <input type="textarea" {...register("personal.aboutMe",validationSchema.personal.aboutMe)} />
+              <span style={{color:'red'}}>{errors.personal?.aboutMe?.message}</span>
+            </div>
            
+            <div className="form-group">
+              <label>Job Title</label>
+              <input type="text" {...register("personal.jobTitle",validationSchema.personal.jobTitle)} />
+              <span  style={{color:'red'}}>{errors.personal?.jobTitle?.message}</span>
+            </div>
 
             <div className="form-group">
               <label>Email</label>
@@ -292,34 +304,33 @@ const validationSchema = {
         {/* Experience */}
         {activeTab === "Experience" && (
           <>
-            <div className="form-group">
-              <label>Job Title</label>
-              <input type="text" {...register("experience.jobTitle",validationSchema.experience.jobTitle)} />
-              <span style={{color:'red'}}>{errors.experience?.jobTitle?.message}</span>
-            </div>
+           
 
             <div className="form-group">
-              <label>Company Name</label>
+              <label>Company Name (Optional)</label>
               <input type="text" {...register("experience.companyName")} />
               {/* <span style={{color:'red'}}>{errors.experience?.companyName?.message}</span> */}
             </div>
 
             <div className="form-group">
-              <label>Year</label>
-              <input type="text" {...register("experience.year")} />
+              <label>Company Experience (Optional)</label>
+              <input type="text" {...register("experience.companyExp")} />
               {/* <span>{errors.experience?.year?.message}</span> */}
             </div>
 
             <div className="form-group">
-              <label>Project Title</label>
-              <input type="text" {...register("experience.projectTitle",validationSchema.experience.projectTitle)} />
-              <span>{errors.experience?.projectTitle?.message}</span>
+              <label>Job Description (Optional)</label>
+              <input type="text" {...register("experience.jobDescription")} />
             </div>
 
             <div className="form-group">
-              <label>Project Description</label>
+              <label>Project Title (Optional)</label>
+              <input type="text" {...register("experience.projectTitle")} />
+            </div>
+
+            <div className="form-group">
+              <label>Project Description (Optional)</label>
               <input type="text" {...register("experience.projectDescription")} />
-              {/* <span>{errors.experience?.projectDescription?.message}</span> */}
             </div>
           </>
         )}

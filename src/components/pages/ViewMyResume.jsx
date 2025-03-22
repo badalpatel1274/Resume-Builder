@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Professional from "../templates/Professional";
 import Minimal from "../templates/Minimal";
 import Combined from "../templates/Combined";
+import Modern from "../templates/Modern";
 import axios from "axios";
 
 const ViewMyResume = () => {
@@ -13,7 +14,8 @@ const ViewMyResume = () => {
   const templateComponents = {
     "Professional": Professional,
     "Minimal":Minimal,
-    "Combined":Combined
+    "Combined":Combined,
+    "Modern": Modern
   }
 
   useEffect(() => {
@@ -49,18 +51,12 @@ const ViewMyResume = () => {
         <button className="btn btn-dark">Update Information</button>
       </Link>
 
-        {/* ✅ Resume Preview */}
+        {/* Resume Preview */}
         <div className="resume-preview">
-        <SelectedTemplate data={resumeData} />  {/* ✅ Render Selected Template */}
+        <SelectedTemplate data={resumeData} />  {/* Render Selected Template */}
       </div>
 
-      {/* <div className="resume-preview">
-        {templateType === "Professional" ? (
-          <Professional data={resumeData} />
-        ) : (
-          <Minimal data={resumeData} />
-        )}
-      </div> */}
+    
     </div>
   );
 };
