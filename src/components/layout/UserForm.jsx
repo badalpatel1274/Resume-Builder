@@ -73,7 +73,7 @@ formdata.append("skills", JSON.stringify(data.skills));
       if (res.data.data.resumeId) {
         toast.success('Details added Sucessfully', {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,
@@ -84,7 +84,10 @@ formdata.append("skills", JSON.stringify(data.skills));
         });
        
         const resumeId = res.data.data.resumeId; 
-        navigate(`/resume/${resumeId}`); 
+       setTimeout(() => {
+         navigate(`/resume/${resumeId}`); 
+        },3000 ); 
+         
 
 
       } else {

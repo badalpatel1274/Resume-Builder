@@ -40,7 +40,7 @@ const Login = () => {
         }, 4000);
 
       } else {
-        toast.success('Something Error', {
+        toast.success('Invalid Email or Password', {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -114,7 +114,7 @@ const Login = () => {
             <span style={{ color: 'red' }}>{errors.password?.message}</span>
           </div>
 
-          <a href="#" className="login-forgot-password">Forgot Password?</a>
+          <Link to="/forgotpassword" className="login-forgot-password">Forgot Password?</Link>
 
           <button type="submit" className="login-btn">Login</button>
 

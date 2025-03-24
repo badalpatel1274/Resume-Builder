@@ -13,6 +13,8 @@ import ResumePages from './components/pages/ResumePages'
 import UpdateResume from './components/pages/UpdateResume'
 import ViewMyResume from './components/pages/ViewMyResume'
 import AdminDashBoard from './components/admin/AdminDashBoard'
+import ResetPassword from './components/common/ResetPassword'
+import ForgetPassword from './components/common/ForgetPassword'
 // import './App.css'
 
 function App() {
@@ -26,6 +28,9 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/forgotpassword' element={<ForgetPassword/>}/>
+
+        <Route path='/resetpassword/:token' element={<ResetPassword/>}/>
         <Route path='/admin' element={<Admin />} />
         <Route path='/admindashboard' element={<AdminDashBoard/>}/>
         <Route path='' element={<PrivateRoutes />}>
