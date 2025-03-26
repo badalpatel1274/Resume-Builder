@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/common.css'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,11 +8,10 @@ const Signup = () => {
   const navigate = useNavigate()
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
+  const [role, setRole] = useState("User");
   const submitHandler = async (data) => {
 
-    data.roleId = "67c530d222967324b17fce52"
-    // console.log(data);
+    data.roleId = role === "User" ? "67c530d222967324b17fce52" : "67c530e022967324b17fce54"    // console.log(data);
     try {
       const res = await axios.post("/signup", data);
       console.log("Signup Success:", res.data);
@@ -29,8 +28,8 @@ const Signup = () => {
                 transition: Bounce,
               });
         setTimeout(() => {
-          navigate("/login")
-        }, 3000);
+          navigate(role === "User" ? "/login" : "/admin"); 
+                }, 3000);
       }
       else {
         toast.error('Already Signup', {
@@ -125,51 +124,41 @@ const Signup = () => {
         <form className="signup-form" onSubmit={handleSubmit(submitHandler)}>
           <div className="signup-form-group">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name"  {...register("username", validationSchema.userNameValidator)} />
-            <span style={{ color: 'red' }}>
-              {
-                errors.username?.message
-              }
-            </span>
+            <input type="text" placeholder="Enter your full name"  {...register("username", { required: "*Username is required", minLength: 3 })} />
+            <span style={{ color: 'red' }}>{errors.username?.message}</span>
           </div>
 
           <div className="signup-form-group">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email"  {...register("email", validationSchema.emailValidator)} />
-            <span style={{ color: 'red' }}>
-              {
-                errors.email?.message
-              }
-            </span>
+            <input type="email" placeholder="Enter your email"  {...register("email", { required: "*Email is required" })} />
+            <span style={{ color: 'red' }}>{errors.email?.message}</span>
           </div>
 
           <div className="signup-form-group">
             <label>Password</label>
-            <input type="password" placeholder="Create a password" {...register("password", validationSchema.passwordValidator)} />
-            <span style={{ color: 'red' }}>
-              {
-                errors.password?.message
-              }
-            </span>
+            <input type="password" placeholder="Create a password" {...register("password", { required: "*Password is required", minLength: 6 })} />
+            <span style={{ color: 'red' }}>{errors.password?.message}</span>
           </div>
 
           <div className="signup-form-group">
             <label>Confirm Password</label>
-            <input type="password" placeholder="Confirm your password" {...register("confirmPassword", validationSchema.confirmPasswordValidator)} />
-            <span style={{ color: 'red' }}>
-              {
-                errors.confirmPassword?.message
-              }
-            </span>
+            <input type="password" placeholder="Confirm your password" {...register("confirmPassword", { required: "*Confirm password is required", validate: (value) => value === watch("password") || "Passwords do not match" })} />
+            <span style={{ color: 'red' }}>{errors.confirmPassword?.message}</span>
           </div>
-          <button type="submit" className="signup-btn" >Sign Up</button>
 
-          <p className="signup-switch-text">
-            Already have an account? <Link to="/login">Login</Link>
-          </p>
+          {/* Role Selection */}
+          {/* <div className="signup-form-group">
+            <label>Select Role:</label>
+            <select value={role} onChange={(e) => setRole(e.target.value)}>
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div> */}
+
+          <button type="submit" className="signup-btn">Sign Up</button>
+          <p className="signup-switch-text">Already have an account? <Link to="/login">Login</Link></p>
         </form>
       </div>
-
     </>
   )
 }

@@ -15,29 +15,54 @@ const Login = () => {
       const user = res.data
       console.log(" Login Success:", res.data);
       // console.log(res.data)
-      if (res.status === 200) {
-        toast.success('Login Sucessfully', {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Bounce,
-        });
+      // if (res.status === 200) {
+      //   toast.success('Login Sucessfully', {
+      //     position: "top-center",
+      //     autoClose: 3000,
+      //     hideProgressBar: false,
+      //     closeOnClick: false,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //     theme: "colored",
+      //     transition: Bounce,
+      //   });
 
         // localStorage.setItem("user",JSON.stringify(user) )
 
-        localStorage.setItem("id", res.data.data._id)
-        localStorage.setItem("role", res.data.data.roleId.roleName)
+        // localStorage.setItem("id", res.data.data._id)
+        // localStorage.setItem("role", res.data.data.roleId.roleName)
 
-        setTimeout(() => {
-          if (res.data.data.roleId.roleName === "User") {
-            navigate("/resume");
+        // setTimeout(() => {
+        //   if (res.data.data.roleId.roleName === "User") {
+        //     navigate("/resume");
+        //   }
+        // }, 4000);
+        if (res.status === 200) {
+          const user = res.data.data;
+
+          if (!user || !user.roleId || !user.roleId.roleName) {
+            toast.error('Invalid user data!', { theme: "colored", transition: Bounce });
+            return;
           }
+          toast.success('Login Successfully', { theme: "colored", transition: Bounce });
+
+  
+          localStorage.setItem("id", res.data.data._id);
+          localStorage.setItem("role", res.data.data.roleId.roleName);
+
+          window.dispatchEvent(new Event("roleChange"));
+  
+  
+          setTimeout(() => {
+            if (res.data.data.roleId.roleName === "User") {
+                navigate("/resume");
+            } else if (res.data.data.roleId.roleName === "Admin") {
+                navigate("/admin");
+            }
         }, 4000);
+  
+
 
       } else {
         toast.success('Invalid Email or Password', {

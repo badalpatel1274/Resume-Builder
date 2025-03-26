@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import '../css/forgetReset.css'
 
 const ResetPassword = () => {
     const { token } = useParams(); 
@@ -40,20 +41,21 @@ const ResetPassword = () => {
     };
 
     return (
-        <div>
+        <div className="resetpass-container">
             <ToastContainer />
-            <h1>Reset Password</h1>
-            <form onSubmit={handleSubmit(submitHandler)}>
-                <div>
-                    <label>New Password</label>
+            <h1 className="resetpass-heading">Reset Password</h1>
+            <form className="resetpass-form" onSubmit={handleSubmit(submitHandler)}>
+                <div className="resetpass-form-group">
+                    <label className="resetpass-label">New Password</label>
                     <input
                         type="password"
+                        className="resetpass-input"
                         {...register("password", { required: "Password is required" })}
                     />
-                    {errors.password && <p style={{ color: 'red' }}>{errors.password.message}</p>}
+                    {errors.password && <p className="resetpass-error">{errors.password.message}</p>}
                 </div>
                 <div>
-                    <input type="submit" value="Reset Password" />
+                    <input className="resetpass-button" type="submit" value="Reset Password" />
                 </div>
             </form>
         </div>

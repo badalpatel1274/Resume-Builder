@@ -1,0 +1,157 @@
+/* Overall Page */
+.admin-container {
+    display: flex;
+    height: 100vh;
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Sidebar */
+  .admin-sidebar {
+    width: 250px;
+    background-color: #1c1c1c;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-profile {
+    text-align: center;
+  }
+  
+  .admin-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .admin-username {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .admin-role {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .admin-add-template {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 15px 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .admin-menu-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-menu-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .admin-active {
+    background-color: #ff5733;
+  }
+  
+  .admin-logout {
+    margin-top: auto;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Main Content */
+  .admin-main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .admin-header {
+    margin-bottom: 20px;
+  }
+  
+  .admin-title {
+    color: #ff5733;
+  }
+  
+  .admin-subtitle {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .admin-stats {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .admin-card {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .admin-card-title {
+    margin: 10px 0;
+  }
+  
+  .admin-card-number {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .admin-card-info {
+    font-size: 12px;
+    color: #7bff95;
+  }
+  
+  .admin-icon {
+    font-size: 24px;
+    color: #ff5733;
+  }
+  
+  .admin-recent-activity {
+    margin-top: 20px;
+  }
+  
+  .admin-activity {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .admin-activity-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .admin-activity-text {
+    font-size: 14px;
+  }
+  
+  .admin-activity-user {
+    font-weight: bold;
+    color: #ff5733;
+  }
+  
+  .admin-activity-time {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
