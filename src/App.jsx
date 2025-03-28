@@ -15,6 +15,8 @@ import ViewMyResume from './components/pages/ViewMyResume'
 import AdminDashBoard from './components/admin/AdminDashBoard'
 import ResetPassword from './components/common/ResetPassword'
 import ForgetPassword from './components/common/ForgetPassword'
+import AddTemplate from './components/admin/AddTemplate'
+import AdminSidebar from './components/layout/AdminSidebar'
 // import './App.css'
 
 function App() {
@@ -32,7 +34,14 @@ function App() {
 
         <Route path='/resetpassword/:token' element={<ResetPassword/>}/>
         <Route path='/admin' element={<Admin />} />
-        <Route path='/admindashboard' element={<AdminDashBoard/>}/>
+
+
+        <Route path='/adminsidebar' element={<AdminSidebar/>}>
+        <Route path='addtemplate' element={<AddTemplate/>}/>
+        <Route path='dashboard' element={<AdminDashBoard/>}/>
+        </Route>
+
+
         <Route path='' element={<PrivateRoutes />}>
         <Route path="/resume/form/:templateId" element={<UserForm/>} />
         </Route>

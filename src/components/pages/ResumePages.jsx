@@ -6,34 +6,34 @@ import axios from "axios";
 // import Minimal from "../templates/Minimal";
 
 const ResumePages = () => {
-    const [templates, settemplates] = useState([])
-    const navigate = useNavigate()
+  const [templates, settemplates] = useState([])
+  const navigate = useNavigate()
 
-    useEffect(()=>{
-        const fetchTemplate = async()=>{
-            try {
-                const res = await axios.get("/template/alltemplate")
-                console.log("fetcehed temp:",res.data)
-                settemplates(res.data.data)
-            } catch (error) {
-                console.error("Error fetching templates:", error);
-            }
-        }
-        fetchTemplate()
-    },[])
-
-    // const templateComponents = {
-    //     "Professional" : <Professional/>,
-    //     "Minimal" : <Minimal/>
-    // }
-
-    const handleSelectTemplate = (templateId)=>{
-      localStorage.setItem("selectedTemplateId", templateId); 
-        navigate(`/resume/form/${templateId}`)
+  useEffect(() => {
+    const fetchTemplate = async () => {
+      try {
+        const res = await axios.get("/template/alltemplate")
+        console.log("fetcehed temp:", res.data)
+        settemplates(res.data.data)
+      } catch (error) {
+        console.error("Error fetching templates:", error);
+      }
     }
+    fetchTemplate()
+  }, [])
 
-    return (
-        <div className="resume-page">
+  // const templateComponents = {
+  //     "Professional" : <Professional/>,
+  //     "Minimal" : <Minimal/>
+  // }
+
+  const handleSelectTemplate = (templateId) => {
+    localStorage.setItem("selectedTemplateId", templateId);
+    navigate(`/resume/form/${templateId}`)
+  }
+
+  return (
+    <div className="resume-page">
       <h2 className="title">Choose Your Resume Template</h2>
       <div className="template-container">
         {templates.map((template) => (
@@ -44,7 +44,7 @@ const ResumePages = () => {
           >
             {/* 🖼️ Template Image */}
             <img
-              src={template.previewImg}
+              src={`${axios.defaults.baseURL}${template.previewImg}`}
               alt={template.name}
               className="template-image"
             />
@@ -53,7 +53,7 @@ const ResumePages = () => {
         ))}
       </div>
     </div>
-    );
+  );
 };
 
 export default ResumePages;

@@ -4,28 +4,8 @@ import "../css/adminDashboard.css";
 
 const AdminDashboard = () => {
   return (
-    <div className="admin-container">
-      {/* Sidebar */}
-      <aside className="admin-sidebar">
-        <div className="admin-profile">
-          <div className="admin-avatar"></div>
-          <p className="admin-username">Admin User</p>
-          <p className="admin-role">Super Admin</p>
-        </div>
-        <button className="admin-add-template">+ Add New Template</button>
-        <nav className="admin-menu">
-          <ul className="admin-menu-list">
-            <li className="admin-menu-item admin-active">Dashboard</li>
-            <li className="admin-menu-item">User Management</li>
-            <li className="admin-menu-item">Templates</li>
-            <li className="admin-menu-item">Analytics</li>
-            <li className="admin-menu-item">Settings</li>
-          </ul>
-        </nav>
-        <button className="admin-logout">Logout</button>
-      </aside>
+   
 
-      {/* Main Dashboard */}
       <main className="admin-main">
         <header className="admin-header">
           <h1 className="admin-title">Admin Dashboard</h1>
@@ -77,7 +57,6 @@ const AdminDashboard = () => {
           </div>
         </section>
       </main>
-    </div>
   );
 };
 

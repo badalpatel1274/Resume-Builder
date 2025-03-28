@@ -1,157 +1,314 @@
-/* Overall Page */
+/* 🔹 General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 🔹 Admin Layout */
 .admin-container {
-    display: flex;
-    height: 100vh;
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Sidebar */
-  .admin-sidebar {
-    width: 250px;
-    background-color: #1c1c1c;
-    padding: 20px;
-    display: flex;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 🔹 Sidebar (Fixed Width) */
+.admin-sidebar {
+  width: 250px; /* ✅ Sidebar width will remain fixed */
+  background-color: #1c1c1c;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-avatar {
+  width: 60px;
+  height: 60px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.admin-username {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.admin-role {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.admin-add-template {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 15px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.admin-menu {
+  width: 100%;
+}
+
+.admin-menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-menu-item {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.admin-menu-item:hover,
+.admin-active {
+  background-color: #ff5733;
+}
+
+.admin-logout {
+  margin-top: auto;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* 🔹 Main Content (Fixed Width) */
+.admin-main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  width: calc(100vw - 250px); /* ✅ Same width as Dashboard */
+}
+
+/* 🔹 Dashboard Cards */
+.admin-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-card {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  min-width: 250px;
+}
+
+.admin-card-title {
+  margin: 10px 0;
+}
+
+.admin-card-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.admin-card-info {
+  font-size: 12px;
+  color: #7bff95;
+}
+
+.admin-icon {
+  font-size: 24px;
+  color: #ff5733;
+}
+
+/* 🔹 Add Template Page (Same Width as Dashboard) */
+.addtemp-container {
+  width: calc(100vw - 250px); /* ✅ Sidebar ke baad full width */
+  height: 100vh;
+  background-color: #0a0a0a;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.addtemp-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff5733;
+}
+
+.addtemp-subtitle {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.addtemp-form {
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%; /* ✅ Now full width */
+  flex: 1; /* ✅ Takes full space */
+  display: flex;
+  flex-direction: column;
+}
+
+.addtemp-section-title {
+  font-size: 20px;
+  color: #ff5733;
+  margin-bottom: 10px;
+}
+
+.addtemp-section-desc {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.addtemp-form-group {
+  margin-bottom: 15px;
+}
+
+.addtemp-label {
+  font-size: 14px;
+  color: #ccc;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.addtemp-input,
+.addtemp-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.addtemp-textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.addtemp-thumbnail-section {
+  text-align: center;
+  margin-top: 20px;
+}
+/* 🔹 Preview Image */
+.addtemp-preview-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+
+.addtemp-thumbnail-placeholder {
+  width: 150px;
+  height: 200px;
+  background-color: #555;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.addtemp-upload-button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.addtemp-image-size-info {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* 🔹 Submit Button */
+.addtemp-submit-button {
+  width: 100%;
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.addtemp-submit-button:hover {
+  background-color: #e04b2f;
+}
+
+
+/* 🔹 Responsive Design */
+@media (max-width: 1024px) {
+  .admin-stats {
     flex-direction: column;
   }
-  
-  .admin-profile {
-    text-align: center;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
   }
-  
-  .admin-avatar {
-    width: 50px;
-    height: 50px;
-    background-color: gray;
-    border-radius: 50%;
-    margin: 0 auto;
-  }
-  
-  .admin-username {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .admin-role {
-    font-size: 12px;
-    color: #aaa;
-  }
-  
-  .admin-add-template {
-    background-color: #ff5733;
-    color: white;
-    border: none;
+
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
     padding: 10px;
-    margin: 15px 0;
-    cursor: pointer;
-    border-radius: 5px;
   }
-  
+
   .admin-menu-list {
-    list-style: none;
-    padding: 0;
+    display: flex;
+    gap: 10px;
   }
-  
+
   .admin-menu-item {
-    padding: 10px;
-    cursor: pointer;
+    padding: 5px 10px;
   }
-  
-  .admin-active {
-    background-color: #ff5733;
-  }
-  
+
   .admin-logout {
-    margin-top: auto;
-    padding: 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
+    width: auto;
   }
-  
-  /* Main Content */
-  .admin-main {
-    flex: 1;
+
+  .admin-main,
+  .addtemp-container {
+    width: 100%;
     padding: 20px;
   }
-  
-  .admin-header {
-    margin-bottom: 20px;
+
+  .addtemp-form {
+    max-width: 100%;
   }
-  
-  .admin-title {
-    color: #ff5733;
-  }
-  
-  .admin-subtitle {
-    font-size: 14px;
-    color: #bbb;
-  }
-  
-  .admin-stats {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .admin-card {
-    background-color: #1c1c1c;
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1;
-    text-align: center;
-  }
-  
-  .admin-card-title {
-    margin: 10px 0;
-  }
-  
-  .admin-card-number {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .admin-card-info {
-    font-size: 12px;
-    color: #7bff95;
-  }
-  
-  .admin-icon {
-    font-size: 24px;
-    color: #ff5733;
-  }
-  
-  .admin-recent-activity {
-    margin-top: 20px;
-  }
-  
-  .admin-activity {
-    display: flex;
-    justify-content: space-between;
-    background-color: #1c1c1c;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .admin-activity-title {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .admin-activity-text {
-    font-size: 14px;
-  }
-  
-  .admin-activity-user {
-    font-weight: bold;
-    color: #ff5733;
-  }
-  
-  .admin-activity-time {
-    font-size: 12px;
-    color: #aaa;
-  }
-  
+}

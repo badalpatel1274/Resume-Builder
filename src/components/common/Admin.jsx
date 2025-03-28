@@ -20,7 +20,7 @@ const navigate = useNavigate()
     }
     console.log("admin logged in ",data)
     setloginerror("")
-    navigate("/admindashboard")
+    navigate("/adminsidebar/dashboard")
   }
 
   const validationSchema = {
