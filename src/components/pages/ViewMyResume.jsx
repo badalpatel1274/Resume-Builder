@@ -7,6 +7,7 @@ import Modern from "../templates/Modern";
 import Noel from "../templates/Noel";
 import axios from "axios";
 import downloadResume from "./DownloadResume";
+import Simple from '../templates/Simple'
 
 const ViewMyResume = () => {
   const { resumeId } = useParams(); 
@@ -18,7 +19,8 @@ const ViewMyResume = () => {
     "Minimal":Minimal,
     "Combined":Combined,
     "Modern": Modern,
-    "Noel":Noel
+    "Noel":Noel,
+    "Simple":Simple
   }
 
   useEffect(() => {

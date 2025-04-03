@@ -41,14 +41,14 @@ body {
 }
 
 /* Subtext (Animated Fade-In) */
-p {
+/* p {
   font-size: 18px;
   color: #aaa;
   margin-bottom: 30px;
   opacity: 0;
   transform: translateY(10px);
   animation: fadeIn 1.5s ease-out forwards;
-}
+} */
 
 /* Fade-In Effect */
 @keyframes fadeIn {

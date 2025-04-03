@@ -320,7 +320,7 @@ const UserForm = () => {
 
               <p
                 style={{
-                  color: watch("experience.jobDescription")?.length > 200 ? "red" : "white",
+                  color: watch("experience.jobDescription")?.length > 300 ? "red" : "white",
                 }}
               >
                 {watch("experience.jobDescription")?.length}/300

@@ -1,0 +1,180 @@
+/* A4 size styling */
+.simple-resume-container {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
+    color: #333;
+    line-height: 1.5;
+    box-sizing: border-box;
+    padding: 30px;
+}
+  
+/* Header styling */
+.simple-resume-header {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2c3e50;
+
+}
+
+.simple-name {
+    margin: 0;
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+.simple-contact-info {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.simple-contact-info .simple-address,
+.simple-contact-info .simple-contact,
+.simple-contact-info .simple-linkedin,
+.simple-contact-info .simple-github {
+    margin: 5px 0;
+}
+
+/* Section styling */
+.simple-resume-section {
+    margin-bottom: 15px;
+
+}
+
+.simple-section-title {
+    font-size: 18px;
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.simple-section-content {
+    padding-left: 10px;
+    margin-top: -5px;
+}
+
+/* Experience & Education */
+.simple-experience-item,
+.simple-education-item {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.simple-experience-header {
+    margin-bottom: 5px;
+}
+
+.simple-job-title,
+.simple-degree {
+    font-size: 16px;
+    margin: 0;
+    color: #2c3e50;
+}
+.simple-job-description{
+text-align: justify;
+}
+.simple-total-experience{
+    font-weight: 600;
+    margin-top: 10px;
+}
+.simple-company,
+.simple-institution {
+    font-weight: bold;
+    margin: 0;
+}
+
+.simple-duration {
+    font-style: italic;
+    color: #666;
+    margin: 0;
+}
+
+/* Project Styling */
+.simple-project-item {
+    margin-bottom: 10px;
+}
+
+.simple-project-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.simple-projectDesc {
+    margin: 0;
+    text-align: justify;
+}
+
+/* Skills grid */
+.simple-skills-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 20px 0;
+}
+
+.simple-left-column,
+.simple-right-column {
+    width: 48%;
+}
+.simple-summary{
+    text-align: justify;
+}
+.simple-subtitle {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 8px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.simple-subtitle::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 2px;
+    background-color: #ff4d4d;
+    margin-top: 3px;
+    border-radius: 2px;
+}
+
+.simple-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.simple-list-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.simple-list-item::before {
+    content: none;
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+/* Print optimization */
+@media print {
+    .simple-resume-container {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        padding: 0;
+    }
+}
