@@ -35,6 +35,7 @@ const AddTemplate = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("Response:", res.data);
+      alert("Template Added")
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);
     }

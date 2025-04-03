@@ -11,44 +11,63 @@
 .title {
   font-size: 28px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 /* 📌 Templates Grid */
 .template-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr)); /* Exact 3 Cards */
+  gap: 40px; /* Increased gap for better spacing */
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  max-width: 1100px; /* Wider container for better alignment */
+  margin: auto;
 }
 
 /* 📌 Individual Template Card */
 .template-card {
   background-color: white;
   color: black;
-  padding: 15px;
-  border-radius: 10px;
-  width: 250px;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+  width: 100%; /* Full width inside the grid */
+  max-width: 320px; /* Limit max size */
 }
 
 .template-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6);
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.4);
 }
 
 /* 🖼️ Template Image */
 .template-image {
   width: 100%;
   height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 /* 📌 Template Name */
 .template-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 1024px) {
+  .template-container {
+    grid-template-columns: repeat(2, minmax(280px, 1fr)); /* 2 Cards on Medium Screens */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .template-container {
+    grid-template-columns: repeat(1, minmax(280px, 1fr)); /* 1 Card on Small Screens */
+    gap: 20px;
+  }
 }

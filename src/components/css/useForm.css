@@ -19,7 +19,7 @@ body {
 }
 
 /* Animated Heading */
-h2 {
+/* h2 {
   color: #d3a4ff;
   text-shadow: 0 0 12px #d3a4ff;
   font-size: 32px;
@@ -28,7 +28,7 @@ h2 {
   margin-bottom: 10px;
   letter-spacing: 2px;
   animation: glow 1.5s infinite alternate;
-}
+} */
 
 /* Glowing Effect */
 @keyframes glow {

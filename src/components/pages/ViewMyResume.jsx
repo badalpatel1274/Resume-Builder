@@ -6,6 +6,7 @@ import Combined from "../templates/Combined";
 import Modern from "../templates/Modern";
 import Noel from "../templates/Noel";
 import axios from "axios";
+import downloadResume from "./DownloadResume";
 
 const ViewMyResume = () => {
   const { resumeId } = useParams(); 
@@ -54,11 +55,25 @@ const ViewMyResume = () => {
       </Link>
 
         {/* Resume Preview */}
-        <div className="resume-preview">
+        <div style={{width:"794px", height:"1123px", background:"white"}} className="resume-preview" id="resume-preview">
         <SelectedTemplate data={resumeData} />  {/* Render Selected Template */}
       </div>
 
-    
+      <button
+        onClick={downloadResume}
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          background: "#6a0dad",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        Download Resume
+      </button>
+
     </div>
   );
 };

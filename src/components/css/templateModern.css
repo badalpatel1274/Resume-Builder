@@ -197,10 +197,10 @@
 
 /* Project */
 .modern-project {
-    background: #1e1e2e;
-        padding: 15px;
-    border-radius: 5px;
-}
+    margin-top: 20px;
+  }
+  
+
 /* Skills Section */
 .modern-skills {
     background: #1e1e2e; 
@@ -239,7 +239,6 @@
     text-align: center;
     margin-bottom: 5px; /* 👈 Each skill will be separated properly */
 }
-
 
 /* Footer */
 .modern-footer {
