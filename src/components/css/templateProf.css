@@ -1,0 +1,282 @@
+.professional-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+  }
+  
+  .professional-container {
+    display: flex;
+    border: 1px solid #ddd;
+    min-height: 1000px;
+  }
+  
+  /* ========== SIDEBAR ========== */
+ /* 📌 Sidebar Styling */
+.professional-sidebar {
+    width: 30%;
+    background-color: #2e7d32;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .professional-profile-section {
+    margin-bottom: 25px;
+  }
+  
+  .professional-profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #c8e6c9;
+    margin: 0 auto 10px;
+  }
+  
+  .professional-profile-section h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 5px 0;
+  }
+  
+  .professional-profile-section h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #c8e6c9;
+    margin: 2px 0;
+  }
+  
+  /* 📌 Sidebar Sections */
+  .professional-sidebar-section {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .professional-section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;    border-bottom: 2px solid #c8e6c9;
+    padding-bottom: 5px;
+    color: #2e7d32;
+  }
+  .professional-section-title-skill {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase; 
+       border-bottom: 2px solid #c8e6c9;
+    padding-bottom: 5px;
+    color: fff;
+  }
+
+  
+  
+  /* 📌 Contact Info */
+  .professional-contact-item {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .professional-contact-label {
+    font-weight: 400;
+    margin-top: 15px;
+  }
+  
+  .professional-contact-value {
+    color: #e8f5e9;
+  }
+  
+  /* 📌 Skills Styling */
+  .professional-skill-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .professional-skill-item,
+  .professional-soft-skill-item {
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  /* 📌 Skill Progress Bar */
+  .professional-skill-bar {
+    height: 6px;
+    background-color: #1b5e20;
+    border-radius: 3px;
+    margin-top: 3px;
+  }
+  
+  .professional-skill-level {
+    height: 100%;
+    background-color: #c8e6c9;
+    border-radius: 3px;
+  }
+  
+  /* ========== MAIN CONTENT ========== */
+  .professional-main {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .professional-main-section {
+    margin-bottom: 30px;
+  }
+  
+  .professional-summary {
+    font-size: 18px;
+    color: #2e7d32;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .professional-text {
+    font-size: 14px;
+    color: #444;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  
+  /* Work Experience */
+  .professional-experience-item {
+    margin-bottom: 20px;
+  }
+  
+  .professional-experience-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+  }
+  
+  .professional-job-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e7d32;
+  }
+  
+  .professional-company {
+    font-size: 15px;
+    color: #2e7d32;
+    margin: 4px 0;
+    
+  }
+  
+  .professional-duration {
+    font-size: 14px;
+    color: #757575;
+    margin-bottom: 6px;
+  }
+  
+  .professional-job-description {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 4px;
+    text-align: justify;
+  }
+  
+  .professional-total-experience {
+    font-size: 14px;
+    color: #2e7d32;
+    font-weight: 500;
+    margin-top: 15px;
+  }
+  
+  /* Projects */
+  .professional-project-item {
+    margin-bottom: 20px;
+  }
+  
+  .professional-project-title {
+    color: black;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  
+  .professional-project-description {
+    font-size: 14px;
+    color: #555;
+    text-align: justify;
+  }
+  
+  /* Education */
+  .professional-education-item {
+    margin-bottom: 20px;
+  }
+  
+  .professional-education-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .professional-education-title-container {
+    flex: 1;
+  }
+  
+  .professional-education-degree {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #444;
+    text-transform: uppercase;
+  }
+  
+  .professional-institution-name {
+    font-size: 15px;
+    color: #555;
+    text-transform: uppercase;
+
+  }
+  
+  .professional-education-date {
+    font-size: 14px;
+    color: #757575;
+    min-width: 120px;
+    text-align: right;
+  }
+  
+  /*Language and Interests*/
+
+  .professional-two-column {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .professional-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2e7d32;
+  }
+  
+  .professional-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .professional-list-item {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  

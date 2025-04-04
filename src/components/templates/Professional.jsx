@@ -1,70 +1,184 @@
 import React from "react";
-import '../css/professionalTemplate.css'
+import "../css/templateProf.css";
+
 const Professional = ({ data }) => {
-  if (!data) {
-    return <p>Loading Resume Data...</p>;
-  }
-
   return (
-<div className="professional-resume">
-  {/* Left Section */}
-  <div className="professional-left-section">
-    <div className="professional-profile-pic">
-      <img src={data.profilePic} alt="Profile Picture" className="professional-profile-img" />
+    <div className="professional-wrapper">
+      <div className="professional-container">
+
+        {/* Sidebar */}
+        <div className="professional-sidebar">
+
+          {/* Profile Image & Name */}
+          <div className="professional-profile-section">
+            <figure className="professional-image-container">
+              <img src={data?.profilePic} alt="Profile" className="professional-profile-image" />
+            </figure>
+            <h1>{data?.personal?.fullName}</h1>
+            <h2>{data?.personal?.jobTitle}</h2>
+          </div>
+
+          {/* Contact */}
+          <div className="professional-sidebar-section">
+            <h3 className="professional-section-title-skill">Contact</h3>
+            <div className="professional-contact-item">
+              <h4  className="professional-contact-label">Phone</h4>
+              <span className="professional-contact-value">{data?.personal?.phone}</span>
+            </div>
+            <div className="professional-contact-item">
+              <h4 className="professional-contact-label">Email</h4>
+              <span className="professional-contact-value">{data?.personal?.email}</span>
+            </div>
+            {data?.personal?.linkedin && (
+              <div className="professional-contact-item">
+                <h4 className="professional-contact-label">LinkedIn</h4>
+                <span className="professional-contact-value">{data.personal.linkedin}</span>
+              </div>
+            )}
+            {data?.personal?.address && (
+              <div className="professional-contact-item">
+                <h4 className="professional-contact-label">Address</h4>
+                <span className="professional-contact-value">{data.personal.address}</span>
+              </div>
+            )}
+          </div>
+
+        {/* Technical Skills */}
+<section className="professional-sidebar-section">
+  <h3 className="professional-section-title-skill">Technical Skills</h3>
+  <ul className="professional-skill-list">
+    {(data?.skills?.technical || "")
+      .join(",") // Convert array to comma-separated string
+      .split(",") // Split by comma
+      .map((skill, index) => (
+        <li key={index} className="professional-skill-item">{skill.trim()}</li>
+      ))}
+  </ul>
+</section>
+
+{/* Soft Skills */}
+<section className="professional-sidebar-section">
+  <h3 className="professional-section-title-skill">Soft Skills</h3>
+  <ul className="professional-skill-list">
+    {(data?.skills?.soft || "")
+      .join(",") // Convert array to comma-separated string
+      .split(",") // Split by comma
+      .map((skill, index) => (
+        <li key={index} className="professional-soft-skill-item">{skill.trim()}</li>
+      ))}
+  </ul>
+</section>
+
+       
+        </div>
+
+        {/* Main Content */}
+        <div className="professional-main">
+
+          {/* Summary */}
+          {data?.personal?.aboutMe && (
+            <div className="professional-main-section">
+              <h3 className="professional-summary">Professional Summary</h3>
+              <p className="professional-text">{data.personal.aboutMe}</p>
+            </div>
+          )}
+
+          {/* Experience */}
+          {(data?.experience?.length || 0) > 0 && (
+            <section className="professional-resume-section">
+              <h2 className="professional-section-title">Work Experience</h2>
+              <div className="professional-section-content">
+                {data.experience.map((exp, index) => (
+                  <div key={index} className="professional-experience-item">
+                    <div className="professional-experience-header">
+                      <h3 className="professional-job-title">{exp.jobTitle}</h3>
+                      <p className="professional-company">{exp.companyName}</p>
+                      <p className="professional-duration">{exp.companyExp}</p>
+                      <p className="professional-job-description">{exp.jobDescription}</p>
+                      <p className="professional-total-experience">
+                        Total Experience: {exp.totalExperience}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+
+
+          {/* Projects */}
+          {(data?.experience?.[0]?.projects?.length || 0) > 0 && (
+            <section className="professional-main-section">
+              <h3 className="professional-section-title">Projects</h3>
+              <div className="professional-section-content">
+                {data.experience[0].projects.map((project, index) => (
+                  <div key={index} className="professional-project-item">
+                    <h4 className="professional-project-title">{project.title}</h4>
+                    <p className="professional-project-description">{project.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+
+          {/* Education */}
+          {(data?.education?.length || 0) > 0 && (
+            <section className="professional-main-section">
+              <h3 className="professional-section-title">Education</h3>
+              <div className="professional-section-content">
+                {data.education.map((edu, index) => (
+                  <div key={index} className="professional-education-item">
+                    <div className="professional-education-header">
+                      <div className="professional-education-title-container">
+                        <h4 className="professional-education-degree">{edu.degree}</h4>
+                        <p className="professional-institution-name">{edu.university}</p>
+                      </div>
+                      <p className="professional-education-date">
+                        {edu.year} | CGPA: {edu.cgpa}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+    {/* Languages + Interests under Education */}
+{(data?.skills?.language?.length > 0 || data?.skills?.interests?.length > 0) && (
+  <section className="professional-main-section">
+    <h3 className="professional-section-title">More About Me</h3>
+    <div className="professional-section-content professional-two-column">
+      {data?.skills?.language?.length > 0 && (
+        <div>
+          <h4 className="professional-subtitle">Languages</h4>
+          <ul className="professional-list">
+            {data.skills.language.join(",").split(",").map((lang, index) => (
+              <li key={index} className="professional-list-item">{lang.trim()}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {data?.skills?.interests?.length > 0 && (
+        <div>
+          <h4 className="professional-subtitle">Interests</h4>
+          <ul className="professional-list">
+            {data.skills.interests.join(",").split(",").map((interest, index) => (
+              <li key={index} className="professional-list-item">{interest.trim()}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
-    <p className="professional-name">{data.personal.fullName}</p>
-    <p className="professional-job-title">{data.experience.jobTitle} </p>
-    <div className="professional-contact-info">
-      <p className="professional-email">{data.personal.email}</p>
-      <p className="professional-phone">📞 {data.personal.phone}</p>
-      <p className="professional-address">📍 {data.personal.address}</p>
-      {/* <p className="professional-linkedin">🔗 <a href="#">LinkedIn Profile</a></p> */}
+  </section>
+)}
+
+
+        </div>
+      </div>
     </div>
-  </div>
-
-  {/* Right Section */}
-  <div className="professional-right-section">
-    <div className="professional-about">
-      <p className="professional-section-title">About Me</p>
-      <p className="professional-about-text">Lorem  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente laboriosam vitae labore voluptas fugiat a hic ullam quisquam nam ut nemo accusamus placeat laudantium reprehenderit aliquid unde aspernatur iure rerum saepe incidunt velit, at, perferendiaga! Quo atque vitae fugit alias ratione. Delectus repudiandae eveniet quasi laudantium veritatis maiores? Delectus doloremque perferendis qugit animi, ad rerum suscipit eius sit magnam libero quasi cum cupiditate debitis. Error pariatur voluptate quam enim cupiditate unde a. Recusandae provident incidunt inventore est sequi dignissimos consectetur obcaecati! Accusamus, autem? Fugiat earum cumque laboriosam libero magni eos in debitis ea molestias eum doloribus, quos officia distinctio nam doloremque non, explicabo velit a optio consequuntur soluta commodi aliquid veniam. Officia atque corrupti repellat, nulla, ullam cum sapiente dolore earum explicabo voluptates molestias dignissimos, tempora eligendi id ut veritatis inventore beatae et? Quos, repellat maxime vitae iure quam qui hic eaque eum quae minima, optio possimus aliquid debitis minus consectetur vero fugiat maiores at quasi eligendi voluptatibus mollitia ad expedita labore? Laudantium!ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Aenean eu nunc ut lacus bibendum scelerisque.</p>
-    </div>
-
-    <div className="professional-education">
-      <p className="professional-section-title">Education</p>
-      <ul className="professional-list">
-        <li className="professional-list-item">
-          <span className="professional-degree">{data.education.degree}</span> 
-          <span className="professional-university"> - {data.education.university}</span> 
-          <span className="professional-year"> {data.education.year}</span>
-        </li>
-      </ul>
-    </div>
-
-    <div className="professional-experience">
-      <p className="professional-section-title">Work Experience</p>
-      <ul className="professional-list">
-        <li className="professional-list-item">
-          <span className="professional-job-title">{data.experience.jobTitle}</span> 
-          <span className="professional-company"> - {data.experience.companyName}</span> 
-          <span className="professional-year"> {data.experience.year}</span>
-        </li>
-      </ul>
-    </div>
-
-    <div className="professional-skills-section">
-      <p className="professional-section-title">Skills</p>
-      <ul className="professional-skills-list">
-        <li className="professional-skill">{data.skills.technical}</li>
-        <li className="professional-skill">{data.skills.soft}</li>
-        <li className="professional-skill">{data.skills.language}</li>
-        <li className="professional-skill">{data.skills.interests}</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
   );
 };
 
