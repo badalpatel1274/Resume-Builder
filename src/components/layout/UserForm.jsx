@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import '../css/useForm.css';
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import isEqual from "lodash.isequal"
 
 const UserForm = () => {
   const { register, handleSubmit, formState: { errors }, trigger, watch } = useForm({ mode: "onTouched" });
@@ -11,6 +12,32 @@ const UserForm = () => {
   const [projectFields, setProjectFields] = useState(1)
 
   const navigate = useNavigate()
+  useEffect(() => {
+    const subscription = watch((value) => {
+      const isDirty = !isEqual(value, {
+        personal: {},
+        education: {},
+        experience: {},
+        skills: {},
+        image: undefined,
+      });
+  
+      const handleBeforeUnload = (e) => {
+        if (isDirty) {
+          e.preventDefault();
+          e.returnValue = ''; // This shows browser default prompt
+        }
+      };
+  
+      window.addEventListener("beforeunload", handleBeforeUnload);
+      return () => {
+        window.removeEventListener("beforeunload", handleBeforeUnload);
+      };
+    });
+  
+    return () => subscription.unsubscribe();
+  }, [watch]);
+  
   const submithandler = async (data) => {
 
 
@@ -187,224 +214,215 @@ const UserForm = () => {
 
 
   return (
-    <div className="resume-container">
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-        transition={Bounce}
-      />
-      <h2>Create Your Resume</h2>
-      <p>Fill in your details to generate your professional resume</p>
-
-
-      {/* Tabs (Disabled Click) */}
-      <div className="tabs">
-        {["Personal", "Education", "Experience", "Skills"].map((tab) => (
-          <button key={tab} className={activeTab === tab ? "tab active" : "tab"} disabled>
-            {tab}
-          </button>
-        ))}
+    <div className="userform-container">
+    <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick={false}
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="colored"
+      transition={Bounce}
+    />
+    <h2 className="userform-heading">Create Your Resume</h2>
+    <p className="userform-subheading">Fill in your details to generate your professional resume</p>
+  
+    {/* Tabs (Disabled Click) */}
+    <div className="userform-tabs">
+      {["Personal", "Education", "Experience", "Skills"].map((tab) => (
+        <button key={tab} className={activeTab === tab ? "userform-tab active" : "userform-tab"} disabled>
+          {tab}
+        </button>
+      ))}
+    </div>
+  
+    {/* Form Section */}
+    <form className="userform-form" onSubmit={handleSubmit(submithandler)}>
+      <div className="userform-group">
+        <label className="userform-label">Profile Img</label>
+        <input className="userform-input" type="file" {...register("image")} />
       </div>
-
-      {/* Form Section */}
-      <form className="resume-form" onSubmit={handleSubmit(submithandler)}>
-        <div className="form-group">
-          <label>Profile Img</label>
-          <input type="file" {...register("image")} />
-        </div>
-        {/* Personal Info */}
-        {activeTab === "Personal" && (
-          <>
-            <div className="form-group">
-              <label>Full Name</label>
-              <input type="text" {...register("personal.fullName", validationSchema.personal.fullName)}  placeholder="Enter your full name"/>
-              <span style={{ color: 'red' }}>{errors.personal?.fullName?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>About Me</label>
-              <input type="textarea" {...register("personal.aboutMe", validationSchema.personal.aboutMe)}  placeholder="Tell us about yourself"/>
-              <span style={{ color: 'red' }}>{errors.personal?.aboutMe?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Job Title</label>
-              <input type="text" {...register("personal.jobTitle", validationSchema.personal.jobTitle)}  placeholder="Enter your job title"/>
-              <span style={{ color: 'red' }}>{errors.personal?.jobTitle?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Email</label>
-              <input type="email" {...register("personal.email", validationSchema.personal.email)}placeholder="Enter your email" />
-              <span style={{ color: 'red' }}>{errors.personal?.email?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Birth Date</label>
-              <input type="text" {...register("personal.birthDate", validationSchema.personal.birthDate)}  placeholder="DD/MM/YYYY"/>
-              <span style={{ color: 'red' }}>{errors.personal?.birthDate?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Phone</label>
-              <input type="number" {...register("personal.phone", validationSchema.personal.phone)}placeholder="Enter your phone number"  />
-              <span style={{ color: 'red' }}>{errors.personal?.phone?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Address</label>
-              <input type="textArea" {...register("personal.address")}  placeholder="Enter your address" />
-              {/* <span style={{color:'red'}}>{errors.personal?.address?.message}</span> */}
-            </div>
-          </>
-        )}
-
-        {/* Education */}
-        {activeTab === "Education" && (
-          <>
-            <div className="form-group">
-              <label>Degree</label>
-              <input type="text" {...register("education.degree", validationSchema.education.degree)} placeholder="Enter your degree"  />
-              <span style={{ color: 'red' }}>{errors.education?.degree?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>University</label>
-              <input type="text" {...register("education.university", validationSchema.education.university)} placeholder="Enter university name"  />
-              <span style={{ color: 'red' }}>{errors.education?.university?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Year of Passing</label>
-              <input type="number" {...register("education.year", validationSchema.education.year)} placeholder="Year of passing"  />
-              <span style={{ color: 'red' }}>{errors.education?.year?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>CGPA</label>
-              <input type="number" {...register("education.cgpa")}  placeholder="Enter your CGPA"/>
-              {/* <span style={{color:'red'}}>{errors.education?.cgpa?.message}</span> */}
-            </div>
-          </>
-        )}
-
-        {/* Experience */}
-        {activeTab === "Experience" && (
-          <>
-            <div className="form-group">
-              <label>Company Name (Optional)</label>
-              <input type="text" {...register("experience.companyName")}placeholder="Company name" />
-            </div>
-
-            <div className="form-group">
-              <label>Company Experience (Optional)</label>
-              <input type="text" {...register("experience.companyExp")}  placeholder="Company experience (e.g., 2 years)"/>
-            </div>
-
-            <div className="form-group">
-              <label>Job Description (Optional)</label>
+  
+      {activeTab === "Personal" && (
+        <>
+          <div className="userform-group">
+            <label className="userform-label">Full Name</label>
+            <input className="userform-input" type="text" {...register("personal.fullName", validationSchema.personal.fullName)} placeholder="Enter your full name" />
+            <span className="userform-error">{errors.personal?.fullName?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">About Me</label>
+            <input className="userform-input" type="textarea" {...register("personal.aboutMe", validationSchema.personal.aboutMe)} placeholder="Tell us about yourself" />
+            <span className="userform-error">{errors.personal?.aboutMe?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Job Title</label>
+            <input className="userform-input" type="text" {...register("personal.jobTitle", validationSchema.personal.jobTitle)} placeholder="Enter your job title" />
+            <span className="userform-error">{errors.personal?.jobTitle?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Email</label>
+            <input className="userform-input" type="email" {...register("personal.email", validationSchema.personal.email)} placeholder="Enter your email" />
+            <span className="userform-error">{errors.personal?.email?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Birth Date</label>
+            <input className="userform-input" type="text" {...register("personal.birthDate", validationSchema.personal.birthDate)} placeholder="DD/MM/YYYY" />
+            <span className="userform-error">{errors.personal?.birthDate?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Phone</label>
+            <input className="userform-input" type="number" {...register("personal.phone", validationSchema.personal.phone)} placeholder="Enter your phone number" />
+            <span className="userform-error">{errors.personal?.phone?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Address</label>
+            <input className="userform-input" type="textArea" {...register("personal.address")} placeholder="Enter your address" />
+          </div>
+        </>
+      )}
+  
+      {/* Education */}
+      {activeTab === "Education" && (
+        <>
+          <div className="userform-group">
+            <label className="userform-label">Degree</label>
+            <input className="userform-input" type="text" {...register("education.degree", validationSchema.education.degree)} placeholder="Enter your degree" />
+            <span className="userform-error">{errors.education?.degree?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">University</label>
+            <input className="userform-input" type="text" {...register("education.university", validationSchema.education.university)} placeholder="Enter university name" />
+            <span className="userform-error">{errors.education?.university?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Year of Passing</label>
+            <input className="userform-input" type="number" {...register("education.year", validationSchema.education.year)} placeholder="Year of passing" />
+            <span className="userform-error">{errors.education?.year?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">CGPA</label>
+            <input className="userform-input" type="number" {...register("education.cgpa")} placeholder="Enter your CGPA" />
+          </div>
+        </>
+      )}
+  
+      {/* Experience */}
+      {activeTab === "Experience" && (
+        <>
+          <div className="userform-group">
+            <label className="userform-label">Company Name (Optional)</label>
+            <input className="userform-input" type="text" {...register("experience.companyName")} placeholder="Company name" />
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Company Experience (Optional)</label>
+            <input className="userform-input" type="text" {...register("experience.companyExp")} placeholder="Company experience (e.g., 2 years)" />
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Job Description (Optional)</label>
+            <textarea
+              className="userform-textarea"
+              {...register("experience.jobDescription")}
+              placeholder="Describe your job role in 300 character"
+              style={{ borderColor: watch("experience.jobDescription")?.length > 300 ? "red" : "" }}
+            />
+            <p className="userform-charcount" style={{ color: watch("experience.jobDescription")?.length > 300 ? "red" : "white" }}>
+              {watch("experience.jobDescription")?.length}/300
+            </p>
+          </div>
+  
+          {[...Array(projectFields)].map((_, index) => (
+            <div key={index} className="userform-group">
+              <label className="userform-label">Project Title {index + 1} (Optional)</label>
+              <input className="userform-input" type="text" {...register(`experience.projects.${index}.title`)} placeholder="Enter your project name" />
+  
+              <label className="userform-label">Project Description {index + 1} (Optional)</label>
               <textarea
-                {...register("experience.jobDescription")} placeholder="Describe your job role in 300 character" 
-                style={{
-                  borderColor: watch("experience.jobDescription")?.length > 300 ? "red" : "",
-                }}
+                className="userform-textarea"
+                {...register(`experience.projects.${index}.description`)}
+                placeholder="Describe your project in 200 Character"
+                style={{ borderColor: watch(`experience.projects.${index}.description`)?.length > 200 ? "red" : "" }}
               />
-
               <p
+                className="userform-charcount"
                 style={{
-                  color: watch("experience.jobDescription")?.length > 300 ? "red" : "white",
+                  color: watch(`experience.projects.${index}.description`)?.length > 200 ? "red" : "white",
                 }}
               >
-                {watch("experience.jobDescription")?.length}/300
+                {watch(`experience.projects.${index}.description`)?.length}/200
               </p>
-
             </div>
-
-            {/* Projects - Initially 1, Click to Add More */}
-            {[...Array(projectFields)].map((_, index) => (
-              <div key={index} className="form-group">
-                <label>Project Title {index + 1} (Optional)</label>
-                <input type="text" {...register(`experience.projects.${index}.title`)}  placeholder="Enter your project name" />
-
-                <label>Project Description {index + 1} (Optional)</label>
-
-                <textarea
-                  {...register(`experience.projects.${index}.description`)}  placeholder="Describe your project in 200 Character"
-                  style={{
-                    borderColor: watch(`experience.projects.${index}.description`)?.length > 200 ? "red" : "",
-                  }}
-                />
-
-                <p
-                  style={{
-                    color: watch(`experience.projects.${index}.description`)?.length > 200 ? "red" : "white",
-                  }}
-                >
-                  {watch(`experience.projects.${index}.description`)?.length}/200
-                </p>
-
-              </div>
-            ))}
-
-            {/* Show "Add More Project" button only if less than 3 projects */}
-            {projectFields < 3 && (
-              <button type="button" onClick={addMoreProject} className="add-project-btn">
-                + Add More Project
-              </button>
-            )}
-
-            <div className="form-group">
-              <label>Total Experience (Optional)</label>
-              <input type="text" {...register("experience.totalExperience")} placeholder="Total work experience (e.g., 5 years)"  />
-            </div>
-          </>
+          ))}
+  
+          {projectFields < 3 && (
+            <button type="button" onClick={addMoreProject} className="userform-add-project-btn">
+              + Add More Project
+            </button>
+          )}
+  
+          <div className="userform-group">
+            <label className="userform-label">Total Experience (Optional)</label>
+            <input className="userform-input" type="text" {...register("experience.totalExperience")} placeholder="Total work experience (e.g., 5 years)" />
+          </div>
+        </>
+      )}
+  
+      {/* Skills */}
+      {activeTab === "Skills" && (
+        <>
+          <div className="userform-group">
+            <label className="userform-label">Technical Skills</label>
+            <input className="userform-input" type="text" {...register("skills.technical", validationSchema.skills.technical)} placeholder="List technical skills" />
+            <span className="userform-error">{errors.skills?.technical?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Soft Skills</label>
+            <input className="userform-input" type="text" {...register("skills.soft", validationSchema.skills.soft)} placeholder="List soft skills" />
+            <span className="userform-error">{errors.skills?.soft?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Languages</label>
+            <input className="userform-input" type="text" {...register("skills.language", validationSchema.skills.language)} placeholder="Languages you know" />
+            <span className="userform-error">{errors.skills?.language?.message}</span>
+          </div>
+  
+          <div className="userform-group">
+            <label className="userform-label">Interest</label>
+            <input className="userform-input" type="text" {...register("skills.interests", validationSchema.skills.interests)} placeholder="Your interests" />
+            <span className="userform-error">{errors.skills?.interests?.message}</span>
+          </div>
+        </>
+      )}
+  
+      {/* Navigation Buttons */}
+      <div className="userform-buttons">
+        {activeTab !== "Personal" && <button className="userform-prev-btn" type="button" onClick={prevStep}>Previous</button>}
+        {activeTab === "Skills" ? (
+          <button className="userform-next-btn" type="submit">Submit</button>
+        ) : (
+          <button className="userform-next-btn" type="button" onClick={nextStep}>Next</button>
         )}
-
-
-        {/* Skills */}
-        {activeTab === "Skills" && (
-          <>
-            <div className="form-group">
-              <label>Technical Skills</label>
-              <input type="text" {...register("skills.technical", validationSchema.skills.technical)}  placeholder="List technical skills"/>
-              <span>{errors.skills?.technical?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Soft Skills</label>
-              <input type="text" {...register("skills.soft", validationSchema.skills.soft)} placeholder="List soft skills"   />
-              <span style={{ color: 'red' }}>{errors.skills?.soft?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Languages</label>
-              <input type="text" {...register("skills.language", validationSchema.skills.language)}placeholder="Languages you know" />
-              <span>{errors.skills?.language?.message}</span>
-            </div>
-
-            <div className="form-group">
-              <label>Interest</label>
-              <input type="text" {...register("skills.interests", validationSchema.skills.interests)} placeholder="Your interests" />
-              <span>{errors.skills?.interests?.message}</span>
-            </div>
-          </>
-        )}
-
-        {/* Navigation Buttons */}
-        <div className="form-buttons">
-          {activeTab !== "Personal" && <button className="prev-btn" type="button" onClick={prevStep}>Previous</button>}
-          {activeTab === "Skills" ? <button className="next-btn" type="submit">Submit</button> : <button className="next-btn" type="button" onClick={nextStep}>Next</button>}
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
+  
   );
 };
 

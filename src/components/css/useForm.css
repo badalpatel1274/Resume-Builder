@@ -1,13 +1,4 @@
-/* General Styles */
-body {
-  background-color: #0d0d0d;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-/* Main Resume Box */
-.resume-container {
+.userform-container {
   width: 90%;
   max-width: 1250px;
   margin: auto;
@@ -16,10 +7,12 @@ body {
   border-radius: 18px;
   background: #121212;
   box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Animated Heading */
-/* h2 {
+.userform-heading {
   color: #d3a4ff;
   text-shadow: 0 0 12px #d3a4ff;
   font-size: 32px;
@@ -27,11 +20,10 @@ body {
   text-transform: uppercase;
   margin-bottom: 10px;
   letter-spacing: 2px;
-  animation: glow 1.5s infinite alternate;
-} */
+  animation: userform-glow 1.5s infinite alternate;
+}
 
-/* Glowing Effect */
-@keyframes glow {
+@keyframes userform-glow {
   from {
     text-shadow: 0 0 10px #d3a4ff, 0 0 20px #d3a4ff;
   }
@@ -40,26 +32,23 @@ body {
   }
 }
 
-/* Subtext (Animated Fade-In) */
-/* p {
+.userform-subtext {
   font-size: 18px;
   color: #aaa;
   margin-bottom: 30px;
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeIn 1.5s ease-out forwards;
-} */
+  animation: userform-fadeIn 1.5s ease-out forwards;
+}
 
-/* Fade-In Effect */
-@keyframes fadeIn {
+@keyframes userform-fadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Tabs */
-.tabs {
+.userform-tabs {
   display: flex;
   justify-content: space-between;
   background: #1a1a1a;
@@ -71,7 +60,7 @@ body {
   scrollbar-width: none;
 }
 
-.tab {
+.userform-tab {
   flex: 1;
   padding: 14px;
   background: none;
@@ -84,18 +73,17 @@ body {
   border-bottom: 3px solid transparent;
 }
 
-.tab:hover {
+.userform-tab:hover {
   color: #ff6fff;
 }
 
-.tab.active {
+.userform-tab.active {
   border-bottom: 3px solid #d3a4ff;
   font-weight: bold;
   text-shadow: 0 0 10px #d3a4ff;
 }
 
-/* Form */
-.resume-form {
+.userform-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -107,17 +95,15 @@ body {
   background: rgba(26, 26, 26, 0.95);
 }
 
-/* Form Group */
-.form-group {
+.userform-group {
   display: flex;
   flex-direction: column;
   text-align: left;
   gap: 5px;
 }
 
-/* Input & Textarea */
-input,
-textarea {
+.userform-input,
+.userform-textarea {
   width: 100%;
   padding: 14px;
   background: #1f1f1f;
@@ -128,20 +114,19 @@ textarea {
   transition: 0.3s;
 }
 
-input:focus,
-textarea:focus {
+.userform-input:focus,
+.userform-textarea:focus {
   border-color: #d3a4ff;
   box-shadow: 0 0 8px #d3a4ff;
   outline: none;
 }
 
-/* Experience Buttons */
-.experience-buttons {
+.userform-experience-buttons {
   display: flex;
   gap: 15px;
 }
 
-.exp-btn {
+.userform-exp-btn {
   flex: 1;
   padding: 12px;
   background: #1a1a1a;
@@ -154,27 +139,47 @@ textarea:focus {
   transition: 0.3s;
 }
 
-.exp-btn.active {
+.userform-exp-btn.active {
   background: #d3a4ff;
   color: #000;
   border-color: #d3a4ff;
   box-shadow: 0 0 10px #d3a4ff;
 }
 
-.exp-btn:hover {
+.userform-exp-btn:hover {
   background: #b57edc;
   border-color: #b57edc;
 }
 
-/* Buttons */
-.form-buttons {
+.userform-add-project-btn {
+  padding: 12px 25px;
+  background-color: #d3a4ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 8px rgba(211, 164, 255, 0.4);
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.userform-add-project-btn:hover {
+  background-color: #b57edc;
+  box-shadow: 0 0 12px #b57edc;
+}
+
+
+.userform-buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.prev-btn,
-.next-btn {
+.userform-prev-btn,
+.userform-next-btn {
   padding: 16px 35px;
   border: none;
   border-radius: 8px;
@@ -183,103 +188,102 @@ textarea:focus {
   transition: 0.3s;
 }
 
-.prev-btn {
+.userform-prev-btn {
   background: #888;
   color: #fff;
 }
 
-.next-btn {
+.userform-next-btn {
   background: #d3a4ff;
   color: #000;
 }
 
-.next-btn:hover {
+.userform-next-btn:hover {
   background: #b57edc;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 1024px) {
-  .resume-container {
+  .userform-container {
     width: 95%;
     padding: 30px;
   }
 
-  .resume-form {
+  .userform-form {
     width: 90%;
   }
 
-  .tabs {
-    overflow-x: auto;
+  .userform-tabs {
     justify-content: flex-start;
   }
 
-  .tab {
+  .userform-tab {
     min-width: 120px;
     flex: none;
   }
 
-  .form-buttons {
+  .userform-buttons {
     flex-direction: column;
     gap: 10px;
   }
 
-  .prev-btn,
-  .next-btn {
+  .userform-prev-btn,
+  .userform-next-btn {
     width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .resume-container {
+  .userform-container {
     width: 98%;
     padding: 25px;
   }
 
-  .resume-form {
+  .userform-form {
     width: 100%;
     padding: 20px;
   }
 
-  .experience-buttons {
+  .userform-experience-buttons {
     flex-direction: column;
   }
 
-  .exp-btn {
+  .userform-exp-btn {
     width: 100%;
   }
 
-  input,
-  textarea {
+  .userform-input,
+  .userform-textarea {
     font-size: 16px;
     padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
-  .resume-container {
+  .userform-container {
     padding: 20px;
   }
 
-  .resume-form {
+  .userform-form {
     padding: 15px;
   }
 
-  .form-buttons {
+  .userform-buttons {
     flex-direction: column;
     gap: 8px;
   }
 
-  .prev-btn,
-  .next-btn {
+  .userform-prev-btn,
+  .userform-next-btn {
     width: 100%;
   }
 
-  .tab {
+  .userform-tab {
     font-size: 16px;
     padding: 10px;
   }
 
-  .exp-btn {
+  .userform-exp-btn {
     font-size: 16px;
     padding: 10px;
   }
