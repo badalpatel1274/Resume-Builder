@@ -7,8 +7,8 @@
 }
 
 body {
-  background-color: #121212;
-  color: white;
+  background-color: #0f0f0f;
+  color: #e0e0e0;
   overflow-x: hidden;
 }
 
@@ -20,50 +20,73 @@ body {
 }
 
 /* 🔹 Sidebar (Fixed Width) */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+}
+
+/* Sidebar */
 .admin-sidebar {
-  width: 250px; /* ✅ Sidebar width will remain fixed */
-  background-color: #1c1c1c;
-  padding: 20px;
+  width: 250px;
+  background: linear-gradient(to bottom, #121212, #1a1a1a);
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-right: 2px solid #ff1493;
+  box-shadow: 4px 0 12px rgba(255, 20, 147, 0.3);
+  position: sticky;
+  top: 0;
 }
 
+/* Profile */
 .admin-profile {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .admin-avatar {
-  width: 60px;
-  height: 60px;
-  background-color: gray;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin: 0 auto;
+  background-color: transparent;
+  border: 2px solid #ff1493;
+  margin: 0 auto 10px;
 }
 
 .admin-username {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
+  color: #ff66cc;
 }
 
 .admin-role {
-  font-size: 12px;
-  color: #aaa;
+  font-size: 13px;
+  color: #bbb;
 }
 
+/* Add Button */
 .admin-add-template {
-  background-color: #ff5733;
+  background-color: #ff1493;
   color: white;
   border: none;
-  padding: 10px;
-  margin: 15px 0;
+  padding: 10px 14px;
+  margin: 20px 0;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 5px;
   width: 100%;
+  font-weight: 600;
+  box-shadow: 0 0 12px #ff1493;
+  transition: all 0.3s ease-in-out;
 }
 
+.admin-add-template:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px #ff1493;
+}
+
+/* Menu */
 .admin-menu {
   width: 100%;
 }
@@ -71,39 +94,41 @@ body {
 .admin-menu-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .admin-menu-item {
-  padding: 10px;
-  cursor: pointer;
+  padding: 12px 15px;
+  margin: 6px 0;
+  border-radius: 6px;
   text-align: center;
   display: block;
-  color: white;
+  color: #ddd;
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
 }
 
-.admin-menu-item:hover,
+.admin-menu-item:hover {
+  background-color: #ff1493;
+  color: #fff;
+  box-shadow: 0 0 10px #ff1493;
+}
+
 .admin-active {
-  background-color: #ff5733;
+  background-color: #ff1493;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 10px #ff1493;
 }
 
-.admin-logout {
-  margin-top: auto;
-  padding: 10px;
-  background-color: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  border-radius: 5px;
-}
 
-/* 🔹 Main Content (Fixed Width) */
+/* 🔹 Main Content */
 .admin-main {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  width: calc(100vw - 250px); /* ✅ Same width as Dashboard */
+  width: calc(100vw - 250px);
 }
 
 /* 🔹 Dashboard Cards */
@@ -114,39 +139,42 @@ body {
 }
 
 .admin-card {
-  background-color: #1c1c1c;
+  background-color: #1e1e1e;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   flex: 1;
   text-align: center;
   min-width: 250px;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.2);
 }
 
 .admin-card-title {
   margin: 10px 0;
+  color: #ff66cc;
 }
 
 .admin-card-number {
   font-size: 24px;
   font-weight: bold;
+  color: #e0e0e0;
 }
 
 .admin-card-info {
   font-size: 12px;
-  color: #7bff95;
+  color: #c0c0c0;
 }
 
 .admin-icon {
   font-size: 24px;
-  color: #ff5733;
+  color: #ff1493;
 }
 
-/* 🔹 Add Template Page (Same Width as Dashboard) */
+/* 🔹 Add Template Page */
 .addtemp-container {
-  width: calc(100vw - 250px); /* ✅ Sidebar ke baad full width */
+  width: calc(100vw - 250px);
   height: 100vh;
-  background-color: #0a0a0a;
-  color: white;
+  background-color: #121212;
+  color: #e0e0e0;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -155,34 +183,36 @@ body {
 .addtemp-title {
   font-size: 28px;
   font-weight: bold;
-  color: #ff5733;
+  color: #ff66cc;
+  text-shadow: 0 0 6px #ff1493;
 }
 
 .addtemp-subtitle {
   font-size: 16px;
-  color: #bbb;
+  color: #c0c0c0;
   margin-bottom: 20px;
 }
 
 .addtemp-form {
-  background: #222;
+  background: #1a1a1a;
   padding: 20px;
   border-radius: 8px;
-  width: 100%; /* ✅ Now full width */
-  flex: 1; /* ✅ Takes full space */
+  width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.1);
 }
 
 .addtemp-section-title {
   font-size: 20px;
-  color: #ff5733;
+  color: #ff66cc;
   margin-bottom: 10px;
 }
 
 .addtemp-section-desc {
   font-size: 14px;
-  color: #aaa;
+  color: #bbb;
   margin-bottom: 20px;
 }
 
@@ -202,8 +232,8 @@ body {
   width: 100%;
   padding: 10px;
   border: 1px solid #444;
-  background-color: #333;
-  color: white;
+  background-color: #2a2a2a;
+  color: #fff;
   border-radius: 5px;
 }
 
@@ -216,7 +246,7 @@ body {
   text-align: center;
   margin-top: 20px;
 }
-/* 🔹 Preview Image */
+
 .addtemp-preview-img {
   width: 100%;
   max-width: 200px;
@@ -224,8 +254,8 @@ body {
   border-radius: 5px;
   object-fit: cover;
   margin-top: 10px;
+  border: 2px solid #ff66cc;
 }
-
 
 .addtemp-thumbnail-placeholder {
   width: 150px;
@@ -237,12 +267,13 @@ body {
 }
 
 .addtemp-upload-button {
-  background-color: #ff5733;
+  background-color: #ff1493;
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+  box-shadow: 0 0 8px #ff1493;
 }
 
 .addtemp-image-size-info {
@@ -254,7 +285,7 @@ body {
 /* 🔹 Submit Button */
 .addtemp-submit-button {
   width: 100%;
-  background-color: #ff5733;
+  background-color: #ff1493;
   color: white;
   border: none;
   padding: 12px;
@@ -263,12 +294,80 @@ body {
   border-radius: 5px;
   margin-top: 20px;
   transition: 0.3s ease-in-out;
+  box-shadow: 0 0 10px #ff1493;
 }
 
 .addtemp-submit-button:hover {
-  background-color: #e04b2f;
+  background-color: #e60073;
 }
 
+/*recent activity*/
+.admin-recent-activity {
+  background-color: #111;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3); /* soft neon pink glow */
+  padding: 24px;
+  margin-top: 32px;
+  color: #eee;
+}
+
+.admin-activity-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ff1493; /* neon pink */
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff1493;
+}
+
+.admin-activity {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+  border: 1px solid rgba(192, 192, 192, 0.2); /* subtle neon silver border */
+}
+
+.admin-activity:hover {
+  background-color: #2a2a2a;
+  box-shadow: 0 0 12px rgba(192, 192, 192, 0.3); /* neon silver hover */
+}
+
+.admin-activity-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.admin-activity-user {
+  font-weight: bold;
+  color: #ff66cc; /* soft neon pink */
+  text-shadow: 0 0 5px #ff66cc;
+}
+
+.admin-activity-time {
+  color: #c0c0c0; /* neon silver */
+  font-size: 0.85rem;
+  text-shadow: 0 0 4px #c0c0c0;
+}
+
+/*Charts*/
+.admin-charts {
+  display: flex;
+  flex-wrap: wrap; /* mobile-friendly */
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.admin-charts > * {
+  flex: 1 1 400px; /* Minimum width 400px, responsive */
+  max-width: 600px;
+}
 
 /* 🔹 Responsive Design */
 @media (max-width: 1024px) {
@@ -310,5 +409,18 @@ body {
 
   .addtemp-form {
     max-width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .admin-activity {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .admin-activity-time {
+    margin-left: 0;
   }
 }
