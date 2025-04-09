@@ -1,0 +1,46 @@
+.adminUsers-container {
+    width: calc(100vw - 250px);
+    padding: 2rem;
+    min-height: 100vh;
+    background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+    color: white;
+  }
+  
+  .adminUsers-heading {
+    font-size: 2.5rem;
+    color: #ff00ff;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px #ff00ff;
+  }
+  
+  .adminUsers-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    border: 1px solid #c0c0c0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .adminUsers-table th {
+    padding: 1rem;
+    background-color: #2a2a2a;
+    color: #ff00ff;
+    border-bottom: 1px solid #444;
+  }
+  
+  .adminUsers-table td {
+    padding: 1rem;
+    text-align: center;
+    color: #ddd;
+    border-bottom: 1px solid #333;
+  }
+  
+  .adminUsers-noData {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #aaa;
+  }
+  

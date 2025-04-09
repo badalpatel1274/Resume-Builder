@@ -1,0 +1,71 @@
+.userresumes-wrapper {
+    padding: 2rem;
+    background: #0c0c0c;
+    min-height: 100vh;
+    color: #eee;
+  }
+  
+  .userresumes-heading {
+    font-size: 2.5rem;
+    color: #ff00ff;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .userresumes-empty {
+    text-align: center;
+    color: #ccc;
+    font-size: 1.2rem;
+  }
+  
+  .userresumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .userresumes-card {
+    background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+    border: 2px solid #ff00ff44;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px #ff00ff55, 0 0 30px #c0c0c055;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .userresumes-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #ff00ffaa, 0 0 40px #ffffff33;
+  }
+  
+  .userresumes-card h3 {
+    font-size: 1.4rem;
+    color: #f0f0f0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .userresumes-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+  }
+  
+  .userresumes-actions {
+    margin-top: 1rem;
+  }
+  
+  .userresumes-preview-btn {
+    padding: 0.5rem 1rem;
+    background: #d800ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .userresumes-preview-btn:hover {
+    background: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff88;
+  }
+  

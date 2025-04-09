@@ -33,21 +33,25 @@ const UserNavbar = () => {
                 </div>
 
                 <ul className={`navbar-menu ${isOpen ? "menu-open" : ""}`}>
-                    {/* ✅ Home will always be visible */}
                     <li className="navbar-item">
                         <Link to="/" className="navbar-link" onClick={() => setIsOpen(false)}>Home</Link>
                     </li>
 
-                    {/* ✅ Admin will always be visible */}
                     <li className="navbar-item">
                         <Link to="/admin" className="navbar-link" onClick={() => setIsOpen(false)}>Admin</Link>
                     </li>
 
-                    {/* ✅ Toggle Login/Signup or Logout based on authentication */}
                     {role ? (
-                        <li className="navbar-item">
-                            <button className="navbar-link logout-btn" onClick={handleLogout}>Logout</button>
-                        </li>
+                        <>
+                            <li className="navbar-item">
+                                <Link to="/user/account/dashboard" className="navbar-link" onClick={() => setIsOpen(false)}>
+                                    My Account
+                                </Link>
+                            </li>
+                            <li className="navbar-item">
+                                <button className="navbar-link logout-btn" onClick={handleLogout}>Logout</button>
+                            </li>
+                        </>
                     ) : (
                         <>
                             <li className="navbar-item">
@@ -58,6 +62,7 @@ const UserNavbar = () => {
                             </li>
                         </>
                     )}
+
                 </ul>
             </nav>
 

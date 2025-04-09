@@ -1,0 +1,96 @@
+.userProfile-container {
+    background-color: #0d0d0d;
+    min-height: 100vh;
+    padding: 2rem 4rem;
+    color: #e5e5e5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userProfile-welcome {
+    font-size: 2.5rem;
+    color: #ff69b4; /* neon pink */
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px #ff69b4;
+}
+
+.userProfile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.userProfile-field {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.userProfile-field label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    text-shadow: 0 0 5px #ccc;
+}
+
+.userProfile-field span,
+.userProfile-field input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ff69b4;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+    outline: none;
+}
+
+.userProfile-field input:focus {
+    border-bottom: 2px solid #c0c0c0; /* neon silver */
+}
+
+.userProfile-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.userProfile-editBtn,
+.userProfile-saveBtn,
+.userProfile-delete-btn {
+    background-color: transparent;
+    border: 2px solid #ff69b4;
+    color: #ff69b4;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px #ff69b4;
+}
+
+.userProfile-editBtn:hover,
+.userProfile-saveBtn:hover {
+    background-color: #ff69b4;
+    color: #0d0d0d;
+    box-shadow: 0 0 15px #ff69b4;
+}
+
+.userProfile-delete-btn {
+    margin-top: 2rem;
+    border: 2px solid #bf00ff;
+    color: #bf00ff;
+    box-shadow: 0 0 10px #bf00ff;
+}
+
+.userProfile-delete-btn:hover {
+    background-color: #bf00ff;
+    color: #0d0d0d;
+    box-shadow: 0 0 15px #bf00ff;
+}
+
+.userProfile-loading {
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 10px #ff69b4;
+}

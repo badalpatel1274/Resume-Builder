@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import '../css/resumepage.css'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import Professional from "../templates/Professional";
-// import Minimal from "../templates/Minimal";
 
 const ResumePages = () => {
   const [templates, settemplates] = useState([])
@@ -22,10 +20,6 @@ const ResumePages = () => {
     fetchTemplate()
   }, [])
 
-  // const templateComponents = {
-  //     "Professional" : <Professional/>,
-  //     "Minimal" : <Minimal/>
-  // }
 
   const handleSelectTemplate = (templateId) => {
     localStorage.setItem("selectedTemplateId", templateId);

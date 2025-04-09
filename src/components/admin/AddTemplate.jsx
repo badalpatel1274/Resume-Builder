@@ -15,8 +15,8 @@ const AddTemplate = () => {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      setfile(selectedFile);  // ✅ Store file in state
-      setPreview(URL.createObjectURL(selectedFile)); // ✅ Create image preview URL
+      setfile(selectedFile);  
+      setPreview(URL.createObjectURL(selectedFile)); 
     }
   };
 

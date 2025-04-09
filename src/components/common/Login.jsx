@@ -78,7 +78,7 @@ const Login = () => {
         });
       }
     } catch (error) {
-      toast.error('Something Wrong', {
+      toast.error('Invalid Email Or Password', {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
