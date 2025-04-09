@@ -1,0 +1,292 @@
+/* A4 size styling */
+.combined-resume-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
+.combined-resume-wrapper {
+  width: 210mm;
+  min-height: 297mm;
+  background-color: white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --primary-color: #4a148c;
+  --primary-light: #f3e5f5;
+  --primary-dark: #311b92;
+  --text-dark: #333333;
+  --text-medium: #555555;
+  --text-light: #777777;
+  --background-light: #f9f9f9;
+  --border-color: #e0e0e0;
+}
+
+/* Header styling */
+.combined-resume-header {
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 15px;
+}
+
+.combined-resume-h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+.combined-resume-h2 {
+  margin: 5px 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-medium);
+}
+
+.combined-resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.combined-resume-contact-item {
+  font-size: 14px;
+  color: var(--text-medium);
+}
+
+/* Section styling */
+.combined-resume-section {
+  margin-bottom: 25px;
+}
+
+.combined-resume-h3 {
+  margin: 0 0 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.combined-resume-summary {
+  margin-bottom: 25px;
+}
+
+.combined-resume-p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--text-medium);
+  line-height: 1.6;
+  text-align: justify;
+}
+.combined-list-item{
+  color: var(--text-medium);
+  list-style: none;
+
+}
+
+/* Columns layout */
+.combined-resume-columns {
+  display: flex;
+  gap: 30px;
+}
+
+.combined-resume-main-column {
+  flex: 2;
+}
+
+.combined-resume-side-column {
+  flex: 1;
+}
+
+/* Experience styling */
+.combined-resume-experience {
+  margin-bottom: 20px;
+}
+
+.combined-resume-experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.combined-resume-h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.combined-resume-date {
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.combined-resume-company {
+  font-size: 14px;
+  color: var(--text-medium);
+  margin-bottom: 8px;
+}
+
+.combined-resume-ul {
+  margin: 0;
+  color: var(--text-medium);
+  text-align: justify;
+  padding-left: 18px;
+}
+
+.combined-resume-li {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: var(--text-medium);
+}
+
+/* Project styling */
+.combined-resume-project {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: var(--background-light);
+  border-radius: 5px;
+}
+
+.combined-resume-project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.combined-resume-project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.combined-resume-link {
+  font-size: 13px;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.combined-resume-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.combined-resume-tech {
+  padding: 3px 8px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Skills styling */
+.combined-resume-skills-group {
+  margin-bottom: 15px;
+}
+
+.combined-resume-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.combined-resume-skill {
+  padding: 3px 8px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Education styling */
+.combined-resume-education {
+  margin-bottom: 15px;
+}
+
+.combined-resume-institution {
+  font-size: 14px;
+  color: var(--text-medium);
+  margin: 3px 0;
+}
+
+/* Certifications styling */
+.combined-resume-certifications {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.combined-resume-certification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.combined-resume-cert-name {
+  font-size: 14px;
+  color: var(--text-medium);
+}
+
+.combined-resume-cert-date {
+  font-size: 13px;
+  color: var(--primary-color);
+}
+
+/* Languages styling */
+.combined-resume-languages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.combined-resume-language {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.combined-resume-lang-name {
+  font-size: 14px;
+  color: var(--text-medium);
+}
+
+.combined-resume-lang-level {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* Print optimization */
+@media print {
+  .combined-resume-container {
+    padding: 0;
+    background-color: white;
+  }
+
+  .combined-resume-wrapper {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

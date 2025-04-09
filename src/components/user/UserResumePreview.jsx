@@ -7,6 +7,8 @@ import Combined from "../templates/Combined";
 import Modern from "../templates/Modern";
 import Noel from "../templates/Noel";
 import Simple from "../templates/Simple";
+import Focused from "../templates/Focused";
+
 import "../css/preview.css";
 
 const templateComponents = {
@@ -16,6 +18,8 @@ const templateComponents = {
   "Modern": Modern,
   "Noel": Noel,
   "Simple": Simple,
+  "Focused":Focused
+
 };
 
 const ResumePreview = () => {

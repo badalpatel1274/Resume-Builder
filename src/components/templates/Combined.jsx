@@ -1,65 +1,131 @@
+import React from "react"
+import '../css/templateCombined.css'
 
-import React from "react";
-import '../css/combinedTemplate.css'
-
-const Combined = ({data}) => {
-    if (!data) {
-        return <p>Loading Resume Data...</p>;
-      }
-    
+const CombinedResume = ({ data }) => {
   return (
-    <div className="combined-container">
-      <div className="combined-sidebar">
-        <div className="combined-profile">
-          <img src={data.profilePic} alt="Profile" className="combined-profile-img" />
-          <h2 className="combined-name">{data.personal.fullName} </h2>
-          <p className="combined-title">{data.experience.jobTitle}</p>
-        </div>
-        <div className="combined-contact">
-          <h3 className="combined-section-title">Contact Me</h3>
-          <p className="combined-text"> {data.personal.phone}</p>
-          <p className="combined-text"> {data.personal.email}</p>
-          {/* <p className="combined-text">www.yourwebsite.com</p> */}
-          <p className="combined-text"> {data.personal.address}</p>
-        </div>
-        {/* <div className="combined-references">
-          <h3 className="combined-section-title">References</h3>
-          <p className="combined-text">Michael R. Magee</p>
-          <p className="combined-text">Travis M. Godinez</p>
-          <p className="combined-text">Gilbert R. Cross</p>
-        </div> */}
-        <div className="combined-skills">
-          <h3 className="combined-section-title">Skills</h3>
-          <p className="combined-text">{data.skills.technical}</p>
-          <p className="combined-text">{data.skills.soft}</p>
-          {/* <p className="combined-text">Microsoft PowerPoint</p>
-          <p className="combined-text">Adobe Photoshop</p> */}
-        </div>
-        <div className="combined-hobbies">
-          <h3 className="combined-section-title">Hobbies</h3>
-          <p className="combined-text">{data.skills.interests}</p>
-        </div>
-      </div>
-      <div className="combined-main">
-        <div className="combined-section">
-          <h3 className="combined-section-title">About Me</h3>
-          <p className="combined-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit in voluptatum perferendis sit explicabo. Explicabo iure aliquid quod, quia blanditiis reiciendis labore consequuntur eius accusantium praesentium. Eveniet, quas laborum in rerum eos atque qui incidunt, aspernatur quis iste nulla amet esse explicabo culpa, dolorem natus? Voluptas qui ex ratione possimus!a expedita ipsam nihil? Deserunt eveniet debitis fugiat quasi eligendi..</p>
-        </div>
-        <div className="combined-section">
-          <h3 className="combined-section-title">Job Experience</h3>
-          <p className="combined-job-title">{data.experience.jobTitle} <span className="combined-years"> {data.experience.year}</span></p>
-          {/* <p className="combined-job-title">Graphic Designer - <span className="combined-years">2015 - 2018</span></p>
-          <p className="combined-job-title">Marketing Manager - <span className="combined-years">2010 - 2015</span></p> */}
-        </div>
-        <div className="combined-section">
-          <h3 className="combined-section-title">Education</h3>
-          <p className="combined-edu-title">{data.education.degree} - <span className="combined-years"> {data.education.year}</span></p>
-          {/* <p className="combined-edu-title">Master Graphic Designer - <span className="combined-years">2015 - 2017</span></p>
-          <p className="combined-edu-title">Master of Design - <span className="combined-years">2010 - 2012</span></p> */}
+    <div className="combined-resume-container">
+      <div className="combined-resume-wrapper">
+        <header className="combined-resume-header">
+          <h1 className="combined-resume-h1">{data?.personal?.fullName}</h1>
+          <h2 className="combined-resume-h2">{data?.personal?.jobTitle}</h2>
+
+          <div className="combined-resume-contact">
+            {data?.personal?.email && <span className="combined-resume-contact-item">{data.personal.email}</span>}
+            {data?.personal?.phone && <span className="combined-resume-contact-item">{data.personal.phone}</span>}
+            {data?.personal?.address && <span className="combined-resume-contact-item">{data.personal.address}</span>}
+            {data?.personal?.linkedin && <span className="combined-resume-contact-item">{data.personal.linkedin}</span>}
+          </div>
+        </header>
+
+        <section className="combined-resume-section combined-resume-summary">
+          <h3 className="combined-resume-h3">PROFESSIONAL SUMMARY</h3>
+          <p className="combined-resume-p">{data?.personal?.aboutMe}</p>
+        </section>
+
+        <div className="combined-resume-columns">
+          <div className="combined-resume-main-column">
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">EXPERIENCE</h3>
+              {data.experience?.map((exp, i) => (
+                <div key={i} className="combined-resume-experience">
+                  <div className="combined-resume-experience-header">
+                    <h4 className="combined-resume-h4">{exp.jobTitle}</h4>
+                    <span className="combined-resume-date">{exp.companyExp}</span>
+                  </div>
+                  <div className="combined-resume-company">{exp.companyName}</div>
+                  <div className="combined-resume-ul">
+                    
+                   {exp.jobDescription}
+                  </div>
+                </div>
+              ))}
+            </section>
+
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">PROJECTS</h3>
+              {data?.experience?.[0]?.projects?.map((proj, i) => (
+                <div key={i} className="combined-resume-project">
+                  <div className="combined-resume-project-header">
+                    <h4 className="combined-resume-h4">{proj.title}</h4>
+                  
+                  </div>
+               
+                  <p className="combined-resume-p">{proj.description}</p>
+                
+                </div>
+              ))}
+            </section>
+          </div>
+
+          <div className="combined-resume-side-column">
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">Technical Skills</h3>
+              <ul className="combined-list">
+                {(data?.skills?.technical || [])
+                  .join(",")
+                  .split(",")
+                  .map((skill, index) => (
+                    <li key={index} className="combined-list-item">{skill.trim()}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">Soft Skills</h3>
+              <ul className="combined-list">
+                {(data?.skills?.soft || [])
+                  .join(",")
+                  .split(",")
+                  .map((skill, index) => (
+                    <li key={index} className="combined-list-item">{skill.trim()}</li>
+                ))}
+              </ul>
+            </section>
+
+
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">EDUCATION</h3>
+              {data.education?.map((edu, i) => (
+                <div key={i} className="combined-resume-education">
+                  <h4 className="combined-resume-h4">{edu.degree}</h4>
+                  <div className="combined-resume-institution">{edu.university}</div>
+                  <div className="combined-resume-date">CGPA : {edu.cgpa}</div>
+
+                  <div className="combined-resume-date">{edu.year}</div>
+                </div>
+              ))}
+            </section>
+
+          
+
+           
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">Language</h3>
+              <ul className="combined-list">
+                {(data?.skills?.language || [])
+                  .join(",")
+                  .split(",")
+                  .map((skill, index) => (
+                    <li key={index} className="combined-list-item">{skill.trim()}</li>
+                ))}
+              </ul>
+            </section>
+            <section className="combined-resume-section">
+              <h3 className="combined-resume-h3">Interests</h3>
+              <ul className="combined-list">
+                {(data?.skills?.interests || [])
+                  .join(",")
+                  .split(",")
+                  .map((skill, index) => (
+                    <li key={index} className="combined-list-item">{skill.trim()}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Combined
+export default CombinedResume
