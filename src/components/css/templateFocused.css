@@ -1,0 +1,288 @@
+/* A4 size styling */
+.focused-resume {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+  }
+  
+  .focused-resume-container {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto", "Arial", sans-serif;
+    color: #333;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  
+  /* Variables */
+  :root {
+    --primary-color: #0288d1;
+    --primary-light: #e1f5fe;
+    --primary-dark: #01579b;
+    --text-dark: #333333;
+    --text-medium: #555555;
+    --text-light: #777777;
+    --background-light: #f5f5f5;
+    --border-color: #e0e0e0;
+    --accent-color: #03a9f4;
+  }
+  
+  /* Header styling */
+  .focused-resume-header {
+    padding: 30px 40px;
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .focused-name-section {
+    margin-bottom: 15px;
+  }
+  
+  .focused-h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .focused-h2 {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .focused-contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .focused-contact-item {
+    margin-right: 10px;
+  }
+  
+  .focused-contact-divider {
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    opacity: 0.8;
+  }
+  
+  /* Body layout */
+  .focused-resume-body {
+    display: flex;
+    padding: 30px 40px;
+  }
+  
+  .focused-main-column {
+    flex: 2;
+    padding-right: 30px;
+  }
+  
+  .focused-side-column {
+    flex: 1;
+    border-left: 1px solid var(--border-color);
+    padding-left: 30px;
+  }
+  
+  /* Section styling */
+  .focused-resume-section {
+    margin-bottom: 25px;
+  }
+  
+  .focused-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+    letter-spacing: 1px;
+  }
+  
+  /* Summary styling */
+  .focused-p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-medium);
+    line-height: 1.6;
+  }
+  
+  /* Experience styling */
+  .focused-experience-item {
+    margin-bottom: 20px;
+  }
+  
+  .focused-experience-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .focused-job-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .focused-job-period {
+    font-size: 14px;
+    color: var(--primary-color);
+  }
+  
+  .focused-company-location {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .focused-company-name {
+    font-size: 14px;
+    text-align: justify;
+    color: var(--text-medium);
+  }
+  
+  .focused-job-location {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .focused-experience-details {
+    margin: 0;
+    padding-left: 18px;
+  }
+  
+  .focused-li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--text-medium);
+  }
+  
+  /* Projects styling */
+  .focused-projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .focused-project-item {
+    padding: 15px;
+    background-color: var(--background-light);
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-color);
+  }
+  
+  .focused-project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .focused-project-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .focused-project-links {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .focused-project-link {
+    font-size: 12px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .focused-project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .focused-tech-tag {
+    padding: 3px 8px;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .focused-project-description {
+    margin: 0 0 10px;
+    text-align: justify;
+    font-size: 14px;
+    color: var(--text-medium);
+  }
+  
+  .focused-project-highlights {
+    margin: 0;
+    padding-left: 18px;
+  }
+  
+  /* Skills styling */
+  .focused-skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .focused-skill-category {
+    margin-bottom: 15px;
+  }
+  
+  .focused-category-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+  
+  .focused-skills-list {
+    list-style-type: disc;
+    padding-left: 18px;
+    margin: 0;
+  }
+  
+  /* Education */
+  .focused-education-item {
+    margin-bottom: 15px;
+    
+  }
+  
+  .focused-education-degree {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .focused-education-institution,
+  .focused-education-period {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .focused-education-details {
+    margin-top: 6px;
+  }
+  
+  /* Interests */
+  .focused-interests-list {
+    list-style-type: disc;
+    padding-left: 18px;
+    margin: 0;
+  }
