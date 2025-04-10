@@ -9,6 +9,7 @@ import axios from "axios";
 import downloadResume from "./DownloadResume";
 import Simple from '../templates/Simple'
 import Focused from "../templates/Focused";
+import Elegant from "../templates/Elegent";
 
 const ViewMyResume = () => {
   const { resumeId } = useParams(); 
@@ -22,7 +23,8 @@ const ViewMyResume = () => {
     "Modern": Modern,
     "Noel":Noel,
     "Simple":Simple,
-    "Focused":Focused
+    "Focused":Focused,
+    "Elegant":Elegant
   }
 
   useEffect(() => {
