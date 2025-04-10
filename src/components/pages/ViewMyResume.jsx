@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import downloadResume from "./DownloadResume";
 import Professional from "../templates/Professional";
 import Minimal from "../templates/Minimal";
 import Combined from "../templates/Combined";
 import Modern from "../templates/Modern";
 import Noel from "../templates/Noel";
-import axios from "axios";
-import downloadResume from "./DownloadResume";
 import Simple from '../templates/Simple'
 import Focused from "../templates/Focused";
 import Elegant from "../templates/Elegent";
+import Creative from "../templates/Creative";
+
 
 const ViewMyResume = () => {
   const { resumeId } = useParams(); 
@@ -24,7 +26,8 @@ const ViewMyResume = () => {
     "Noel":Noel,
     "Simple":Simple,
     "Focused":Focused,
-    "Elegant":Elegant
+    "Elegant":Elegant,
+    "Creative":Creative
   }
 
   useEffect(() => {

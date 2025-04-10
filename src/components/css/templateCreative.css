@@ -1,0 +1,444 @@
+/* A4 size styling */
+.creative-resume-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    font-family: "Poppins", "Helvetica Neue", sans-serif;
+  }
+  
+  .creative-resume-paper {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  /* Variables */
+  :root {
+    --primary-color: #ff7043;
+    --primary-light: #fff3ef;
+    --primary-dark: #e64a19;
+    --accent-color: #ffab91;
+    --text-dark: #333333;
+    --text-medium: #555555;
+    --text-light: #777777;
+    --background-light: #fafafa;
+    --border-color: #eeeeee;
+  }
+  
+  /* Header styling */
+  .creative-resume-header {
+    display: flex;
+    background-color: var(--primary-light);
+    padding: 30px;
+  }
+  
+  .creative-resume-header-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .creative-resume-name-box {
+    position: relative;
+  }
+  
+  .creative-resume-name {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .creative-resume-title-box {
+    background-color: var(--primary-color);
+    padding: 5px 15px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+  
+  .creative-resume-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .creative-resume-header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .creative-resume-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .creative-resume-contact-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 3px;
+  }
+  
+  .creative-resume-contact-value {
+    font-size: 14px;
+    color: var(--text-medium);
+  }
+  
+  /* About section styling */
+  .creative-resume-about-section {
+    display: flex;
+    padding: 30px;
+    background-color: var(--background-light);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .creative-resume-section-icon {
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .creative-resume-icon-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: relative;
+  }
+  
+  .creative-resume-icon-circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+  }
+  
+  .creative-resume-about-content {
+    flex: 1;
+  }
+  
+  .creative-resume-section-title {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+  }
+  
+  .creative-resume-about-text {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-medium);
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  /* Main content layout */
+  .creative-resume-main-content {
+    display: flex;
+    padding: 30px;
+  }
+  
+  .creative-resume-left-column {
+    flex: 1.2;
+    padding-right: 30px;
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .creative-resume-right-column {
+    flex: 1;
+    padding-left: 30px;
+  }
+  
+  /* Section styling */
+  .creative-resume-section {
+    margin-bottom: 30px;
+  }
+  
+  .creative-resume-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Timeline styling */
+  .creative-resume-timeline {
+    position: relative;
+  }
+  
+  .creative-resume-timeline-item {
+    display: flex;
+    margin-bottom: 25px;
+  }
+  
+  .creative-resume-timeline-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .creative-resume-timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    margin-top: 6px;
+  }
+  
+  .creative-resume-timeline-line {
+    width: 2px;
+    flex-grow: 1;
+    background-color: var(--border-color);
+    margin: 5px 0;
+  }
+  
+  .creative-resume-timeline-content {
+    flex: 1;
+  }
+  
+  .creative-resume-job-duties{
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-medium);
+    line-height: 1.6;
+    text-align: justify;
+  }
+  .creative-resume-job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .creative-resume-job-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .creative-resume-job-date {
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  .creative-resume-company {
+    font-size: 14px;
+    color: var(--text-medium);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .creative-resume-job-duties {
+    margin: 0;
+    padding-left: 18px;
+    color: #555555;
+    list-style-type: none;
+    text-align: justify;
+  }
+  
+  .creative-resume-duty-item {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--text-medium);
+  }
+  
+  /* Education styling */
+  .creative-resume-education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .creative-resume-education-item {
+    display: flex;
+  }
+  
+  .creative-resume-education-year {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 15px;
+    min-width: 45px;
+  }
+  
+  .creative-resume-education-details {
+    flex: 1;
+  }
+  
+  .creative-resume-degree {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .creative-resume-school {
+    margin: 0 0 3px;
+    font-size: 14px;
+    color: var(--text-medium);
+  }
+  
+  .creative-resume-edu-note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  
+  /* Skills styling */
+  .cretive-skills{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .creative-resume-skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .creative-list-item{
+    color: var(--text-medium);
+        list-style-type: none;
+    font-size: 12px;
+    text-align: justify;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  }
+  
+  .creative-resume-skill-group-title {
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .creative-resume-skill-bubbles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .creative-resume-skill-bubble {
+    padding: 5px 12px;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  /* Projects styling */
+  .creative-resume-projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .creative-resume-project-item {
+    padding: 15px;
+    background-color: var(--primary-light);
+    border-radius: 6px;
+  }
+  
+  .creative-resume-project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .creative-resume-project-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .creative-resume-project-year {
+    font-size: 13px;
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  .creative-resume-project-description {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-medium);
+    line-height: 1.5;
+  }
+  
+  /* Awards styling */
+  .creative-resume-awards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .creative-resume-award-item {
+    display: flex;
+  }
+  
+  .creative-resume-award-year {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 15px;
+    min-width: 40px;
+  }
+  
+  .creative-resume-award-details {
+    flex: 1;
+  }
+  
+  .creative-resume-award-title {
+    margin: 0 0 3px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .creative-resume-award-org {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-medium);
+  }
+  
+  /* Print optimization */
+  @media print {
+    .creative-resume-container {
+      padding: 0;
+      background-color: white;
+    }
+  
+    .creative-resume-paper {
+      width: 100%;
+      height: 100%;
+      box-shadow: none;
+    }
+  
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  

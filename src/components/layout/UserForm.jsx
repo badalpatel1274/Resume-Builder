@@ -330,57 +330,57 @@ const UserForm = () => {
         {/* Experience */}
         {activeTab === "Experience" && (
           <>
-           {[...Array(experienceFields)].map((_, index) => (
-  <div key={index} className="userform-group">
-    <label className="userform-label">Company Name {index + 1} (Optional)</label>
-    <input
-      className="userform-input"
-      type="text"
-      {...register(`experience.items.${index}.companyName`)}
-      placeholder="Company name"
-    />
+            {[...Array(experienceFields)].map((_, index) => (
+              <div key={index} className="userform-group">
+                <label className="userform-label">Company Name {index + 1} (Optional)</label>
+                <input
+                  className="userform-input"
+                  type="text"
+                  {...register(`experience.items.${index}.companyName`)}
+                  placeholder="Company name"
+                />
 
-    <label className="userform-label">Company Experience {index + 1} (Optional)</label>
-    <input
-      className="userform-input"
-      type="text"
-      {...register(`experience.items.${index}.companyExp`)}
-      placeholder="Company experience (e.g., 2 years)"
-    />
+                <label className="userform-label">Company Experience {index + 1} (Optional)</label>
+                <input
+                  className="userform-input"
+                  type="text"
+                  {...register(`experience.items.${index}.companyExp`)}
+                  placeholder="Company experience (e.g., 2 years)"
+                />
 
-    <label className="userform-label">Job Description {index + 1} (Optional)</label>
-    <textarea
-      className="userform-textarea"
-      {...register(`experience.items.${index}.jobDescription`)}
-      placeholder="Describe your job role in 300 characters"
-      style={{
-        borderColor:
-          watch(`experience.items.${index}.jobDescription`)?.length > 300 ? "red" : "",
-      }}
-    />
-    <p
-      className="userform-charcount"
-      style={{
-        color:
-          watch(`experience.items.${index}.jobDescription`)?.length > 300
-            ? "red"
-            : "white",
-      }}
-    >
-      {watch(`experience.items.${index}.jobDescription`)?.length || 0}/300
-    </p>
-  </div>
-))}
+                <label className="userform-label">Job Description {index + 1} (Optional)</label>
+                <textarea
+                  className="userform-textarea"
+                  {...register(`experience.items.${index}.jobDescription`)}
+                  placeholder="Describe your job role in 300 characters"
+                  style={{
+                    borderColor:
+                      watch(`experience.items.${index}.jobDescription`)?.length > 300 ? "red" : "",
+                  }}
+                />
+                <p
+                  className="userform-charcount"
+                  style={{
+                    color:
+                      watch(`experience.items.${index}.jobDescription`)?.length > 300
+                        ? "red"
+                        : "white",
+                  }}
+                >
+                  {watch(`experience.items.${index}.jobDescription`)?.length || 0}/300
+                </p>
+              </div>
+            ))}
 
-{experienceFields < 5 && (
-  <button
-    type="button"
-    onClick={addMoreExperience}
-    className="userform-add-project-btn" // You can change class if needed
-  >
-    + Add More Experience
-  </button>
-)}
+            {experienceFields < 5 && (
+              <button
+                type="button"
+                onClick={addMoreExperience}
+                className="userform-add-project-btn" // You can change class if needed
+              >
+                + Add More Experience
+              </button>
+            )}
 
 
             {[...Array(projectFields)].map((_, index) => (
@@ -412,10 +412,7 @@ const UserForm = () => {
               </button>
             )}
 
-            <div className="userform-group">
-              <label className="userform-label">Total Experience (Optional)</label>
-              <input className="userform-input" type="text" {...register("experience.totalExperience")} placeholder="Total work experience (e.g., 5 years)" />
-            </div>
+           
           </>
         )}
 

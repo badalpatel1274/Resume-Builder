@@ -9,6 +9,7 @@ import Noel from "../templates/Noel";
 import Simple from "../templates/Simple";
 import Focused from "../templates/Focused";
 import Elegant from "../templates/Elegent";
+import Creative from "../templates/Creative";
 
 import "../css/preview.css";
 
@@ -20,7 +21,8 @@ const templateComponents = {
   "Noel": Noel,
   "Simple": Simple,
   "Focused":Focused,
-  "Elegent":Elegant
+  "Elegent":Elegant,
+  "Creative":Creative
 
 };
 
