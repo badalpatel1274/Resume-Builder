@@ -84,20 +84,18 @@ const Professional = ({ data }) => {
           )}
 
           {/* Experience */}
-          {(data?.experience?.length || 0) > 0 && (
+          {(data?.experience?.items?.length || 0) > 0 && (
             <section className="professional-resume-section">
               <h2 className="professional-section-title">Work Experience</h2>
               <div className="professional-section-content">
-                {data.experience.map((exp, index) => (
+                {data.experience.items.map((exp, index) => (
                   <div key={index} className="professional-experience-item">
                     <div className="professional-experience-header">
                       <h3 className="professional-job-title">{exp.jobTitle}</h3>
                       <p className="professional-company">{exp.companyName}</p>
                       <p className="professional-duration">{exp.companyExp}</p>
                       <p className="professional-job-description">{exp.jobDescription}</p>
-                      <p className="professional-total-experience">
-                        Total Experience: {exp.totalExperience}
-                      </p>
+                     
                     </div>
                   </div>
                 ))}
@@ -108,11 +106,11 @@ const Professional = ({ data }) => {
 
 
           {/* Projects */}
-          {(data?.experience?.[0]?.projects?.length || 0) > 0 && (
+          {(data?.experience?.projects?.length || 0) > 0 && (
             <section className="professional-main-section">
               <h3 className="professional-section-title">Projects</h3>
               <div className="professional-section-content">
-                {data.experience[0].projects.map((project, index) => (
+                {data.experience.projects.map((project, index) => (
                   <div key={index} className="professional-project-item">
                     <h4 className="professional-project-title">{project.title}</h4>
                     <p className="professional-project-description">{project.description}</p>

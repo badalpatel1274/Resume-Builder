@@ -23,18 +23,17 @@ const Simple = ({ data }) => {
         </div>
       </section>
 
-      {(data?.experience?.length || 0) > 0 && (
+      {(data?.experience?.items?.length || 0) > 0 && (
         <section className="simple-resume-section">
           <h2 className="simple-section-title">Work Experience</h2>
           <div className="simple-section-content">
-            {data.experience.map((exp, index) => (
+            {data.experience?.items?.map((exp, index) => (
               <div key={index} className="simple-experience-item">
                 <div className="simple-experience-header">
                   <h3 className="simple-job-title">{exp.jobTitle}</h3>
                   <p className="simple-company">{exp.companyName}</p>
                   <p className="simple-duration">{exp.companyExp}</p>
                   <p className="simple-job-description">{exp.jobDescription}</p>
-                  <p className="simple-total-experience">Total Experience: {exp.totalExperience}</p>
                 </div>
               </div>
             ))}
@@ -42,11 +41,11 @@ const Simple = ({ data }) => {
         </section>
       )}
 
-{(data?.experience?.[0]?.projects?.length || 0) > 0 && (
+{(data?.experience?.projects?.length || 0) > 0 && (
         <section className="simple-resume-section">
           <h2 className="simple-section-title">Projects</h2>
           <div className="simple-section-content">
-            {data.experience[0].projects.map((project, index) => (
+            {data?.experience?.projects.map((project, index) => (
               <div key={index} className="simple-project-item">
                 <h3 className="simple-project">{project.title}</h3>
                 <p className="simple-projectDesc">{project.description}</p>

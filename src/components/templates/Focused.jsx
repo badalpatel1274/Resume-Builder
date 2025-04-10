@@ -29,7 +29,7 @@ const Focused = ({ data }) => {
 
             <section className="focused-resume-section">
   <h3 className="focused-section-title">WORK EXPERIENCE</h3>
-  {data?.experience?.map((exp, index) => (
+  {data?.experience?.items?.map((exp, index) => (
     <div key={index} className="focused-experience-item">
       <div className="focused-experience-header">
         <div className="focused-job-title">{exp.companyName}</div>
@@ -38,7 +38,6 @@ const Focused = ({ data }) => {
       <div className="focused-company-location">
         <div className="focused-company-name">{exp.jobDescription}</div>
       </div>
-      <h4>Total Experience : {exp.totalExperience}</h4>
      
     </div>
   ))}
@@ -47,7 +46,7 @@ const Focused = ({ data }) => {
 
             <section className="focused-resume-section">
               <h3 className="focused-section-title">PROJECTS</h3>
-              {data?.experience?.[0]?.projects?.map((project, index) => (
+              {data?.experience?.projects?.map((project, index) => (
                 <div key={index} className="focused-project-item">
                   <div className="focused-project-header">
                     <h4 className="focused-project-title">{project.title}</h4>

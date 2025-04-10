@@ -53,25 +53,24 @@ const Modern = ({ data }) => {
           </section>
 
           {/* Experience Section */}
-          {(data?.experience?.length || 0) > 0 && (
+          {(data?.experience?.items?.length || 0) > 0 && (
             <section className="modern-section">
               <h3 className="modern-title">Experience</h3>
-              {data.experience.map((exp, index) => (
+              {data.experience.items.map((exp, index) => (
                 <div key={index}>
                   <p><strong>{exp.companyName}</strong></p>
                   <p>{exp.companyExp}</p>
                   <p>{exp.jobDescription}</p>
-                  <p>Total Experience: {exp.totalExperience}</p>
                 </div>
               ))}
             </section>
           )}
 
           {/* Project Section */}
-          {(data?.experience?.[0]?.projects?.length || 0) > 0 && (
+          {(data?.experience?.projects?.length || 0) > 0 && (
             <section className="modern-section modern-project">
               <h3 className="modern-title">Projects</h3>
-              {data.experience[0].projects.map((proj, index) => (
+              {data.experience.projects.map((proj, index) => (
                 <div key={index} className="modern-project-item">
                   <p className="modern-project-title"><strong>{proj.title}</strong></p>
                   <p className="modern-project-description">{proj.description}</p>

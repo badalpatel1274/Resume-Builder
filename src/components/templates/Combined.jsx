@@ -26,7 +26,7 @@ const CombinedResume = ({ data }) => {
           <div className="combined-resume-main-column">
             <section className="combined-resume-section">
               <h3 className="combined-resume-h3">EXPERIENCE</h3>
-              {data.experience?.map((exp, i) => (
+              {data.experience?.items.map((exp, i) => (
                 <div key={i} className="combined-resume-experience">
                   <div className="combined-resume-experience-header">
                     <h4 className="combined-resume-h4">{exp.jobTitle}</h4>
@@ -43,7 +43,7 @@ const CombinedResume = ({ data }) => {
 
             <section className="combined-resume-section">
               <h3 className="combined-resume-h3">PROJECTS</h3>
-              {data?.experience?.[0]?.projects?.map((proj, i) => (
+              {data?.experience?.projects?.map((proj, i) => (
                 <div key={i} className="combined-resume-project">
                   <div className="combined-resume-project-header">
                     <h4 className="combined-resume-h4">{proj.title}</h4>

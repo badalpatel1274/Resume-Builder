@@ -141,13 +141,13 @@ const Elegant = ({ data }) => {
           </section>
 
           {/* Experience */}
-          {data.experience?.length > 0 && (
+          {data.experience?.items?.length > 0 && (
             <section className="elegant-resume-section">
               <h3 className="elegant-resume-section-heading">
                 <span className="elegant-resume-heading-text">PROFESSIONAL EXPERIENCE</span>
                 <span className="elegant-resume-heading-line"></span>
               </h3>
-              {data.experience.map((exp, index) => (
+              {data.experience.items.map((exp, index) => (
                 <div className="elegant-resume-experience-item" key={index}>
                   <div className="elegant-resume-experience-header">
                     <div className="elegant-resume-job-title-wrapper">
@@ -168,14 +168,14 @@ const Elegant = ({ data }) => {
           )}
 
           {/* Key Projects */}
-          {data?.experience?.[0]?.projects?.length > 0 && (
+          {data?.experience?.projects?.length > 0 && (
             <section className="elegant-resume-section">
               <h3 className="elegant-resume-section-heading">
                 <span className="elegant-resume-heading-text">KEY PROJECTS</span>
                 <span className="elegant-resume-heading-line"></span>
               </h3>
               <div className="elegant-resume-projects-grid">
-                {data?.experience?.[0]?.projects.map((project, index) => (
+                {data?.experience?.projects.map((project, index) => (
                   <div className="elegant-resume-project-card" key={index}>
                     <h4 className="elegant-resume-project-title">{project.title}</h4>
                     <p className="elegant-resume-project-description">{project.description}</p>
