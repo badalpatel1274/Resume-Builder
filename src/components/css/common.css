@@ -14,20 +14,19 @@ body {
     text-align: center;
     padding: 40px;
     border-radius: 12px;
-    background: #121212;
+    background: linear-gradient(135deg, #0d0d0d, #1a0136);
     box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+    
   }
   
   /* Animated Titles */
   .login-title, .signup-title {
     color: #d3a4ff;
-    text-shadow: 0 0 12px #d3a4ff;
     font-size: 28px;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    animation: glow 1.5s infinite alternate;
   }
   
   /* Glowing Effect */

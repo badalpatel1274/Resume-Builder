@@ -1,10 +1,5 @@
 /* General Styles */
-body {
-    background-color: #0d0d0d;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-  }
+
   
   /* Admin Login Container */
   .admin-login-container {
@@ -13,21 +8,21 @@ body {
     margin: 80px auto;
     text-align: center;
     padding: 40px;
+    margin-bottom: 100px;
+    margin-top: 185px;
     border-radius: 12px;
-    background: #121212;
-    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #0d0d0d, #1a0136);
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
   }
   
   /* Animated Title */
   .admin-login-title {
     color: #d3a4ff;
-    text-shadow: 0 0 12px #d3a4ff;
     font-size: 28px;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    animation: glow 1.5s infinite alternate;
   }
   
   /* Glowing Effect */
@@ -130,12 +125,28 @@ body {
   .admin-login-btn:hover {
     background: #b57edc;
   }
-  
+  .admin-hamburger {
+    display: none;
+    font-size: 24px;
+    color: #ff1493;
+    cursor: pointer;
+  }
+
   /* Responsive Design */
+  @media (max-width: 1024px) {
+    .admin-login-container {
+      width: 95%;
+      padding: 30px;
+      margin-bottom: 445px;
+    margin-top: 400px;
+    }
+  }
   @media (max-width: 768px) {
     .admin-login-container {
       width: 95%;
       padding: 30px;
+      margin-bottom: 470px;
+    margin-top: 400px;
     }
   
     .admin-login-title {
@@ -155,13 +166,18 @@ body {
       font-size: 16px;
       padding: 12px;
     }
+    @media (max-width: 768px) {
+      .admin-hamburger {
+        display: block;
+        margin-left: auto;
+      }
+    }
   }
   
   @media (max-width: 480px) {
     .admin-login-container {
-      width: 98%;
-      padding: 20px;
-    }
+      margin-bottom: 340px;
+      margin-top: 260px;    }
   
     .admin-login-title {
       font-size: 22px;

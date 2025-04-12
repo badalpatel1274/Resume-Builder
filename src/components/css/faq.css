@@ -1,63 +1,68 @@
 /* 🔹 FAQ Section Styles */
 .faq-container {
-    background: #0a0a0a;
-    color: #ffffff;
-    text-align: center;
-    padding: 60px 20px;
-  }
-  
-  .faq-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 0px 0px 12px #d3a4ff;
-    color: #d3a4ff;
-    margin-bottom: 10px;
-  }
-  
-  .faq-subtitle {
-    font-size: 1.1rem;
-    color: #b3b3b3;
-    margin-bottom: 30px;
-  }
-  
-  /* 🔹 FAQ List */
-  .faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* 🔹 FAQ Item */
-  .faq-item {
-    background-color: #151515;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .faq-item:hover {
-    transform: translateY(-3px);
-  }
-  
-  /* 🔹 Question */
-  .faq-question {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #d3a4ff;
-    margin-bottom: 10px;
-  }
-  
-  /* 🔹 Answer (Hidden by Default) */
-  .faq-answer {
-    font-size: 1rem;
-    color: #b3b3b3;
-    display: none;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  /* 🔹 Show Answer when Active */
-  .faq-item.active .faq-answer {
-    display: block;
-  }
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.85), rgba(5, 0, 30, 0.95));
+  box-shadow: inset 0 0 25px rgba(211, 164, 255, 0.1), 0px 0px 30px rgba(211, 164, 255, 0.2);
+  color: #E0E0E0;
+  text-align: center;
+  padding: 70px 20px;
+  border-top: 1px solid rgba(192, 192, 192, 0.08);
+  border-bottom: 1px solid rgba(192, 192, 192, 0.08);
+}
+
+.faq-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #D3A4FF;
+  /* text-shadow: 0px 0px 15px #D3A4FF; */
+  margin-bottom: 10px;
+}
+
+.faq-subtitle {
+  font-size: 1.1rem;
+  color: #B3B3B3;
+  margin-bottom: 30px;
+}
+
+/* 🔹 FAQ List */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 🔹 FAQ Item */
+.faq-item {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.faq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 111, 255, 0.4);
+}
+
+/* 🔹 Question */
+.faq-question {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #D3A4FF;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(211, 164, 255, 0.4);
+}
+
+/* 🔹 Answer */
+.faq-answer {
+  font-size: 1rem;
+  color: #CCCCCC;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🔹 Show Answer when Active */
+.faq-item.active .faq-answer {
+  display: block;
+}

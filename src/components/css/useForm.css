@@ -5,11 +5,11 @@
   text-align: center;
   padding: 40px;
   border-radius: 18px;
-  background: #121212;
-  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
   color: #fff;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  background: linear-gradient(135deg, #0d0d0d, #1a0136);
+  box-shadow: 0px 0px 30px rgba(211, 164, 255, 0.3);
 }
 
 .userform-heading {
@@ -51,8 +51,9 @@
 .userform-tabs {
   display: flex;
   justify-content: space-between;
-  background: #1a1a1a;
-  border-radius: 10px;
+  background: #140024;
+  box-shadow: inset 0 0 10px rgba(211, 164, 255, 0.2);
+    border-radius: 10px;
   padding: 10px;
   margin-bottom: 30px;
   overflow-x: auto;
@@ -75,6 +76,7 @@
 
 .userform-tab:hover {
   color: #ff6fff;
+  text-shadow: 0 0 8px #ff6fff;
 }
 
 .userform-tab.active {
@@ -90,9 +92,9 @@
   padding: 30px;
   width: 85%;
   margin: auto;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid rgba(211, 164, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(211, 164, 255, 0.1);
 }
 
 .userform-group {
@@ -106,9 +108,9 @@
 .userform-textarea {
   width: 100%;
   padding: 14px;
-  background: #1f1f1f;
-  border: 2px solid #666;
-  color: #fff;
+  background: #1f1f2e;
+  border: 2px solid #444;
+    color: #fff;
   border-radius: 10px;
   font-size: 18px;
   transition: 0.3s;
@@ -170,7 +172,6 @@
   background-color: #b57edc;
   box-shadow: 0 0 12px #b57edc;
 }
-
 
 .userform-buttons {
   display: flex;

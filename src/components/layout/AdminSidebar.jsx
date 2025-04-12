@@ -10,7 +10,11 @@ const AdminSidebar = () => {
 
   return (
     <div className={`admin-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+       <div className="admin-hamburger" onClick={toggleSidebar}>
+        &#9776; {/* Hamburger Icon */}
+      </div>
       {/* Sidebar */}
+
       <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="admin-profile">
           <div className="admin-avatar"></div>
@@ -31,9 +35,7 @@ const AdminSidebar = () => {
       </aside>
 
       {/* Hamburger Icon */}
-      <div className="admin-hamburger" onClick={toggleSidebar}>
-        &#9776; {/* Hamburger Icon */}
-      </div>
+     
 
       <main>
         <Outlet />

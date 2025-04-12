@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import '../css/ViewMyResume.css'
 import axios from "axios";
 import downloadResume from "./DownloadResume";
 import Professional from "../templates/Professional";
@@ -58,32 +59,22 @@ const ViewMyResume = () => {
 
   return (
     <div className="resume-view-container">
-      {/* Update Button */}
+    {/* Left Side Buttons */}
+    <div className="resume-buttons">
       <Link to={`/updateresume/${resumeId}`}>
         <button className="btn btn-dark">Update Information</button>
       </Link>
 
-        {/* Resume Preview */}
-        <div style={{width:"794px", height:"1123px", background:"white"}} className="resume-preview" id="resume-preview">
-        <SelectedTemplate data={resumeData} />  {/* Render Selected Template */}
-      </div>
-
-      <button
-        onClick={downloadResume}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          background: "#6a0dad",
-          color: "#fff",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
+      <button onClick={downloadResume} className="download-btn">
         Download Resume
       </button>
-
     </div>
+
+    {/* Right Side Resume Preview */}
+    <div className="resume-preview" id="resume-preview">
+      <SelectedTemplate data={resumeData} />
+    </div>
+  </div>
   );
 };
 

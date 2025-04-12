@@ -1,74 +1,88 @@
 .dream-container {
-    width: 100%;
-    max-width: 1400px; /* ✅ Bada size */
-    min-height: 320px; /* ✅ Container ki height */
-    background: #0a0a0a;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(128, 0, 255, 0.2);
-    text-align: center;
-    margin: 50px auto;
-    padding: 50px 20px; /* ✅ Padding maintain */
+  width: 100%;
+  max-width: 1400px;
+  min-height: 320px;
+  background: linear-gradient(135deg, rgba(15, 15, 25, 0.9), rgba(30, 0, 60, 0.85));
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(211, 164, 255, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.02);
+  text-align: center;
+  margin: 50px auto;
+  padding: 60px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dream-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #D3A4FF;
+  /* text-shadow: 0 0 15px rgba(211, 164, 255, 0.6); */
+  margin-bottom: 16px;
+  padding-top: 20px;
+}
+
+.dream-text {
+  font-size: 1.125rem;
+  color: #C5C5C5;
+  margin-bottom: 35px;
+}
+
+.dream-buttons {
+  margin-top: 25px;
+}
+
+.dream-btn {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  margin: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🔹 Primary Button */
+.dream-btn.primary {
+  background: linear-gradient(135deg, #a855f7, #9333ea);
+  color: white;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+.dream-btn.primary:hover {
+  background: linear-gradient(135deg, #9333ea, #7e22ce);
+  box-shadow: 0 0 20px rgba(211, 164, 255, 0.6);
+}
+
+/* 🔹 Secondary Button */
+.dream-btn.secondary {
+  background: transparent;
+  color: #d3a4ff;
+  border: 2px solid #d3a4ff;
+  box-shadow: 0 0 8px rgba(211, 164, 255, 0.2);
+}
+
+.dream-btn.secondary:hover {
+  background: rgba(168, 85, 247, 0.1);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(211, 164, 255, 0.5);
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .dream-container {
+    width: 90%;
+    min-height: auto;
+    padding: 40px 20px;
   }
-  
+
   .dream-heading {
-    font-size: 30px;
-    font-weight: bold;
-    color: #b56bff;
-    text-shadow: 0 0 10px rgba(128, 0, 255, 0.5);
-    margin-bottom: 12px;
-    padding-top: 25px;
+    font-size: 1.75rem;
   }
-  
+
   .dream-text {
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 30px;
+    font-size: 1rem;
   }
-  
-  .dream-buttons {
-    margin-top: 20px;
-  }
-  
-  .dream-btn {
-    padding: 12px 22px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    outline: none;
-    margin: 5px; /* ✅ Space between buttons */
-    margin-top: 30px;
-  }
-  
-  .dream-btn.primary {
-    background: #a855f7;
-    color: white;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
-  }
-  
-  .dream-btn.primary:hover {
-    background: #9333ea;
-  }
-  
-  .dream-btn.secondary {
-    background: transparent;
-    color: #a855f7;
-    border: 2px solid #a855f7;
-  }
-  
-  .dream-btn.secondary:hover {
-    background: #a855f7;
-    color: white;
-  }
-  
-  /* ✅ Responsive */
-  @media (max-width: 768px) {
-    .dream-container {
-      width: 90%;
-      min-height: auto;
-      padding: 40px 20px;
-    }
-  }
-  
+}
