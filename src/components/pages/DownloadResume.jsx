@@ -2,10 +2,10 @@ import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
 const DownloadResume = () => {
-  const resumeElement = document.getElementById("resume-preview"); // ✅ ID match honi chahiye
+  const resumeElement = document.getElementById("resume-preview");
 
   if (!resumeElement) {
-    console.error("❌ Resume section not found!");
+    console.error(" Resume section not found!");
     return;
   }
 
@@ -21,7 +21,7 @@ const DownloadResume = () => {
     const pdfWidth = pdf.internal.pageSize.getWidth();  // 210 mm
     const pdfHeight = pdf.internal.pageSize.getHeight(); // 297 mm
 
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight); // ✅ Fit poori page pe
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight); 
     pdf.save("My_Resume.pdf");
   });
 };

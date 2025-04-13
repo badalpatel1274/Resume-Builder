@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/home.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import flash from '../image/flash.png'
 import template from '../image/template.png'
 import HomeWork from './HomeWork'
@@ -10,7 +10,17 @@ import Footer from './Footer'
 
 const HomePage = () => {
 
-  
+  const navigate = useNavigate()
+  const isLoggedIn = localStorage.getItem("id")
+
+  const handleGetStarted = ()=>{
+    if(isLoggedIn){
+      navigate("/resume")
+
+    }else{
+      navigate("/login")
+    }
+  }
     return (
         <>
 
@@ -24,7 +34,7 @@ const HomePage = () => {
                             land your dream job.
                         </p>
                         <div className="hero-buttons">
-                            <Link to="/signup" className="btn btn-primary">Get Started Free →</Link>
+                            <button  className="btn btn-primary" onClick={handleGetStarted}>Get Started Free →</button>
                             <Link to="/resume" className="btn btn-secondary">View Templates</Link>
                         </div>
                     </div>

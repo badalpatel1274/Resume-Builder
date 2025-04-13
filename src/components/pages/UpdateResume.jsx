@@ -68,21 +68,41 @@ const UpdateResume = () => {
   }, [formdata, reset]);
 
 const navigate  = useNavigate()
-const submithandler =async (data)=>{
-  const templateId = localStorage.getItem("selectedTemplateId")
- const userId = localStorage.getItem("id")
-   data.userId = userId
-   data.templateId = templateId
+const submithandler = async (data) => {
+  const formData = new FormData();
+
+  const templateId = localStorage.getItem("selectedTemplateId");
+  const userId = localStorage.getItem("id");
+
+  formData.append("userId", userId);
+  formData.append("templateId", templateId);
+
+  // Append JSON-stringified fields
+  formData.append("personal", JSON.stringify(data.personal));
+  formData.append("education", JSON.stringify(data.education));
+  formData.append("experience", JSON.stringify(data.experience));
+  formData.append("skills", JSON.stringify(data.skills));
+
+  // Append image file (if selected)
+  const imageFile = data.image?.[0];
+  if (imageFile) {
+    formData.append("image", imageFile);
+  }
+
   try {
-    console.log("Updating form with userFormId:", userFormId, "Data:", data);
-    const res = await axios.put(`/form/updateform/${userFormId}`,data)
-    console.log(res.data)
-    navigate(`/resume/${resumeId}`); 
+    console.log("Submitting FormData for Update:", formData);
+    const res = await axios.put(`/form/updateform/${userFormId}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    });
+    console.log("Updated successfully:", res.data);
+    navigate(`/resume/${resumeId}`);
   } catch (error) {
     console.error("Error updating resume:", error);
   }
- 
-}
+};
+
  
 const addMoreProject = () => {
   if (projectFields < 3) {
