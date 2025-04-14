@@ -2,34 +2,37 @@ import React, { useState } from 'react'
 import '../css/common.css'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { PulseLoader } from 'react-spinners';
 import axios from 'axios';
 import { Bounce, Slide, toast, ToastContainer } from 'react-toastify';
 const Signup = () => {
   const navigate = useNavigate()
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [loading, setloading] = useState(false)
   const [role, setRole] = useState("User");
   const submitHandler = async (data) => {
 
-    data.roleId = role === "User" ? "67c530d222967324b17fce52" : "67c530e022967324b17fce54"    // console.log(data);
+    data.roleId = role === "User" ? "67c530d222967324b17fce52" : "67c530e022967324b17fce54"  
+    setloading(true);  // console.log(data);
     try {
       const res = await axios.post("/signup", data);
       console.log("Signup Success:", res.data);
       if (res.status === 201) {
-       toast.success('Signup Sucessfully', {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce,
-              });
+        toast.success('Signup Sucessfully', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
         setTimeout(() => {
-          navigate(role === "User" ? "/login" : "/admin"); 
-                }, 3000);
+          navigate(role === "User" ? "/login" : "/admin");
+        }, 3000);
       }
       else {
         toast.error('Already Signup', {
@@ -56,6 +59,7 @@ const Signup = () => {
       });
       console.error(" signup Axios error:", error);
     }
+    setloading(false)
   }
 
 
@@ -155,9 +159,11 @@ const Signup = () => {
             </select>
           </div> */}
 
-          <button type="submit" className="signup-btn">Sign Up</button>
-          <p className="signup-switch-text">Already have an account? <Link to="/login">Login</Link></p>
+          <button type="submit" className="signup-btn" disabled={loading}>
+            {loading ? <PulseLoader color="black" size={10} /> : 'Sign Up'}
+          </button>          <p className="signup-switch-text">Already have an account? <Link to="/login">Login</Link></p>
         </form>
+        {loading && <p>Loading... </p> }
       </div>
     </>
   )

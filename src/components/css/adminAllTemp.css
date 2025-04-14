@@ -1,83 +1,107 @@
 /* Full screen stretch like Add Template */
 .fetchTemp-container {
-    width: calc(100vw - 250px);
-    margin-left: 250px;
-    padding: 2rem;
-    min-height: 100vh;
-    background: linear-gradient(to right, #0f0f0f, #1a1a1a);
-    color: #e0e0e0; /* Neon silver text */
-  }
-  
-  /* Heading with neon pink glow */
-  .fetchTemp-heading {
-    font-size: 2.5rem;
-    color: #ff00ff;
-    text-align: center;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-  }
-  
-  /* Table Styling */
-  .fetchTemp-table {
+  width: calc(100vw - 250px);
+  margin-left: 250px;
+  padding: 2rem;
+  min-height: 100vh;
+  height: auto;
+  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+  color: #e0e0e0; /* Neon silver text */
+  overflow-y: auto; /* Allow scrolling */
+}
+
+/* Heading with neon pink glow */
+.fetchTemp-heading {
+  font-size: 2.5rem;
+  color: #ff00ff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* Table Styling */
+.fetchTemp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(to right, #1a1a1a, #2a2a2a);
+  border: 2px solid #ff00ff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ff00ff55;
+  overflow: hidden;
+}
+
+/* Table headers */
+.fetchTemp-table th {
+  padding: 1rem;
+  background: #1f1f1f;
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff;
+  border-bottom: 1px solid #444;
+}
+
+/* Table data */
+.fetchTemp-table td {
+  padding: 1rem;
+  text-align: center;
+  color: #c0c0c0; /* Neon silver tone */
+  border-bottom: 1px solid #333;
+}
+
+/* Preview image */
+.fetchTemp-img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 10px #ff00ff66;
+}
+
+/* Delete Button */
+.fetchTemp-deleteBtn {
+  padding: 0.5rem 1rem;
+  background-color: #ff007f;
+  border: 2px solid #ff00ff;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px #ff00ffaa;
+  transition: all 0.3s ease;
+}
+
+.fetchTemp-deleteBtn:hover {
+  background-color: #cc0066;
+  box-shadow: 0 0 12px #ff00ff;
+}
+
+/* No Data Text */
+.fetchTemp-noData {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* 🔹 Tablet & below */
+@media (max-width: 1024px) {
+  .addtemp-container {
+    margin-left: 0;
     width: 100%;
-    border-collapse: collapse;
-    background: linear-gradient(to right, #1a1a1a, #2a2a2a);
-    border: 2px solid #ff00ff;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #ff00ff55;
-    overflow: hidden;
+    padding: 20px;
   }
-  
-  /* Table headers */
-  .fetchTemp-table th {
-    padding: 1rem;
-    background: #1f1f1f;
-    color: #ff00ff;
-    text-shadow: 0 0 5px #ff00ff;
-    border-bottom: 1px solid #444;
+
+  .addtemp-form {
+    width: 100%;
+    max-width: 100%;
   }
-  
-  /* Table data */
-  .fetchTemp-table td {
-    padding: 1rem;
-    text-align: center;
-    color: #c0c0c0; /* Neon silver tone */
-    border-bottom: 1px solid #333;
+}
+
+/* 🔹 Mobile Screens */
+@media (max-width: 768px) {
+  .fetchTemp-container{
+    margin-left: 0;
+    width: 100%;
+padding: 20px;
   }
-  
-  /* Preview image */
-  .fetchTemp-img {
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
-    border: 2px solid #ff00ff;
-    box-shadow: 0 0 10px #ff00ff66;
-  }
-  
-  /* Delete Button */
-  .fetchTemp-deleteBtn {
-    padding: 0.5rem 1rem;
-    background-color: #ff007f;
-    border: 2px solid #ff00ff;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 8px #ff00ffaa;
-    transition: all 0.3s ease;
-  }
-  
-  .fetchTemp-deleteBtn:hover {
-    background-color: #cc0066;
-    box-shadow: 0 0 12px #ff00ff;
-  }
-  
-  /* No Data Text */
-  .fetchTemp-noData {
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.2rem;
-    color: #999;
-    font-style: italic;
-  }
-  
+}

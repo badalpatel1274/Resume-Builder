@@ -16,7 +16,6 @@ body {
 .admin-container {
   display: flex;
   height: 100vh;
-  overflow: hidden;
   position: relative;
    overflow-x: hidden;
 }
@@ -134,10 +133,10 @@ body {
 .admin-main {
   margin-left: 250px;
   padding: 20px;
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
   width: calc(100% - 250px);
-  width: 92%;
+  width: 83%;
   transition: all 0.3s ease;
   background: linear-gradient(145deg, #120018, #1e0033);
 }

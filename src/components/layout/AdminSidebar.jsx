@@ -28,8 +28,7 @@ const AdminSidebar = () => {
             <Link to="dashboard" className="admin-menu-item admin-active">Dashboard</Link>
             <Link to="/adminsidebar/allusers" className="admin-menu-item">User Management</Link>
             <Link to="/adminsidebar/templateDashboard" className="admin-menu-item">Templates</Link>
-            <Link to="analytics" className="admin-menu-item">Analytics</Link>
-            <Link to="settings" className="admin-menu-item">Settings</Link>
+           
           </ul>
         </nav>
       </aside>
