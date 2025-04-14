@@ -1,6 +1,7 @@
 /* Full screen stretch like Add Template */
 .fetchTemp-container {
     width: calc(100vw - 250px);
+    margin-left: 250px;
     padding: 2rem;
     min-height: 100vh;
     background: linear-gradient(to right, #0f0f0f, #1a1a1a);

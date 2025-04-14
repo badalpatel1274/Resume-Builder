@@ -137,6 +137,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   width: calc(100% - 250px);
+  width: 92%;
   transition: all 0.3s ease;
   background: linear-gradient(145deg, #120018, #1e0033);
 }
@@ -197,7 +198,8 @@ body {
   padding: 20px;
   height: 100vh;
   overflow-y: auto;
-  width: calc(100% - 250px);
+  width: 155%;
+  /* width: calc(100% - 250px); */
   transition: all 0.3s ease;
 }
 .admin-title,
@@ -413,7 +415,6 @@ body {
 
   .admin-sidebar.open {
     transform: translateX(0);
-    margin-top: 80px;
   }
 
   .admin-main,

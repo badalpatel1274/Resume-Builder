@@ -56,7 +56,7 @@ const Login = () => {
   
           setTimeout(() => {
             if (res.data.data.roleId.roleName === "User") {
-                navigate("/resume");
+                navigate("/");
             } else if (res.data.data.roleId.roleName === "Admin") {
                 navigate("/admin");
             }
