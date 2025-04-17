@@ -7,6 +7,7 @@ import HomeWork from './HomeWork'
 import HomeFaq from './HomeFaq'
 import HomeDream from './HomeDream'
 import Footer from './Footer'
+import HomeTemplates from './HomeTemplate'
 
 const HomePage = () => {
 
@@ -73,6 +74,7 @@ const HomePage = () => {
 
             </div>
 <HomeWork/>
+<HomeTemplates/>
 <HomeFaq/>
 <HomeDream/>
 <Footer/>

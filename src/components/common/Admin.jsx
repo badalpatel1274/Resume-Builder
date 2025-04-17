@@ -72,9 +72,9 @@ const navigate = useNavigate()
         </div>
 
         <div className="admin-login-options">
-          <label className="admin-login-remember">
+          {/* <label className="admin-login-remember">
             <input type="checkbox" /> Remember Me
-          </label>
+          </label> */}
           <a href="#" className="admin-login-forgot">Forgot Password?</a>
         </div>
 
