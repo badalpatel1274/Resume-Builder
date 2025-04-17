@@ -12,6 +12,8 @@ import Simple from '../templates/Simple'
 import Focused from "../templates/Focused";
 import Elegant from "../templates/Elegent";
 import Creative from "../templates/Creative";
+import downloadFullHD from "./DownloadResumeFullHd";
+import DownloadResumeFullHd from "./DownloadResumeFullHd";
 
 
 const ViewMyResume = () => {
@@ -66,7 +68,10 @@ const ViewMyResume = () => {
       </Link>
 
       <button onClick={downloadResume} className="download-btn">
-        Download Resume
+        Download Resume HD
+      </button>
+      <button onClick={DownloadResumeFullHd} className="download-btn">
+        Download Resume Full HD
       </button>
     </div>
 

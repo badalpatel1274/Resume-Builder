@@ -1,7 +1,7 @@
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
-const DownloadResume = () => {
+const DownloadResumeFullHd = () => {
   const resumeElement = document.getElementById("resume-preview");
 
   if (!resumeElement) {
@@ -10,10 +10,10 @@ const DownloadResume = () => {
   }
 
   html2canvas(resumeElement, {
-    scale: 3, // ⚡ Higher scale = better quality (but slightly bigger size)
+    scale: 5, // ⚡ Higher scale = better quality (but slightly bigger size)
     useCORS: true,
   }).then((canvas) => {
-    const imgData = canvas.toDataURL("image/jpeg", 0.9); // 🔥 High quality JPEG
+    const imgData = canvas.toDataURL("image/jpeg" ,1); // 🔥 High quality JPEG
 
     const pdf = new jsPDF("p", "mm", "a4");
     const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -21,11 +21,11 @@ const DownloadResume = () => {
     const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
     pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("My_Resume_HD.pdf");
+    pdf.save("My_Resume_HighQuality.pdf");
 
     const estimatedSizeMB = (imgData.length * (3 / 4)) / 1024 / 1024;
     console.log(`Estimated Size: ~${estimatedSizeMB.toFixed(2)} MB`);
   });
 };
 
-export default DownloadResume;
+export default DownloadResumeFullHd;
