@@ -23,6 +23,12 @@ import UserDashboard from './components/user/UserDashboard'
 import UserResumes from './components/user/UserResume'
 import UserProfile from './components/user/UserProfile'
 import ResumePreview from './components/user/UserResumePreview'
+import TemplateFooter from './components/footerPage/TemplateFooter'
+import PricingFooter from './components/footerPage/PricingFooter'
+import TermsFooter from './components/footerPage/TermsFooter'
+import PrivacyFooter from './components/footerPage/PrivacyFooter'
+import CookieFooter from './components/footerPage/CookieFooter'
+import AccessibilityFooter from './components/footerPage/AccessibilityFooter'
 // import './App.css'
 
 function App() {
@@ -69,6 +75,20 @@ function App() {
         <Route path="/resume/:resumeId" element={<ViewMyResume />} />
 
         <Route path="/updateresume/:id" element={<UpdateResume />} />
+
+
+        <Route path="/footer-templates" element={<TemplateFooter />} />
+        <Route path="/footer-price" element={<PricingFooter />} />
+        <Route path="/terms" element={<TermsFooter />} />
+        <Route path="/privacy" element={<PrivacyFooter />} />
+        <Route path="/cookie" element={<CookieFooter />} />
+        <Route path="/accessibility" element={<AccessibilityFooter />} />
+
+
+
+
+        
+
 
 
       </Routes >

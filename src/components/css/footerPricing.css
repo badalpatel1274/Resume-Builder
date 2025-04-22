@@ -1,0 +1,27 @@
+.footer-pricing {
+    padding: 2rem;
+    background-color: #0d0d1f;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .footer-pricing-comingsoon {
+    margin-top: 2rem;
+    background: #1a1a2e;
+    border: 2px solid #a100f2;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    box-shadow: 0 0 20px #a100f2;
+  }
+  
+  .footer-comingsoon-text {
+    font-size: 2rem;
+    color: #d400ff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-comingsoon-subtext {
+    color: #ccc;
+    font-size: 1rem;
+  }
+  

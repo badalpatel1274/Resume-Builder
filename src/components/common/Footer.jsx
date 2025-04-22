@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/footer.css";
 import logo from '../image/logox.png'
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,9 +25,8 @@ const Footer = () => {
       <div className="footer-column footer-links">
         <h3 className="footer-heading">Quick Links</h3>
         <ul className="footer-list">
-          <li className="footer-item"><a href="#" className="footer-link">Resume Templates</a></li>
-          <li className="footer-item"><a href="#" className="footer-link">Pricing</a></li>
-          <li className="footer-item"><a href="#" className="footer-link">Career Blog</a></li>
+          <li className="footer-item"><Link to="/footer-templates" className="footer-link">Resume Templates</Link></li>
+          <li className="footer-item"><Link to="/footer-price" className="footer-link">Pricing</Link></li>
           <li className="footer-item"><a href="#" className="footer-link">Resume Examples</a></li>
           <li className="footer-item"><a href="#" className="footer-link">FAQ</a></li>
           <li className="footer-item"><a href="#" className="footer-link">Contact Us</a></li>
@@ -80,10 +80,10 @@ const Footer = () => {
     <div className="footer-bottom">
       <p className="footer-copyright">© 2025 ResumeBuilder. All rights reserved.</p>
       <div className="footer-policy-links">
-        <a href="#" className="footer-policy-link">Terms of Service</a>
-        <a href="#" className="footer-policy-link">Privacy Policy</a>
-        <a href="#" className="footer-policy-link">Cookie Policy</a>
-        <a href="#" className="footer-policy-link">Accessibility</a>
+        <Link to="/terms" className="footer-policy-link">Terms of Service</Link>
+        <Link to="/privacy" className="footer-policy-link">Privacy Policy</Link>
+        <Link to="/cookie" className="footer-policy-link">Cookie Policy</Link>
+        <Link to="/accessibility" className="footer-policy-link">Accessibility</Link>
       </div>
     </div>
   </footer>

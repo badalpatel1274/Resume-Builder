@@ -1,0 +1,98 @@
+/* Container for the entire Privacy Policy section */
+.privacy-container {
+    padding: 40px;
+    background-color: #f7f7f7; /* Light gray background for a clean, professional look */
+    color: #333; /* Dark gray text for readability */
+    border-radius: 10px;
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, professional font */
+  }
+  
+  /* Title Style */
+  .privacy-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #003366; /* Dark Blue */
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  /* Content container with better line spacing */
+  .privacy-content {
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Subheading Style for sections */
+  .privacy-subheading {
+    font-size: 1.5rem;
+    color: #003366; /* Dark Blue */
+    margin-top: 30px;
+    border-bottom: 2px solid #003366; /* Blue border for visual separation */
+    padding-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  /* Paragraph style for better readability */
+  .privacy-content p {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    color: #555; /* Lighter gray for paragraph text */
+  }
+  
+  /* Links styled with hover effect */
+  .privacy-content a {
+    color: #003366; /* Dark Blue */
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .privacy-content a:hover {
+    text-decoration: underline;
+    color: #005cbf; /* Slightly lighter blue on hover */
+  }
+  
+  /* Responsive design for mobile view */
+  @media (max-width: 768px) {
+    .privacy-container {
+      padding: 20px;
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .privacy-title {
+      font-size: 2rem;
+    }
+  
+    .privacy-subheading {
+      font-size: 1.3rem;
+    }
+  
+    .privacy-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Adding a floating button at the bottom */
+  .privacy-float-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #003366; /* Dark Blue */
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .privacy-float-btn:hover {
+    background-color: #005cbf; /* Lighter blue on hover */
+    transform: translateY(-5px);
+  }
+  
